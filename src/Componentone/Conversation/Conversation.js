@@ -7,7 +7,9 @@ const Conversation = () => {
     const [room, setRoom] = useState('');
 
     return (
-        'Conversation'
+        <div className='container'>
+            ContactListComponent
+        </div>
     )
 }
 

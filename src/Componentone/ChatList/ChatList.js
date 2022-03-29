@@ -8,6 +8,10 @@ const ChatList = () => {
 
     return (
         <div>
+            <div className='profile'>
+                <div className='user-image'>
+                </div>
+            </div>            
         </div>
     )
 }
