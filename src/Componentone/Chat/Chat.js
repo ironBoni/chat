@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './Chat.css';
-import Container from '../Container/Container'
 import ChatList from '../ChatList/ChatList'
 import Conversation from '../Conversation/Conversation'
 
