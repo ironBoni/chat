@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex: 1.55;
+    flex-direction: column;
+    height: 100%;
+}
+
+.profile {
+    flex-direction: row;
+    display: flex;
+    background: #ebecec;
+    padding: 8px;
+}
+
+.user-image {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+}
