@@ -7,17 +7,39 @@ const SignIn = () => {
     const [room, setRoom] = useState('');
 
     return (
-        <div className="outDiv">
-            <div className="form-floating mb-3">
-                <h1 className="header">SignIn</h1>
-                <table>
-                    <div><input placeholder="" class="form-control" onChange={(event) => setName(event.target.value)}></input></div>
-                    <div className="input-second"><input placeholder="" class="form-control" onChange={(event) => setName(event.room.value)}></input></div>
-                </table>
+        <div className="row justify-content-md-center mainDiv">
+            <div className="row-fluid" >
+                <div className="col-md-offset-4 col-md-4" id="box">
+                    <h2>Login</h2>
+                    <hr></hr>
+                    <form className="form-horizontal" action=" " method="" id="contact_form">
+                        <fieldset>
+                            <div className="form-group">
+                                <div className="col-md-12">
+                                    <div className="input-group">
+                                        <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
+                                        <input name="first_name" placeholder="Username" className="form-control" type="text"></input>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <div className="col-md-12">
+                                    <div className="input-group">
+                                        <span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
+                                        <input name="email" placeholder="Password" className="form-control" type="text"></input>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="form-group">
+
+                                <div className="col-md-12">
+                                    <button type="submit" className="btn btn-md btn-danger pull-right">Login </button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
-            <Link to={`/chat?name=${name}&room=${room}`} onClick={event => !(name && room) ? event.preventDefault() : null}>
-                <button type="submit" className="btn btn-primary">Sign In</button>
-            </Link>
         </div>
     )
 }
