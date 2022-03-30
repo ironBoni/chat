@@ -2,7 +2,7 @@ body{
 	margin: 20px;;
 	color:#edf3ff;
 	background:#c8c8c8;
-	background:url(../../imgs/background.jpg) fixed;
+	background:url(../../../public/background.jpg) fixed;
 	background-size: cover;
 	font:600 16px/18px 'Open Sans',sans-serif;
 }

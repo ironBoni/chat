@@ -1,8 +1,10 @@
 .container {
-    display: flex;
-    flex: 1.55;
-    flex-direction: column;
-    height: 100%;
+    display: flex !important;
+    flex: 1.55 !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    width: 100% !important;
+    border-right: 1.5px solid #cacaca !important;
 }
 
 .profile {
@@ -16,4 +18,27 @@
     width: 34px;
     height: 34px;
     border-radius: 50%;
+}
+
+.search-box {
+    background: #f2f2f2;
+    padding: 8px;
+}
+
+.search-container{
+    background: white;
+    border-radius: 17px;
+    width:100%;
+    padding: 4px 11px;
+    display: flex;
+    flex-direction: row;
+}
+
+.search-icon {
+    width: 27px;
+    height: 27px;
+}
+
+.search-textbox {
+    width: 100%;
 }

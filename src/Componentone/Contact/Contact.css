@@ -1,0 +1,40 @@
+.contact {
+    width: 100%;
+    display: flex !important;
+    flex-direction: row !important;
+    border-bottom: 1.5px solid #f4f4f4;
+    background: white;
+    cursor: pointer;
+    width: 100% !important;
+    padding: 14px 11px !important;
+}
+
+
+.user-image {
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+}
+
+.contact-info {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    margin: 0 11px !important;
+}
+
+.contact-name {
+    width: 100%;
+    font-size: 17px;
+    color: black !important;
+}
+
+.message {
+    width: 100%;
+    font-size:15px;
+    margin-top: 2.5px;
+    color:rgba(0,0,0,0.4);
+}
+
+.time-sent {
+}
