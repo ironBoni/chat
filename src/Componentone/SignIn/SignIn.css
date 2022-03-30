@@ -1,8 +1,29 @@
 body{
-	margin: 20px;;
-	color:#edf3ff;
-	background:#c8c8c8;
 	background:url(../../imgs/background.jpg) fixed;
 	background-size: cover;
-	font:600 16px/18px 'Open Sans',sans-serif;
+}
+
+.form-content{
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	border: 1px;
+	border-radius: 5px;
+	
+	border-color: rgba(109, 105, 105, 0.8)  ;
+	background-color: azure;
+	box-shadow: 5px,5px,5px grb(0,0,0,10);
+}
+
+
+.logo{
+		
+		height: 150px;
+		width: 150px;
+		border-radius: 50%;
+		
+		border: 2px solid rgb(153, 145, 145);
+		
+	
 }

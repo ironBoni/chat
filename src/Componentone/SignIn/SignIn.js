@@ -1,63 +1,70 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-import './SignIn.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./SignIn.css";
+import img from "../../imgs/webIcon.png";
 
 const SignIn = () => {
-    const [name, setName] = useState('');
-    const [room, setRoom] = useState('');
-
-    return (
-        
-            <form className='form' >
-              <div className="row mb-3">
-                <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
-                <div className="col-sm-10">
-                  <input type="username" className="form-control" id="inputEmail3" />
-                </div>
-              </div>
-              <div className="row mb-3">
-                <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password</label>
-                <div className="col-sm-10">
-                  <input type="password" className="form-control" id="inputPassword3" />
-                </div>
-              </div>
-              <fieldset className="row mb-3">
-                <legend className="col-form-label col-sm-2 pt-0">Radios</legend>
-                <div className="col-sm-10">
-                  <div className="form-check">
-                    <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" defaultValue="option1" defaultChecked />
-                    <label className="form-check-label" htmlFor="gridRadios1">
-                      First radio
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" defaultValue="option2" />
-                    <label className="form-check-label" htmlFor="gridRadios2">
-                      Second radio
-                    </label>
-                  </div>
-                  <div className="form-check disabled">
-                    <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios3" defaultValue="option3" disabled />
-                    <label className="form-check-label" htmlFor="gridRadios3">
-                      Third disabled radio
-                    </label>
-                  </div>
-                </div>
-              </fieldset>
-              <div className="row mb-3">
-                <div className="col-sm-10 offset-sm-2">
-                  <div className="form-check">
-                    <input className="form-check-input" type="checkbox" id="gridCheck1" />
-                    <label className="form-check-label" htmlFor="gridCheck1">
-                      Example checkbox
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <button type="submit" className="btn btn-primary">Sign in</button>
-            </form>
-        
-    )
+  const [users, setUsers] = useState("");
+  const form={
+    name :"",
+    password:"",
+    DisplayName:"",
+  }
+  const getName = (event)=>{
+      form.name=event.target.value
+  }
+  const getPasword = (event)=>{
+    form.password=event.target.value
 }
+const getDiaplay = (event)=>{
+  form.DisplayName=event.target.value
+}
+
+const submitForm = (event)=>{
+  setUsers({users: form})
+  console.log(useState)
+}
+console.log(users)
+  return (
+    <div className="form-content d-flex justify-content-center align-item-center">
+      <form className="rounded p-4 p-sm-3">
+        <div className="justify-content-center align-item-center">
+          <img className="logo justify-content-center align-item-center" src={img}></img>
+        </div>
+        <div>
+          <div className="mb-3">
+            <label htmlFor="UserName" className="form-label">
+              User name
+            </label>
+            <input type="username" className="form-control" id="UserName" onChange={getName}/>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="passwordId" className="form-label">
+              Password
+            </label>
+            <input type="password" className="form-control" id="passwordId" onChange={getPasword}/>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="DisplayNameId" className="form-label">
+              Display name
+            </label>
+            <input type="password" className="form-control" id="DisplayNameId" onChange={getDiaplay}/>
+          </div>
+        </div>
+
+        <div class="grid" >
+          <button type="submit" className="btn btn-primary" onClick={submitForm}>
+            Submit
+          </button>
+          <button type="submit" className="btn btn-primary ">
+            Register
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  );
+};
 
 export default SignIn;
