@@ -9,7 +9,7 @@ const Chat = () => {
     const [room, setRoom] = useState('');
 
     return (
-        <div className="container">
+        <div className="container-chat">
             <ChatList/>
             <Conversation />
         </div>

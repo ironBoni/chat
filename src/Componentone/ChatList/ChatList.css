@@ -3,8 +3,8 @@
     flex: 1.55 !important;
     flex-direction: column !important;
     height: 100% !important;
-    width: 100% !important;
-    border-right: 1.5px solid #cacaca !important;
+    width: 65% !important;
+    float:left;
 }
 
 .profile {
