@@ -4,25 +4,20 @@ import "./SignIn.css";
 import img from "../../imgs/webIcon.png";
 
 const SignIn = () => {
-  const [users, setUsers] = useState("");
-  const form={
-    name :"",
-    password:"",
-    DisplayName:"",
+  const [users, setUsers] = useState({name:"",paswor:"",DisplayName:""});
+
+  const getValue = (event)=>{
+    console.log(event.target.value)
+    const name= event.target.name;
+    const value= event.target.value;
+    setUsers({[name]:value});
+    
   }
-  const getName = (event)=>{
-      form.name=event.target.value
-  }
-  const getPasword = (event)=>{
-    form.password=event.target.value
-}
-const getDiaplay = (event)=>{
-  form.DisplayName=event.target.value
-}
+
 
 const submitForm = (event)=>{
-  setUsers({users: form})
-  console.log(useState)
+  event.prevenDefault()
+  console.log("goooood")
 }
 console.log(users)
   return (
@@ -36,27 +31,21 @@ console.log(users)
             <label htmlFor="UserName" className="form-label">
               User name
             </label>
-            <input type="username" className="form-control" id="UserName" onChange={getName}/>
+            <input type="username" className="form-control" id="UserName" onChange={getValue} name="username"/>
           </div>
           <div className="mb-3">
             <label htmlFor="passwordId" className="form-label">
               Password
             </label>
-            <input type="password" className="form-control" id="passwordId" onChange={getPasword}/>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="DisplayNameId" className="form-label">
-              Display name
-            </label>
-            <input type="password" className="form-control" id="DisplayNameId" onChange={getDiaplay}/>
+            <input type="password" className="form-control" id="passwordId" onChange={getValue} name='password'/>
           </div>
         </div>
-
+        
         <div class="grid" >
-          <button type="submit" className="btn btn-primary" onClick={submitForm}>
+          <button class="g-col-2" type="submit" className="btn btn-primary" onClick={submitForm}>
             Submit
           </button>
-          <button type="submit" className="btn btn-primary ">
+          <button class="g-col-2" type="submit" className="btn btn-primary ">
             Register
           </button>
         </div>
