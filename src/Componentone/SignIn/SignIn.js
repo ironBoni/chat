@@ -41,11 +41,11 @@ console.log(users)
           </div>
         </div>
         
-        <div class="grid" >
-          <button class="g-col-2" type="submit" className="btn btn-primary" onClick={submitForm}>
+        <div className="grid row justify-content-md-center" >
+          <button type="submit" className="btn btn-primary col col-lg-5" onClick={submitForm}>
             Submit
           </button>
-          <button class="g-col-2" type="submit" className="btn btn-primary ">
+          <button  type="submit" className="btn btn-primary col col-lg-5">
             Register
           </button>
         </div>
