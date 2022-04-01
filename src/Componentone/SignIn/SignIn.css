@@ -1,34 +1,129 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sa;
+}
 body{
 	background:url(../../imgs/background.jpg) fixed;
 	background-size: cover;
 }
 
-.form-content{
-	position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-	border: 1px;
-	border-radius: 5px;
-	
-	border-color: rgba(109, 105, 105, 0.8)  ;
-	background-color: rgba(109, 105, 105, 0.8);
-	box-shadow: 5px,5px,5px grb(0,0,0,.5);
+.hero{
+	height: 100%;
+	width: 100%;
+	background-position: center;
+	background-size: cover;
+	position:absolute;
 }
 
+.brand_logo_container {
+    position: relative;
+    height: 170px;
+    width: 170px;
+    top: -75px;
+	left: 110px;
 
-.logo{
-		
-		height: 150px;
-		width: 150px;
-		border-radius: 50%;
-		border: 2px solid rgb(153, 145, 145);
-		margin-left: 30px;
-		
+  
+}
+.logo{	
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid white;	
+}
+.form-box{
+	justify-content: center;
+	width: 380px;
+	height: 480px;
+	position: relative;
+	margin: 6% auto;
+	background: rgba(109, 105, 105, 0.8);
+	border-radius: 30px;
+	overflow: hidden;
+	position: relative;
+}
+.button-box{
+	width: 220px;
+	top: -130px;
+	margin: 35px auto;
+	position: absolute;
+	position:relative; 
+	box-shadow: 0 0 20px 9px rgba(105, 105, 109, 0.8);
+	border-radius: 30px;
 	
 }
-
-button{
-	margin: 5px;
+.toggle-btn{
+	padding: 10px 28px;
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	position: relative;
+}
+#btn{
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 110px;
+	height: 100%;
+	background: linear-gradient(to right,#241a5a,rgb(59, 60, 110));
+	border-radius: 30px;
+	transition: .5s;
+}
+.input-form{
+	top: 180px;
+	position: absolute;
+	width: 280px;
+	transition: .5;
+	left: 60px;
+}
+.input-field{
+	width: 100%;
+	padding: 10px 10px;
+	margin: 5px 0;
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	border-bottom: 1px solid rgb(59, 56, 56);
+	outline: none;
+	background: transparent;
+	
+}
+.submit-btn{
+	width: 85%;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	border: 0;
+	outline: none;
+	border-radius: 20px;
+	background: linear-gradient(to right,#241a5a,rgb(59, 60, 110));
+	margin: 5px auto;
+	position: absolute;
+	position:relative; 
+}
+.check-box{
+	margin: 30px 10px 30px 0;
+}
+span{
+	color: rgb(20, 19, 19);
+	bottom: 68px;
+}
+#LogIn{
+	left:50px;
+}
+#Register{
+	left: 450px;
+}
+.pic-btn{
+	left: 49px;
+	margin-left: 35px;
+	width: 60%;
+	padding: 10px 30px;
+	border: 0;
+	outline: none;
+	border-radius: 30px;
+	background: linear-gradient(to right,#241a5a,rgb(59, 60, 110));
 
 }

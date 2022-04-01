@@ -2,58 +2,73 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./SignIn.css";
 import img from "../../imgs/webIcon.png";
+import { render } from "@testing-library/react";
 
-const SignIn = () => {
-  const [users, setUsers] = useState({name:"",paswor:"",DisplayName:""});
+class SignIn extends React.Component {
+  constructor(props) {
+    super(props);
 
-  const getValue = (event)=>{
-    console.log(event.target.value)
-    const name= event.target.name;
-    const value= event.target.value;
-    setUsers({[name]:value});
-    
   }
 
 
-const submitForm = (event)=>{
-  event.prevenDefault()
-  console.log("goooood")
-}
-console.log(users)
-  return (
-    <div className="form-content d-flex justify-content-center align-item-center">
-      <form className="rounded p-4 p-sm-3">
-        <div className="justify-content-center align-item-center">
-          <img className="logo justify-content-center align-item-center" src={img}></img>
-        </div>
-        <div>
-          <div className="mb-3">
-            <label htmlFor="UserName" className="form-label">
-              User name
-            </label>
-            <input type="username" className="form-control" id="UserName" onChange={getValue} name="username"/>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="passwordId" className="form-label">
-              Password
-            </label>
-            <input type="password" className="form-control" id="passwordId" onChange={getValue} name='password'/>
-          </div>
-        </div>
+  login() {
+    document.getElementById("LogIn").style.left = "50px"
+    document.getElementById("Register").style.left = "450px"
+    document.getElementById("btn").style.left = "0"
+  }
+  register() {
+
+    document.getElementById("LogIn").style.left = "-400px"
+    document.getElementById("Register").style.left = "50px"
+    document.getElementById("btn").style.left = "110px"
+  }
+
+
+
+  render() {
+
+
+    return (
+      <div className="hero">
         
-        <div className="grid row justify-content-md-center" >
-          <button type="submit" className="btn btn-primary col col-lg-5" onClick={submitForm}>
-            Submit
-          </button>
-          <button  type="submit" className="btn btn-primary col col-lg-5">
-            Register
-          </button>
+        <div className="form-box">
+        <div className="brand_logo_container d-flex justify-content-center">
+          <img className="logo" src={img}></img>
         </div>
+          <div className="button-box d-flex justify-content-center">
+            <div id="btn"></div>
+            <button type="button" className="toggle-btn" onClick={this.login}>Log In</button>
+            <button type="button" className="toggle-btn" onClick={this.register}>Register</button>
+          </div>
+          <form id="LogIn" className="input-form">
+            <input type="text" className="input-field" placeholder="User Name" required></input>
+            <input type="password" className="input-field" placeholder="Enter Password" required></input>
+            <input type="checkbox" className="check-box"></input><span>Remember Me</span>
+            <button type="submit" className="submit-btn">Log In</button>
+          </form>
+          <form id="Register" className="input-form">
+            <input type="text" className="input-field" placeholder="User Name" required></input>
+            <input type="password" className="input-field" placeholder="Enter Password" required></input>
+            <input type="password" className="input-field" placeholder="Confurm Password" required></input>
+            <div >
 
-      </form>
-    </div>
+              <input type="checkbox" className="check-box"></input><span>I agree</span>
+              <button type="submit" className="pic-btn">Uplod Picture</button>
+            </div>
 
-  );
+
+            <button type="submit" className="submit-btn">Register</button>
+          </form>
+
+
+        </div>
+      </div>
+
+    )
+
+  }
+
 };
+
 
 export default SignIn;
