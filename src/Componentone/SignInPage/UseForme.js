@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { users } from '../../Data/data';
 
-const useForm = ( submitForm,validate,dataBase) => {
+const useForm = ( submitForm,validate) => {
   const [values, setValues] = useState({
     username: '',
     password: '',
@@ -19,8 +20,7 @@ const useForm = ( submitForm,validate,dataBase) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(dataBase)
-    setErrors(validate(values,dataBase));
+    setErrors(validate(values));
     
     setIsSubmitting(true);
     
@@ -29,7 +29,7 @@ const useForm = ( submitForm,validate,dataBase) => {
   useEffect(
     () => {
       if (Object.keys(errors).length === 0 && isSubmitting) {
-        dataBase.push(values);
+        users.push({username: values.username, password: values.password})
         submitForm();
       }
     },

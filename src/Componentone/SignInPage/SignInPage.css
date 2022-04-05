@@ -1,10 +1,9 @@
 *{
 	margin: 0;
 	padding: 0;
-	font-family: sa;
 }
 body{
-	background:url(../../imgs/background.jpg) fixed;
+	background:url(../../../public/background.jpg) fixed;
 	background-size: cover;
 }
 
