@@ -22,9 +22,9 @@ const ChatList = (props) => {
             </div>
             <div>
                 {
-                    contanctsLst.map((user => {
-                        return <Contact userInfo={user} setChosenChat={props.setChosenChat}/>
-                    }))
+                    contanctsLst.map((user, key) => {
+                        return <Contact userInfo={user} setChosenChat={props.setChosenChat} key={key}/>
+                    })
                 }
             </div>
         </div>
