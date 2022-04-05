@@ -2,9 +2,9 @@ import "./LogInForm.css";
 import validate from "./validateUser";
 import useForm from "../SignInPage/UseForme";
 import React, { useState } from "react";
-const LogInForm = ({submitFormUser}) => {
+const LogInForm = (props) => {
   
-  const { handleChange, values,handleSubmit,errors } = useForm(submitFormUser,validate)
+  const { handleChange, values,handleSubmit,errors } = useForm(props.submitForm,validate)
 
 
   return (
