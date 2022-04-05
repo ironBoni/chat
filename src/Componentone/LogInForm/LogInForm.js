@@ -17,6 +17,7 @@ const LogInForm = (props) => {
         onChange={handleChange}
         ></input>
         {<p className="error" >{errors.username}</p>}
+        {<p className="error" >{errors.password}</p>}
       <input type="password"
        className="input-field"
         placeholder="Enter Password" 
@@ -24,7 +25,6 @@ const LogInForm = (props) => {
         value={values.password}
         onChange={handleChange} 
         ></input>
-        {<p className="error" >{errors.password}</p>}
       <input type="checkbox" className="check-box"></input><span>Remember Me</span>
       <button type="submit" className="submit-btn" >Log In</button>
     </form>
