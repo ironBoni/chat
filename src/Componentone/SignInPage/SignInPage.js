@@ -3,6 +3,7 @@ import "./SignInPage.css";
 import img from "../../imgs/webIcon.png";
 import LogInForm from "../LogInForm/LogInForm.js";
 import RegisterInForm from "../RegisterInForm/RegisterInForm.js";
+import { Navigate } from 'react-router-dom';
 
   const SignInPage = () => {
 
@@ -19,13 +20,20 @@ import RegisterInForm from "../RegisterInForm/RegisterInForm.js";
     document.getElementById("box").style.height = "560px"
   }
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmittedReg, setisSubmittedReg] = useState(false);
+  const [isSubmittedUser, setisSubmittedUser] = useState(false);
+
 
   function submitForm() {
-    setIsSubmitted(true);
+    setisSubmittedReg(true);
     login();
   }
-
+  function submitFormUser() {
+    console.log("jjjjj")
+    setisSubmittedUser(true);
+    
+  }
+  
 
 
 
@@ -43,8 +51,11 @@ import RegisterInForm from "../RegisterInForm/RegisterInForm.js";
             <button type="button" className="toggle-btn" onClick={login}>Log In</button>
             <button type="button" className="toggle-btn" onClick={register}>Register</button>
           </div>
-          <LogInForm/>
+         
           <RegisterInForm submitForm={submitForm}/>
+         
+          {isSubmittedUser ?<Navigate to='/chat' />:<LogInForm submitForm={submitFormUser}/>}
+
         </div>
       </div>
     </div>
