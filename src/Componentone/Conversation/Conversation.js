@@ -24,10 +24,6 @@ const Conversation = (props) => {
             setMsg("");
         }
     }
-    // useEffect(() => {
-    //     setMsgList(msgList);
-    // }, [chosenChat]);
-
     return (
         <div className='conversation-container'>
             <div className='user-title'>
@@ -36,7 +32,7 @@ const Conversation = (props) => {
             </div>
             <div className='message-container'>
                 {msgList?.map((msg) => (
-                    <MessageField text={msg.text} isMine={msg.senderId === 0}>
+                    <MessageField text={msg.text} senderId={msg.senderId}>
                     </MessageField>
                 ))}
             </div>
