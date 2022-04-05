@@ -5,6 +5,10 @@
 }
 body{
 	background:url(../../imgs/background.jpg) fixed;
+	margin: 20px;;
+	color:#edf3ff;
+	background:#c8c8c8;
+	background:url(../../../public/background.jpg) fixed;
 	background-size: cover;
 }
 
