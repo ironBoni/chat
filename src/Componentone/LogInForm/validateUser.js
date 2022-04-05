@@ -15,14 +15,17 @@ export default function validateInfo(values) {
   // });
   const userData = users.find((user) => user.username ===  values.username);
 
-  // Compare user info
+ 
   if (userData) {
     if (userData.password !== values.password) {
-      // Invalid password
-      errors.username = 'Username or Password does not match';
+      
+      errors.password = 'Username or Password does not match';
     } else{
       console.log("good user");
     }
+  } else {
+    
+    errors.username = 'Username or Password does not match';
+  }
   return errors;
   }
-}
