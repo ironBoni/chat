@@ -13,8 +13,12 @@ export default function validateInfo(values) {
       
 
   // });
+  if (!values.username.trim()) {
+    errors.username = 'Username required';
+    return errors;
+  }
   const userData = users.find((user) => user.username ===  values.username);
-
+ 
  
   if (userData) {
     if (userData.password !== values.password) {
