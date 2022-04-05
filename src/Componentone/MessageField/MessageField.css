@@ -1,0 +1,33 @@
+.message-div {
+    display: flex;
+    /*here it should be flex-end if it's not mine - props.isMine*/
+    justify-content: flex-start;
+    margin: 4px 13px;
+}
+
+.message-div-end {
+        display: flex;
+        /*here it should be flex-end if it's not mine - props.isMine*/
+        justify-content: flex-end;
+        margin: 4px 13px;
+}
+
+.message {
+    /*if props.isMine=False, background should be white*/
+    background: #cbe7bc;
+    padding: 7px 9px;
+    border-radius: 3px;
+    max-width: 50%;
+    color: #202020;
+    font-size:14.5px;
+}
+
+.message-not-mine {
+    /*if props.isMine=False, background should be white*/
+    background: #ffffff;
+    padding: 7px 9px;
+    border-radius: 3px;
+    max-width: 50%;
+    color: #202020;
+    font-size:14.5px;
+}

@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
 import './Chat.css';
 import ChatList from '../ChatList/ChatList'
 import Conversation from '../Conversation/Conversation'
+import Welcome from '../Welcome/Welcome';
+import { contacts } from '../../Data/data';
 
 const Chat = () => {
-    const [name, setName] = useState('');
-    const [room, setRoom] = useState('');
-
+    const [chosenChat, setChosenChat] = useState();
     return (
         <div className="container-chat">
-            <ChatList/>
-            <Conversation />
+            <ChatList setChosenChat={setChosenChat} />
+            {chosenChat ?
+                <Conversation chosenChat={chosenChat}/>
+                : <Welcome />}
         </div>
     )
 }

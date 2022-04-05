@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
 import './Contact.css';
 
-const Contact = () => {
-    const [name, setName] = useState('');
+const Contact = (props) => {
+     const { userInfo, setChosenChat } = props;
+     alert("heyy!!!");
 
     return (
-        <div className='contact'>
-            <img className='user-image' src="/profile/noam.jpg"></img>
-            <span className='contact-name'>Noam Cohen</span>
-            <span className='message'>I like tennis</span>
-            <span className='time-sent'>10:30</span>
+        <div className='contact' onClick={() => setChosenChat(userInfo)}>
+            <img className='user-image' src={userInfo.profileImage}></img>
+            <span className='contact-name'>{userInfo.name}</span>
+            <span className='message'>{userInfo?.lastMsg}</span>
+            <span className='time-sent'>{userInfo?.lastMsgTime}</span>
         </div>
     )
 }

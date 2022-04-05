@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
 import './ChatList.css';
 import Contact from '../Contact/Contact'
+import { contacts } from '../../Data/data'
 
-const ChatList = () => {
-    const [name, setName] = useState('');
+const ChatList = (props) => {
+    const [contanctsLst, setContactLst] = useState(contacts);
 
     return (
         <div className='container'>
@@ -20,9 +20,11 @@ const ChatList = () => {
                     <input className='search-textbox' placeholder='Search in chats'></input>
                 </div>
             </div>
-            <Contact/>
-            <Contact/>
-            <Contact/>
+            {
+                contanctsLst.map((user => {
+                    <Contact userInfo={user} setChosenChat={props.setChosenChat}/>
+                }))
+            }
         </div>
     )
 }

@@ -1,14 +1,53 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import MessageField from '../MessageField/MessageField';
+import UserImage from '../UserImage/UserImage';
 import './Conversation.css';
+import { messages } from '../../Data/data';
 
-const Conversation = () => {
-    const [name, setName] = useState('');
-    const [room, setRoom] = useState('');
+const Conversation = (props) => {
+    const [msg, setMsg] = useState("");
+    const [msgList, setMsgList] = useState(messages);
+    const { chosenChat } = props;
+    const { userData } = props;
+    
+    const onEnter = (e) => {
+        if (e.key === "Enter") {
+            const newMessages = [...msgList];
+            newMessages.push({
+                id: 0,
+                type: "text",
+                text: msg,
+                senderId: 0,
+                writtenIn: "09:56"
+            })
+            setMsgList(newMessages);
+            setMsg("");
+        }
+    }
+    // useEffect(() => {
+    //     setMsgList(msgList);
+    // }, [chosenChat]);
 
     return (
         <div className='conversation-container'>
-            Conversation
+            <div className='user-title'>
+                <UserImage src={chosenChat.profileImage} />
+                {chosenChat.name}
+            </div>
+            <div className='message-container'>
+                {msgList?.map((msg) => (
+                    <MessageField text={msg.text} isMine={msg.senderId === 0}>
+                    </MessageField>
+                ))}
+            </div>
+            <div className='chat-box'>
+                <div className='search-container'>
+                    <img className='emoji' src="/images/emoji.jpeg"></img>
+                    <input className='search-textbox' placeholder='Search in chats'
+                        value={msg} onChange={(event) => setMsg(event.target.value)}
+                        onKeyDown={onEnter}></input>
+                </div>
+            </div>
         </div>
     )
 }

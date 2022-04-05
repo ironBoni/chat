@@ -5,9 +5,12 @@
     border-bottom: 1.5px solid #f4f4f4;
     background: white;
     cursor: pointer;
-    width: 100% !important;
     padding: 14px 11px !important;
     text-align: left;
+}
+
+.contact:hover {
+    background: #dddddc;
 }
 
 
