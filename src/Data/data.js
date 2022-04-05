@@ -66,3 +66,22 @@ export const messages = [
         writtenIn: "14:00"
     }
 ]
+
+export const users = [
+    {
+        username: 'noam',
+        password: '123456'
+    },
+    {
+        username: 'dvir',
+        password: '123456'
+    },
+    {
+        username: 'ron',
+        password: '123456'
+    }, 
+    {
+        username: 'dan',
+        password: '123456'
+    }
+]

@@ -4,7 +4,6 @@ import img from "../../imgs/webIcon.png";
 import LogInForm from "../LogInForm/LogInForm.js";
 import RegisterInForm from "../RegisterInForm/RegisterInForm.js";
 
-var dataBase =[]
   const SignInPage = () => {
 
   function login() {
@@ -24,7 +23,6 @@ var dataBase =[]
 
   function submitForm() {
     setIsSubmitted(true);
-    console.log(dataBase)
     login();
   }
 
@@ -45,8 +43,8 @@ var dataBase =[]
             <button type="button" className="toggle-btn" onClick={login}>Log In</button>
             <button type="button" className="toggle-btn" onClick={register}>Register</button>
           </div>
-          <LogInForm data={dataBase}/>
-          <RegisterInForm submitForm={submitForm} dataBase={dataBase}/>
+          <LogInForm/>
+          <RegisterInForm submitForm={submitForm}/>
         </div>
       </div>
     </div>
