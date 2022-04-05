@@ -3,7 +3,6 @@ import './Contact.css';
 
 const Contact = (props) => {
      const { userInfo, setChosenChat } = props;
-     alert("heyy!!!");
 
     return (
         <div className='contact' onClick={() => setChosenChat(userInfo)}>

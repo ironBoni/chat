@@ -20,11 +20,13 @@ const ChatList = (props) => {
                     <input className='search-textbox' placeholder='Search in chats'></input>
                 </div>
             </div>
-            {
-                contanctsLst.map((user => {
-                    <Contact userInfo={user} setChosenChat={props.setChosenChat}/>
-                }))
-            }
+            <div>
+                {
+                    contanctsLst.map((user => {
+                        return <Contact userInfo={user} setChosenChat={props.setChosenChat}/>
+                    }))
+                }
+            </div>
         </div>
     )
 }

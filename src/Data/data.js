@@ -22,8 +22,8 @@ export const contacts = [
     },
     {
         id: 4,
-        name: "Ron Cohen",
-        profileImage: "/profile/ron.jpg",
+        name: "Dan Cohen",
+        profileImage: "/profile/dan.jpg",
         lastMsg: "I agree.",
         lastMsgTime: "23:42"
     }
