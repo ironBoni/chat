@@ -26,6 +26,20 @@ export const contacts = [
         profileImage: "/profile/dan.jpg",
         lastMsg: "I agree.",
         lastMsgTime: "23:42"
+    },
+    {
+        id: 5,
+        name: "Idan Ben Ari",
+        profileImage: "/profile/idan.jpg",
+        lastMsg: "I feel great",
+        lastMsgTime: "23:30"
+    },
+    {
+        id: 6,
+        name: "Shlomo Levin",
+        profileImage: "/profile/shlomo.png",
+        lastMsg: "I'm happy to hear than.",
+        lastMsgTime: "23:34"
     }
 ]
 
