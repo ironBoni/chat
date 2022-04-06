@@ -9,7 +9,7 @@ const Conversation = (props) => {
     const [msgList, setMsgList] = useState(messages);
     const { chosenChat } = props;
     const { userData } = props;
-    
+
     const onEnter = (e) => {
         if (e.key === "Enter") {
             const newMessages = [...msgList];
@@ -25,26 +25,29 @@ const Conversation = (props) => {
         }
     }
     return (
-        <div className='conversation-container'>
-            <div className='user-title'>
-                <UserImage src={chosenChat.profileImage} />
-                {chosenChat.name}
-            </div>
-            <div className='message-container'>
-                {msgList?.map((msg) => (
-                    <MessageField text={msg.text} senderId={msg.senderId}>
-                    </MessageField>
-                ))}
-            </div>
-            <div className='chat-box'>
-                <div className='search-container'>
-                    <img className='emoji' src="/images/emoji.jpeg"></img>
-                    <input className='search-textbox' placeholder='Search in chats'
-                        value={msg} onChange={(event) => setMsg(event.target.value)}
-                        onKeyDown={onEnter}></input>
+        <div class="col-md-8">
+            <div className='conversation-container'>
+                <div className='user-title'>
+                    <UserImage src={chosenChat.profileImage} />
+                    <p>{chosenChat.name}</p>
+                </div>
+                <div className='message-container'>
+                    {msgList?.map((msg) => (
+                        <MessageField text={msg.text} senderId={msg.senderId}>
+                        </MessageField>
+                    ))}
+                </div>
+                <div className='chat-box'>
+                    <div className='search-container'>
+                        <img className='emoji' src="/images/emoji.jpeg"></img>
+                        <input className='search-textbox' placeholder='Search in chats'
+                            value={msg} onChange={(event) => setMsg(event.target.value)}
+                            onKeyDown={onEnter}></input>
+                    </div>
                 </div>
             </div>
-        </div>
+            </div>
+       
     )
 }
 
