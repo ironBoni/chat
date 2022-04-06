@@ -8,13 +8,22 @@ import { Modal } from 'react-bootstrap';
 const Conversation = (props) => {
     const [msg, setMsg] = useState("");
     const [msgList, setMsgList] = useState([]);
-    const [audioSrc, setAudioSrc] = useState([]);
-    const [showAudioModal, setShowAudioModal] = useState(false);
-    const { chosenChat } = props;
-    const { userData } = props;
-    var myUsername = localStorage.getItem('username');
-    var recorder;
     var audioPieces = [];
+    const [showAudioModal, setShowAudioModal] = useState(false);
+    const [stream, setStream] = useState({
+        canAccess: false,
+        recorder: null,
+        errors: ""
+    });
+    const [recordInfo, setRecordInfo] = useState({
+        isRecordActive: false,
+        isAvailable: false,
+        audioUrl: ""
+    });
+    
+    const { chosenChat } = props;
+    var myUsername = localStorage.getItem('username');
+
     useEffect(() => {
         var shouldBreak = false;
         chats.forEach(chatData => {
@@ -74,22 +83,45 @@ const Conversation = (props) => {
     }
 
     const startRecord = (e) => {
+        if(!recordInfo.isRecordActive) {
+        audioPieces = [];
         setShowAudioModal(true);
-        // var device = navigator.mediaDevices.getUserMedia({ audio: true });
-        // device.then(stream => {
-        //     recorder = new MediaRecorder(stream);
-        //     recorder.ondataavailable = (e) => {
-        //         audioPieces.push(e.data);
-        //         if (recorder.state == 'inactive') {
-        //             var blob = new Blob(audioPieces, { type: 'audio/webm' });
-        //             audioSrc = URL.createObjectURL(blob);
-        //         }
-        //     };
-        // })
+        navigator.mediaDevices.getUserMedia({ audio: true }).then((m) => {
+            try {
+                var audioRecorder = new MediaRecorder(m, {
+                    mimeType: "audio/webm"
+                });
+                setStream({
+                    ...stream,
+                    access: true,
+                    recorder: audioRecorder
+                });
+                audioRecorder.start();
+            } catch(error) {
+            }
+
+            audioRecorder.ondataavailable = function(event) {
+                var newPieces = [...audioPieces];
+                newPieces.push(event.data);
+                audioPieces = newPieces;
+            }
+
+            audioRecorder.onstop = function() {
+                const audioUrl = URL.createObjectURL(new Blob(audioPieces, { 'type': 'audio/webm' }));
+
+                setRecordInfo({
+                    isRecordActive: false,
+                    isAvailable: true,
+                    audioUrl
+                });
+            }
+        });
+        }
     }
 
     const stopRecord = (e) => {
         setShowAudioModal(false);
+        stream.recorder.stop();
     }
 
     return (
@@ -103,9 +135,7 @@ const Conversation = (props) => {
                     <MessageField text={msg.text} senderUsername={msg.senderUsername} key={key}>
                     </MessageField>
                 ))}
-                <audio controls id="record-item">
-                    <source src={audioSrc} type="video.webm" />
-                </audio>
+                <audio controls src={recordInfo.audioUrl} />
             </div>
 
             <div className='chat-box'>
