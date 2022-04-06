@@ -70,18 +70,18 @@ export const messages = [
 export const users = [
     {
         username: 'noam',
-        password: '123456'
+        password: 'Np123456'
     },
     {
         username: 'dvir',
-        password: '123456'
+        password: 'Np123456'
     },
     {
         username: 'ron',
-        password: '123456'
+        password: 'Np123456'
     }, 
     {
         username: 'dan',
-        password: '123456'
+        password: 'Np123456'
     }
 ]
