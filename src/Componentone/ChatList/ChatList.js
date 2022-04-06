@@ -25,8 +25,6 @@ const ChatList = (props) => {
         }))
     })
     return (
-
-
         <div className='col-md-4 border-right'>
             <div className='settings-tray'>
                     <img className='user-image' src={userImage}></img>

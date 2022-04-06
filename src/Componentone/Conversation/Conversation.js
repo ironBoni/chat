@@ -44,8 +44,7 @@ const Conversation = (props) => {
         const newMessages = [...msgList];
         var message;
         var msgListInDb;
-
-        // calculates the id of the last msg
+        // get last message
         chats.forEach(chatData => {
             chatData.participicants.forEach(participicant => {
                 if (participicant == chosenChat.username && chatData.participicants.includes(myUsername)) {
@@ -114,6 +113,36 @@ const Conversation = (props) => {
                         isAvailable: true,
                         audioUrl
                     });
+
+                    var newMessages = [...msgList];
+                    var newId;
+                    var msgListInDb;
+                    // get last message - for audio
+                    chats.forEach(chatData => {
+                        chatData.participicants.forEach(participicant => {
+                            console.log("chosenChat.username: "+chosenChat.username);
+                            console.log("myUsername: "+myUsername);
+
+                            if (participicant == chosenChat.username && chatData.participicants.includes(myUsername)) {
+                                newId = Math.max.apply(Math, chatData.messages.map((msg => {
+                                    msgListInDb = chatData.messages;
+                                    return msg.id;
+                                })));
+                                return;
+                            }
+                        })
+                    });
+
+                    newId += 1;
+                    newMessages.push({
+                        id: newId,
+                        type: "audio",
+                        text: audioUrl,
+                        senderUsername: myUsername,
+                        writtenIn: new Date()
+                    })
+                    setMsgList(newMessages)
+                    console.log(newMessages);
                 }
             });
         }
