@@ -3,15 +3,18 @@ import MessageField from '../MessageField/MessageField';
 import UserImage from '../UserImage/UserImage';
 import './Conversation.css';
 import { chats } from '../../Data/data';
+import { Modal } from 'react-bootstrap';
 
 const Conversation = (props) => {
     const [msg, setMsg] = useState("");
     const [msgList, setMsgList] = useState([]);
+    const [audioSrc, setAudioSrc] = useState([]);
+    const [showAudioModal, setShowAudioModal] = useState(false);
     const { chosenChat } = props;
     const { userData } = props;
     var myUsername = localStorage.getItem('username');
-
-
+    var recorder;
+    var audioPieces = [];
     useEffect(() => {
         var shouldBreak = false;
         chats.forEach(chatData => {
@@ -70,6 +73,25 @@ const Conversation = (props) => {
         }
     }
 
+    const startRecord = (e) => {
+        setShowAudioModal(true);
+        // var device = navigator.mediaDevices.getUserMedia({ audio: true });
+        // device.then(stream => {
+        //     recorder = new MediaRecorder(stream);
+        //     recorder.ondataavailable = (e) => {
+        //         audioPieces.push(e.data);
+        //         if (recorder.state == 'inactive') {
+        //             var blob = new Blob(audioPieces, { type: 'audio/webm' });
+        //             audioSrc = URL.createObjectURL(blob);
+        //         }
+        //     };
+        // })
+    }
+
+    const stopRecord = (e) => {
+        setShowAudioModal(false);
+    }
+
     return (
         <div className='conversation-container'>
             <div className='user-title'>
@@ -81,24 +103,24 @@ const Conversation = (props) => {
                     <MessageField text={msg.text} senderUsername={msg.senderUsername} key={key}>
                     </MessageField>
                 ))}
+                <audio controls id="record-item">
+                    <source src={audioSrc} type="video.webm" />
+                </audio>
             </div>
-            
+
             <div className='chat-box'>
                 <div className='search-container'>
-                    <button className='click-button' data-bs-toggle="modal" data-bs-target="#recordModal">
+                    <button className='click-button' data-bs-toggle="modal" data-bs-target="#recordModal"
+                    onClick={startRecord}>
                         <img className='button-image' src="/images/record.png"></img></button>
                     {/*Record Modal*/}
-                    <div className="modal fade" id="recordModal">
-                        <div className="modal-dialog dialog">
-                            <div className="modal-content">
-                                <div className="modal-header"></div>
-                                <div className="modal-footer justify-content-center modal-div">
-                                    <button type="button" className="btn btn-primary">Stop</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <Modal show={showAudioModal} centered>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Recording...</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body><button className='stop-button' onClick={stopRecord}><img src='/images/stop-button.png' className='stop-button-image'>
+                    </img></button></Modal.Body>
+                  </Modal>
 
                     <input className='search-textbox' placeholder='Search in chats'
                         value={msg} onChange={(event) => setMsg(event.target.value)}
