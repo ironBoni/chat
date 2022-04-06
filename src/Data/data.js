@@ -3,49 +3,37 @@ export const contacts = [
         username: "ron",
         id: 1,
         name: "Ron Segal",
-        profileImage: "/profile/ron.jpg",
-        lastMsg: "It was a great dinner",
-        lastMsgTime: "23:02"
+        profileImage: "/profile/ron.jpg"
     },
     {
         username: "noam",
         id: 2,
         name: "Noam Cohen",
         profileImage: "/profile/noam.jpg",
-        lastMsg: "Yes, it had so much fun.",
-        lastMsgTime: "23:30"
     },
     {
         username: "dvir",
         id: 3,
         name: "Dvir Pollak",
-        profileImage: "/profile/dvir.jpg",
-        lastMsg: "I think we should see each other more.",
-        lastMsgTime: "23:40"
+        profileImage: "/profile/dvir.jpg"
     },
     {
         username: "dan",
         id: 4,
         name: "Dan Cohen",
-        profileImage: "/profile/dan.jpg",
-        lastMsg: "I agree.",
-        lastMsgTime: "23:42"
+        profileImage: "/profile/dan.jpg"
     },
     {
         id: 5,
         username: "idan",
         name: "Idan Ben Ari",
-        profileImage: "/profile/idan.jpg",
-        lastMsg: "I feel great",
-        lastMsgTime: "23:30"
+        profileImage: "/profile/idan.jpg"
     },
     {
         id: 6,
         username: "shlomo",
         name: "Shlomo Levin",
-        profileImage: "/profile/shlomo.png",
-        lastMsg: "I'm happy to hear than.",
-        lastMsgTime: "23:34"
+        profileImage: "/profile/shlomo.png"
     }
 ]
 
@@ -59,14 +47,14 @@ export const chats = [
                 type: "text",
                 text: "My name is Noam.",
                 senderUsername: "noam",
-                writtenIn: "09:56"
+                writtenIn: new Date(2022, 4, 6, 9, 56)
             },
             {
                 id: 2,
                 type: "text",
                 text: "My name is Ron.",
                 senderUsername: "ron",
-                writtenIn: "10:05"
+                writtenIn: new Date(2022, 4, 6, 10, 05)
             }
             ]
     },
@@ -79,14 +67,14 @@ export const chats = [
                 type: "text",
                 text: "Hey Dvir, how are you?",
                 senderUsername: "ron",
-                writtenIn: "10:10"
+                writtenIn: new Date(2022, 4, 6, 10, 10)
             },
             {
                 id: 2,
                 type: "text",
                 text: "I'm great. Thanks Ron!",
                 senderUsername: "dvir",
-                writtenIn: "10:10"
+                writtenIn: new Date(2022, 4, 6, 10, 11)
             }
             ]
     },
@@ -99,14 +87,14 @@ export const chats = [
                 type: "text",
                 text: "Dan, let's go to the mall",
                 senderUsername: "ron",
-                writtenIn: "10:15"
+                writtenIn: new Date(2022, 4, 6, 10, 12)
             },
             {
                 id: 2,
                 type: "text",
                 text: "Ok bro. Nice idea Ron",
                 senderUsername: "dan",
-                writtenIn: "10:20"
+                writtenIn: new Date(2022, 4, 6, 10, 20)
             }
             ]
     },
@@ -119,14 +107,14 @@ export const chats = [
                 type: "text",
                 text: "Idan, how was your semester?",
                 senderUsername: "ron",
-                writtenIn: "10:25"
+                writtenIn: new Date(2022, 4, 5, 10, 21)
             },
             {
                 id: 2,
                 type: "text",
                 text: "It was good. Thanks Ron",
                 senderUsername: "idan",
-                writtenIn: "10:30"
+                writtenIn: new Date(2022, 4, 5, 10, 22)
             }
             ]
     },
@@ -139,14 +127,14 @@ export const chats = [
                 type: "text",
                 text: "Shlomo, let's go to eat pizza",
                 senderUsername: "ron",
-                writtenIn: "10:35"
+                writtenIn: new Date(2022, 4, 6, 10, 40)
             },
             {
                 id: 2,
                 type: "text",
                 text: "Fine Ron, nice idea",
                 senderUsername: "shlomo",
-                writtenIn: "10:49"
+                writtenIn: new Date(2022, 4, 6, 10, 52)
             }
             ]
     },
@@ -159,14 +147,14 @@ export const chats = [
                 type: "text",
                 text: "My name is Ron.",
                 senderUsername: "ron",
-                writtenIn: "10:56"
+                writtenIn: new Date(2022, 4, 4, 10, 5)
             },
             {
                 id: 2,
                 type: "text",
                 text: "My name is Noam.",
                 senderUsername: "noam",
-                writtenIn: "11:05"
+                writtenIn: new Date(2022, 4, 4, 11, 5)
             }
             ]
     },
@@ -179,14 +167,14 @@ export const chats = [
                 type: "text",
                 text: "Hey Dvir, how are you?",
                 senderUsername: "noam",
-                writtenIn: "11:10"
+                writtenIn: new Date(2022, 4, 6, 12, 5)
             },
             {
                 id: 2,
                 type: "text",
                 text: "I'm great. Thanks Noam!",
                 senderUsername: "dvir",
-                writtenIn: "11:11"
+                writtenIn: new Date(2022, 4, 6, 12, 7)
             }
             ]
     },
@@ -199,14 +187,14 @@ export const chats = [
                 type: "text",
                 text: "Dan, let's go to the mall",
                 senderUsername: "noam",
-                writtenIn: "11:15"
+                writtenIn: new Date(2022, 4, 6, 11, 5)
             },
             {
                 id: 2,
                 type: "text",
                 text: "Ok bro. Nice idea Noam",
                 senderUsername: "dan",
-                writtenIn: "11:20"
+                writtenIn: new Date(2022, 4, 6, 11, 10)
             }
             ]
     },
@@ -219,14 +207,14 @@ export const chats = [
                 type: "text",
                 text: "Idan, how was your semester?",
                 senderUsername: "noam",
-                writtenIn: "11:25"
+                writtenIn: new Date(2022, 4, 6, 11, 25)
             },
             {
                 id: 2,
                 type: "text",
                 text: "It was good. Thanks Noam",
                 senderUsername: "idan",
-                writtenIn: "11:30"
+                writtenIn: new Date(2022, 4, 6, 11, 30)
             }
             ]
     },
@@ -239,14 +227,14 @@ export const chats = [
                 type: "text",
                 text: "Shlomo, let's go to eat pizza",
                 senderUsername: "noam",
-                writtenIn: "11:35"
+                writtenIn: new Date(2022, 4, 6, 11, 35)
             },
             {
                 id: 2,
                 type: "text",
                 text: "Fine Noam, nice idea",
                 senderUsername: "shlomo",
-                writtenIn: "11:49"
+                writtenIn: new Date(2022, 4, 6, 11, 40)
             }
             ]
     },
@@ -259,14 +247,14 @@ export const chats = [
                 type: "text",
                 text: "My name is Ron.",
                 senderUsername: "ron",
-                writtenIn: "11:56"
+                writtenIn: new Date(2022, 4, 6, 11, 56)
             },
             {
                 id: 2,
                 type: "text",
                 text: "My name is Dan.",
                 senderUsername: "dan",
-                writtenIn: "12:05"
+                writtenIn: new Date(2022, 4, 6, 11, 59)
             }
             ]
     },
@@ -279,14 +267,14 @@ export const chats = [
                 type: "text",
                 text: "Hey Dvir, how are you?",
                 senderUsername: "dan",
-                writtenIn: "12:10"
+                writtenIn: new Date(2022, 4, 3, 11, 5)
             },
             {
                 id: 2,
                 type: "text",
                 text: "I'm great. Thanks Dan!",
                 senderUsername: "dvir",
-                writtenIn: "12:11"
+                writtenIn: new Date(2022, 4, 3, 11, 5)
             }
             ]
     },
@@ -299,14 +287,14 @@ export const chats = [
                 type: "text",
                 text: "Idan, let's go to the mall",
                 senderUsername: "dan",
-                writtenIn: "12:15"
+                writtenIn: new Date(2022, 4, 6, 12, 15)
             },
             {
                 id: 2,
                 type: "text",
                 text: "Ok bro. Nice idea Dan",
                 senderUsername: "idan",
-                writtenIn: "12:20"
+                writtenIn: new Date(2022, 4, 6, 12, 20)
             }
             ]
     },
@@ -319,14 +307,14 @@ export const chats = [
                 type: "text",
                 text: "Noam, how was your semester?",
                 senderUsername: "dan",
-                writtenIn: "12:25"
+                writtenIn: new Date(2022, 4, 6, 12, 25)
             },
             {
                 id: 2,
                 type: "text",
                 text: "It was good. Thanks Dan",
                 senderUsername: "noam",
-                writtenIn: "12:30"
+                writtenIn: new Date(2022, 4, 6, 12, 30)
             }
             ]
     },
@@ -339,14 +327,14 @@ export const chats = [
                 type: "text",
                 text: "Shlomo, let's go to eat pizza",
                 senderUsername: "dan",
-                writtenIn: "12:35"
+                writtenIn: new Date(2022, 4, 6, 12, 35)
             },
             {
                 id: 2,
                 type: "text",
                 text: "Fine Dan, nice idea",
                 senderUsername: "shlomo",
-                writtenIn: "12:49"
+                writtenIn: new Date(2022, 4, 6, 12, 49)
             }
             ]
     },
@@ -359,14 +347,14 @@ export const chats = [
                 type: "text",
                 text: "My name is Ron.",
                 senderUsername: "ron",
-                writtenIn: "11:56"
+                writtenIn: new Date(2022, 4, 6, 11, 57)
             },
             {
                 id: 2,
                 type: "text",
                 text: "My name is Idan.",
                 senderUsername: "idan",
-                writtenIn: "12:05"
+                writtenIn: new Date(2022, 4, 6, 21, 5)
             }
             ]
     },
@@ -379,14 +367,14 @@ export const chats = [
                 type: "text",
                 text: "Hey Dvir, how are you?",
                 senderUsername: "idan",
-                writtenIn: "12:10"
+                writtenIn: new Date(2022, 4, 8, 21, 5)
             },
             {
                 id: 2,
                 type: "text",
                 text: "I'm great. Thanks Idan!",
                 senderUsername: "dvir",
-                writtenIn: "12:11"
+                writtenIn: new Date(2022, 4, 8, 21, 10)
             }
             ]
     },
@@ -399,14 +387,14 @@ export const chats = [
                 type: "text",
                 text: "Dan, let's go to the mall",
                 senderUsername: "idan",
-                writtenIn: "12:15"
+                writtenIn: new Date(2022, 4, 8, 21, 20)
             },
             {
                 id: 2,
                 type: "text",
                 text: "Ok bro. Nice idea Idan",
                 senderUsername: "dan",
-                writtenIn: "12:20"
+                writtenIn: new Date(2022, 4, 8, 21, 30)
             }
             ]
     },
@@ -419,14 +407,14 @@ export const chats = [
                 type: "text",
                 text: "Noam, how was your semester?",
                 senderUsername: "idan",
-                writtenIn: "12:25"
+                writtenIn: new Date(2022, 4, 8, 21, 40)
             },
             {
                 id: 2,
                 type: "text",
                 text: "It was good. Thanks Idan",
                 senderUsername: "noam",
-                writtenIn: "12:30"
+                writtenIn: new Date(2022, 4, 8, 21, 50)
             }
             ]
     },
@@ -439,14 +427,14 @@ export const chats = [
                 type: "text",
                 text: "Shlomo, let's go to eat pizza",
                 senderUsername: "idan",
-                writtenIn: "12:35"
+                writtenIn: new Date(2022, 4, 8, 21, 55)
             },
             {
                 id: 2,
                 type: "text",
                 text: "Fine Idan, nice idea",
                 senderUsername: "shlomo",
-                writtenIn: "12:49"
+                writtenIn: new Date(2022, 4, 8, 22, 00)
             }
             ]
     },
@@ -459,14 +447,14 @@ export const chats = [
                 type: "text",
                 text: "My name is Ron.",
                 senderUsername: "ron",
-                writtenIn: "11:56"
+                writtenIn: new Date(2022, 4, 9, 23, 20)
             },
             {
                 id: 2,
                 type: "text",
                 text: "My name is Shlomo.",
                 senderUsername: "shlomo",
-                writtenIn: "12:05"
+                writtenIn: new Date(2022, 4, 9, 23, 21)
             }
             ]
     },
@@ -479,14 +467,14 @@ export const chats = [
                 type: "text",
                 text: "Hey Dvir, how are you?",
                 senderUsername: "shlomo",
-                writtenIn: "12:10"
+                writtenIn: new Date(2022, 4, 9, 23, 25)
             },
             {
                 id: 2,
                 type: "text",
                 text: "I'm great. Thanks Shlomo!",
                 senderUsername: "dvir",
-                writtenIn: "12:11"
+                writtenIn: new Date(2022, 4, 9, 23, 26)
             }
             ]
     },
@@ -499,14 +487,14 @@ export const chats = [
                 type: "text",
                 text: "Idan, let's go to the mall",
                 senderUsername: "shlomo",
-                writtenIn: "12:15"
+                writtenIn: new Date(2022, 4, 9, 23, 34)
             },
             {
                 id: 2,
                 type: "text",
                 text: "Ok bro. Nice idea Shlomo",
                 senderUsername: "idan",
-                writtenIn: "12:20"
+                writtenIn: new Date(2022, 4, 9, 23, 40)
             }
             ]
     },
@@ -519,14 +507,14 @@ export const chats = [
                 type: "text",
                 text: "Noam, how was your semester?",
                 senderUsername: "shlomo",
-                writtenIn: "12:25"
+                writtenIn: new Date(2022, 4, 9, 23, 45)
             },
             {
                 id: 2,
                 type: "text",
                 text: "It was good. Thanks Shlomo",
                 senderUsername: "noam",
-                writtenIn: "12:30"
+                writtenIn: new Date(2022, 4, 9, 23, 50)
             }
             ]
     },
@@ -539,53 +527,16 @@ export const chats = [
                 type: "text",
                 text: "Dan, let's go to eat pizza",
                 senderUsername: "shlomo",
-                writtenIn: "12:35"
+                writtenIn: new Date(2022, 4, 9, 23, 55)
             },
             {
                 id: 2,
                 type: "text",
                 text: "Fine Shlomo, nice idea",
                 senderUsername: "dan",
-                writtenIn: "12:49"
+                writtenIn: new Date(2022, 4, 9, 23, 57)
             }
             ]
-    }
-]
-export const messages = [
-    {
-        id: 1,
-        type: "text",
-        text: "It was a great dinner",
-        senderUsername: "ron",
-        writtenIn: "09:56"
-    },
-    {
-        id: 2,
-        type: "text",
-        text: "We will do it again.",
-        senderUsername: "noam",
-        writtenIn: "12:01"
-    },
-    {
-        id: 3,
-        type: "text",
-        text: "Next time - we will play tennis",
-        senderUsername: "dvir",
-        writtenIn: "13:30",
-    },
-    {
-        id: 4,
-        type: "text",
-        text: "Great!",
-        senderUsername: "dan",
-        writtenIn: "13:40"
-    },
-    {
-        id: 5,
-        type: "text",
-        text: "How are you?",
-        senderUsername: "idan",
-        writtenIn: "14:00"
     }
 ]
 
@@ -604,6 +555,14 @@ export const users = [
     },
     {
         username: 'dan',
+        password: '123456'
+    },
+    {
+        username: 'idan',
+        password: '123456'
+    },
+    {
+        username: 'shlomo',
         password: '123456'
     }
 ]
