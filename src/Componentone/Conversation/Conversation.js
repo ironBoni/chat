@@ -83,13 +83,13 @@ const Conversation = (props) => {
             </div>
             <div className='chat-box'>
                 <div className='search-container'>
-                    <img className='emoji' src="/images/emoji.jpeg"></img>
+                    <button className='click-button'><img className='button-image' src="/images/record.png"></img></button>
                     <input className='search-textbox' placeholder='Search in chats'
                         value={msg} onChange={(event) => setMsg(event.target.value)}
                         onKeyDown={onEnter}></input>
                 </div>
-                <button className='send-button' onClick={onSend}
-                ><img src='/images/send.png' className='send-button-image'></img></button>
+                <button className='click-button' onClick={onSend}
+                ><img src='/images/send.png' className='button-image'></img></button>
             </div>
         </div>
     )

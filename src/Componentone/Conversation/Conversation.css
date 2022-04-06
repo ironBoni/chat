@@ -91,12 +91,12 @@
     margin-left: 8px;
 }
 
-.send-button-image {
+.button-image {
     height: 37px;
     height: 37px;
     cursor: pointer;
 }
 
-.send-button {
+.click-button {
     border: none;
 }
