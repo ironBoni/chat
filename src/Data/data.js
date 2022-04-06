@@ -274,7 +274,7 @@ export const chats = [
                 type: "text",
                 text: "I'm great. Thanks Dan!",
                 senderUsername: "dvir",
-                writtenIn: new Date(2022, 4, 3, 11, 5)
+                writtenIn: new Date(2022, 4, 3, 11, 14)
             }
             ]
     },
