@@ -5,6 +5,7 @@
     margin: 4px 13px;
 }
 
+
 .message-div-end {
         display: flex;
         /*here it should be flex-end if it's not mine - props.isMine*/
@@ -31,3 +32,14 @@
     color: #202020;
     font-size:14.5px;
 }
+.message:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-bottom: 0;
+    margin-top: -10px;
+  }
+  

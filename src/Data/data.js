@@ -544,29 +544,28 @@ export const users = [
     {
         username: 'noam',
         nickname: 'Noam Cohen',
-        password: '123456'
+        password: 'Np1234'
     },
     {
         username: 'dvir',
         nickname: 'Dvir Pollak',
-        password: '123456'
+        password: 'Np1234'
     },
     {
         username: 'ron',
         nickname: 'Dvir Pollak',
-
-        password: '123456'
+        password: 'Np1234'
     },
     {
         username: 'dan',
-        password: '123456'
+        password: 'Np1234'
     },
     {
         username: 'idan',
-        password: '123456'
+        password: 'Np1234'
     },
     {
         username: 'shlomo',
-        password: '123456'
+        password: 'Np1234'
     }
 ]

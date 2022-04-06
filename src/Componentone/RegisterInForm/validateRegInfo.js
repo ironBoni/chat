@@ -6,10 +6,17 @@ export default function validateInfo(values) {
   if (!values.username.trim()) {
     errors.username = 'Username required';
   }
+  
+  var pattern = /^.*(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[1-9]).*$/;
+  if (!pattern.test(values.password)) {
+    errors.password = 'Enter a valid password';
+  }
 
+  if (!values.nickname.trim()) {
+    errors.nickname = 'nick name required';
+  }
   users.forEach(element => {
-    console.log(element)
-    console.log('hey')
+
     if (element.username === values.username)
       errors.username = 'Username already exsist';
   });

@@ -1,51 +1,63 @@
 .contact {
-    width: 100%;
-    display: flex !important;
-    flex-direction: row !important;
-    border-bottom: 1.5px solid #f4f4f4;
-    background: white;
-    cursor: pointer;
-    padding: 14px 11px !important;
-    text-align: left;
+  padding: 10px 15px;
+  display: flex;
+  vertical-align: baseline;
+  background: #fff;
+  transition: 0.3s ease;
+}
+
+.text {
+  margin-left: 12px;
+  width: 70%;
+}
+
+.text > h6 {
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.text > p {
+  margin: 0;
 }
 
 .contact:hover {
-    background: #dddddc;
+  background: #dddddc;
 }
 
-
-.user-image {
-    width: 39px;
-    height: 39px;
-    border-radius: 50%;
+.time{
+    color: grey;
 }
 
-.contact-info {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    margin: 0 11px !important;
-}
+.contact:hover {
+    background: #74b9ff;
+    cursor: pointer;
+    color: #fff;
+   
+    
+  }
 
-.contact-name {
-    width: 100%;
-    font-size: 17px;
-    color: black !important;
-    text-align: left;
-    padding-left: 7px;
-    padding-top: 2px;
-}
+   .contact:hover p {
+    color: inherit;
+   }
+   .contact:hover h6 {
+    color: inherit !important;
+   }
+   .contact:hover .time {
+    color: inherit;
+   }
+    
+
 
 .contact-message {
-    width: 100%;
-    font-size:15px;
-    margin-top: 2.5px;
-    color:rgba(0,0,0,0.4);
+  width: 100%;
+  font-size: 15px;
+  margin-top: 2.5px;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .time-sent {
-    font-size: 12.5px;
-    margin-right: 9px;
-    color: rgba(0,0,0,0.41);
-    white-space: nowrap;
+  font-size: 12.5px;
+  margin-right: 9px;
+  color: rgba(0, 0, 0, 0.41);
+  white-space: nowrap;
 }

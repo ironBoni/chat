@@ -25,7 +25,7 @@ const LogInForm = (props) => {
         value={values.password}
         onChange={handleChange} 
         ></input>
-      <input type="checkbox" className="check-box"></input><span>Remember Me</span>
+      
       <button type="submit" className="submit-btn" >Log In</button>
     </form>
   );

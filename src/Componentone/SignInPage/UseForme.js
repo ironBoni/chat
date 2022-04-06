@@ -4,6 +4,7 @@ import { users } from '../../Data/data';
 const useForm = ( submitForm,validate) => {
   const [values, setValues] = useState({
     username: '',
+    nickname:'',
     password: '',
     confPassword: ''
   });

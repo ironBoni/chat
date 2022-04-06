@@ -23,13 +23,13 @@ import { Navigate } from 'react-router-dom';
   const [isSubmittedReg, setisSubmittedReg] = useState(false);
   const [isSubmittedUser, setisSubmittedUser] = useState(false);
 
-
+  //user register submit
   function submitForm() {
     setisSubmittedReg(true);
     login();
   }
+  //user log in submit
   function submitFormUser() {
-    console.log("jjjjj")
     setisSubmittedUser(true);
     
   }

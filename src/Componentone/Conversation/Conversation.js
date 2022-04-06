@@ -125,6 +125,7 @@ const Conversation = (props) => {
     }
 
     return (
+        <div class="col-md-8">
         <div className='conversation-container'>
             <div className='user-title'>
                 <UserImage src={chosenChat.profileImage} />
@@ -137,26 +138,27 @@ const Conversation = (props) => {
                 ))}
                 <audio controls src={recordInfo.audioUrl} />
             </div>
+</div>
+                <div className='chat-box'>
+                    <div className='search-container'>
+                        <button className='click-button' data-bs-toggle="modal" data-bs-target="#recordModal"
+                            onClick={startRecord}>
+                            <img className='button-image' src="/images/record.png"></img></button>
+                        {/*Record Modal*/}
+                        <Modal show={showAudioModal} centered>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Recording...</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body><button className='stop-button' onClick={stopRecord}><img src='/images/stop-button.png' className='stop-button-image'>
+                            </img></button></Modal.Body>
+                        </Modal>
 
-            <div className='chat-box'>
-                <div className='search-container'>
-                    <button className='click-button' data-bs-toggle="modal" data-bs-target="#recordModal"
-                    onClick={startRecord}>
-                        <img className='button-image' src="/images/record.png"></img></button>
-                    {/*Record Modal*/}
-                    <Modal show={showAudioModal} centered>
-                    <Modal.Header closeButton>
-                      <Modal.Title>Recording...</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body><button className='stop-button' onClick={stopRecord}><img src='/images/stop-button.png' className='stop-button-image'>
-                    </img></button></Modal.Body>
-                  </Modal>
-
-                    <input className='search-textbox' placeholder='Search in chats'
-                        value={msg} onChange={(event) => setMsg(event.target.value)}
-                        onKeyDown={onEnter}></input>
+                        <input className='search-textbox' placeholder='Search in chats'
+                            value={msg} onChange={(event) => setMsg(event.target.value)}
+                            onKeyDown={onEnter}></input>
+                    </div>
+                    <button className='click-button' onClick={onSend}><img src='/images/send.png' className='button-image'></img></button>
                 </div>
-                <button className='click-button' onClick={onSend}><img src='/images/send.png' className='button-image'></img></button>
             </div>
         </div>
     )
