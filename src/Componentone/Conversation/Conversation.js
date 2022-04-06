@@ -51,7 +51,7 @@ const Conversation = (props) => {
             </div>
             <div className='message-container'>
                 {msgList?.map((msg, key) => (
-                    <MessageField text={msg.text} senderId={msg.senderId} key={key}>
+                    <MessageField text={msg.text} senderUsername={msg.senderUsername} key={key}>
                     </MessageField>
                 ))}
             </div>
