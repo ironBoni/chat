@@ -5,7 +5,9 @@ import { contacts } from '../../Data/data'
 
 const ChatList = (props) => {
     const [contanctsLst, setContactLst] = useState(contacts);
-    const [userImage, setUserImage] = useState('')
+    const [userImage, setUserImage] = useState('');
+    const [nickName, setNickname] = useState('');
+
     var shouldBreak = false;
 
     useEffect(() => {
@@ -14,6 +16,7 @@ const ChatList = (props) => {
         contacts.forEach((contact => {
             if (contact.username === localStorage.getItem('username')) {
                 setUserImage(contact.profileImage);
+                setNickname(contact.name);
                 shouldBreak = true;
             }
             if (shouldBreak)
@@ -23,9 +26,8 @@ const ChatList = (props) => {
     return (
         <div className='container'>
             <div className='profile'>
-                {console.log(userImage)}
-                <img className='user-image' src={userImage}>
-                </img>
+                <img className='user-image' src={userImage}></img>
+                <div className='nickname'>{nickName}</div>
             </div>
 
             <div className="search-box">
