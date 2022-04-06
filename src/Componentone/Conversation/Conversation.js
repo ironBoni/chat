@@ -69,6 +69,7 @@ const Conversation = (props) => {
             sendMessage();
         }
     }
+
     return (
         <div className='conversation-container'>
             <div className='user-title'>
@@ -81,18 +82,18 @@ const Conversation = (props) => {
                     </MessageField>
                 ))}
             </div>
+            
             <div className='chat-box'>
                 <div className='search-container'>
                     <button className='click-button' data-bs-toggle="modal" data-bs-target="#recordModal">
                         <img className='button-image' src="/images/record.png"></img></button>
-
                     {/*Record Modal*/}
                     <div className="modal fade" id="recordModal">
                         <div className="modal-dialog dialog">
                             <div className="modal-content">
                                 <div className="modal-header"></div>
-                                <div className="modal-footer justify-content-center">
-                                    <button type="button" className="btn btn-primary">Record</button>
+                                <div className="modal-footer justify-content-center modal-div">
+                                    <button type="button" className="btn btn-primary">Stop</button>
                                 </div>
                             </div>
                         </div>

@@ -109,3 +109,8 @@
 .dialog {
     vertical-align: center;
 }
+
+.modal-div{
+    display: flex;
+    flex-direction: column;
+}
