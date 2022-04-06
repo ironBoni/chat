@@ -1,15 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './ChatList.css';
 import Contact from '../Contact/Contact'
 import { contacts } from '../../Data/data'
 
 const ChatList = (props) => {
     const [contanctsLst, setContactLst] = useState(contacts);
+    const [userImage, setUserImage] = useState('')
+    var shouldBreak = false;
 
+    useEffect(() => {
+        console.log(localStorage.getItem('username'))
+
+        contacts.forEach((contact => {
+            if (contact.username === localStorage.getItem('username')) {
+                setUserImage(contact.profileImage);
+                shouldBreak = true;
+            }
+            if (shouldBreak)
+                return;
+        }))
+    })
     return (
         <div className='container'>
             <div className='profile'>
-                <img className='user-image' src="/profile/noam.jpg">
+                {console.log(userImage)}
+                <img className='user-image' src={userImage}>
                 </img>
             </div>
 

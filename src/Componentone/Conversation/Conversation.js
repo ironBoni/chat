@@ -15,7 +15,7 @@ const Conversation = (props) => {
     useEffect(() => {
         var shouldBreak = false;
         chats.forEach(chatData => {
-            if (chatData.participicants.includes(myUsername) 
+            if (chatData.participicants.includes(myUsername)
                 && chatData.participicants.includes(chosenChat.username)) {
                 setMsgList(chatData.messages);
                 shouldBreak = true;
@@ -32,13 +32,32 @@ const Conversation = (props) => {
     const onEnter = (e) => {
         if (e.key === "Enter") {
             const newMessages = [...msgList];
-            newMessages.push({
-                id: 0,
+            var message;
+            var msgListInDb;
+
+            // calculates the id of the last msg
+            chats.forEach(chatData => {
+                chatData.participicants.forEach(participicant => {
+                    if (participicant == chosenChat.username && chatData.participicants.includes(myUsername)) {
+                        message = Math.max.apply(Math, chatData.messages.map((msg => {
+                            msgListInDb = chatData.messages;
+                            return msg.id;
+                        })));
+                        return;
+                    }
+                })
+            });
+
+            var newMsg = {
+                id: message.id + 1,
                 type: "text",
                 text: msg,
-                senderUsername: 0,
-                writtenIn: "09:56"
-            })
+                senderUsername: myUsername,
+                writtenIn: new Date()
+            };
+
+            newMessages.push(newMsg);
+            msgListInDb.push(newMsg)
             setMsgList(newMessages);
             setMsg("");
         }

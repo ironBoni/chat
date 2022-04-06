@@ -12,12 +12,18 @@ const Contact = (props) => {
      chats.forEach(chatData => {
         chatData.participicants.forEach(participicant => {
             if(participicant == userInfo.username && chatData.participicants.includes(myUsername)) {
-                Math.max.apply(Math, chatData.messages.map((msg => {
-                    setLastMsg(msg.text);
-                    setLastMsgTime(msg.writtenIn.toLocaleDateString() + " "+ 
-                    msg.writtenIn.toLocaleTimeString().substring(0, 5));
-                    return;
-                })));
+                var maxDate = new Date(1970, 1,1);
+                var message;
+
+                chatData.messages.forEach((msg => {
+                    if (msg.writtenIn > maxDate) {
+                        message = msg;
+                        maxDate = msg.writtenIn;
+                    }
+                }));
+                setLastMsg(message.text);
+                setLastMsgTime(message.writtenIn.toLocaleDateString() + " "+ 
+                message.writtenIn.toLocaleTimeString().substring(0, 5));
                 return;
             }
         })
