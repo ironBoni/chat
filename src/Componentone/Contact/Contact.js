@@ -41,7 +41,7 @@ const Contact = (props) => {
                 <h6 className='contact-name'>{userInfo.name}</h6>
                 <p className='contact-message'>{lastMsg}</p>
             </div>
-            <span className='time small'>{lastMsgTime}</span>
+            <span className='time small float-right'>{lastMsgTime}</span>
         </div>
     )
 }
