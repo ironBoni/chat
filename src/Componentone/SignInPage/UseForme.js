@@ -32,6 +32,7 @@ const useForm = ( submitForm,validate) => {
       if (Object.keys(errors).length === 0 && isSubmitting) {
         // users.push({username: values.username, password: values.password})
         submitForm();
+        localStorage.setItem("username", values.username);
       }
     },
     [errors]
