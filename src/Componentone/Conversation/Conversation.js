@@ -9,22 +9,21 @@ const Conversation = (props) => {
     const [msgList, setMsgList] = useState([]);
     const { chosenChat } = props;
     const { userData } = props;
-    var username = localStorage.getItem('username');
+    var myUsername = localStorage.getItem('username');
 
 
     useEffect(() => {
         var shouldBreak = false;
         chats.forEach(chatData => {
-            chatData.participicants.forEach(participicant => {
-                if (participicant == username) {
-                    setMsgList(chatData.messages);
-                    shouldBreak = true;
-                    return;
-                }
-                if (shouldBreak) {
-                    return;
-                }
-            })
+            if (chatData.participicants.includes(myUsername) 
+                && chatData.participicants.includes(chosenChat.username)) {
+                setMsgList(chatData.messages);
+                shouldBreak = true;
+                return;
+            }
+            if (shouldBreak) {
+                return;
+            };
         })
     });
 
