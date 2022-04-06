@@ -23,6 +23,7 @@ const Conversation = (props) => {
 
     const { chosenChat } = props;
     var myUsername = localStorage.getItem('username');
+    var canAddRecord = false;
 
     useEffect(() => {
         var shouldBreak = false;
@@ -81,6 +82,49 @@ const Conversation = (props) => {
         }
     }
 
+    var updateAudioInGuiMessages = function () {
+        const audioUrl = URL.createObjectURL(new Blob(audioPieces, { 'type': 'audio/webm' }));
+
+        setRecordInfo({
+            isRecordActive: false,
+            isAvailable: true,
+            audioUrl
+        });
+
+        var newMessages = [...msgList];
+        var newId;
+        var msgListInDb;
+        // get last message - for audio
+        chats.forEach(chatData => {
+            chatData.participicants.forEach(participicant => {
+                if (participicant == chosenChat.username && chatData.participicants.includes(myUsername)) {
+                    newId = Math.max.apply(Math, chatData.messages.map((msg => {
+                        msgListInDb = chatData.messages;
+                        return msg.id;
+                    })));
+                    return;
+                }
+            })
+        });
+
+        newId += 1;
+        var newMsg = {
+            id: newId,
+            type: "audio",
+            text: audioUrl,
+            senderUsername: myUsername,
+            writtenIn: new Date()
+        };
+
+        if ((msgListInDb.filter(msg => msg.text === newMsg.text).length === 0)
+            && canAddRecord) {
+            newMessages.push(newMsg);
+            setMsgList(newMessages);
+            msgListInDb.push(newMsg);
+            canAddRecord = false;
+        }
+    }
+
     const startRecord = (e) => {
         if (!recordInfo.isRecordActive) {
             audioPieces = [];
@@ -98,52 +142,15 @@ const Conversation = (props) => {
                     audioRecorder.start();
                 } catch (error) {
                 }
-
+                canAddRecord = true;
                 audioRecorder.ondataavailable = function (event) {
                     var newPieces = [...audioPieces];
                     newPieces.push(event.data);
                     audioPieces = newPieces;
+                    updateAudioInGuiMessages();
                 }
 
-                audioRecorder.onstop = function () {
-                    const audioUrl = URL.createObjectURL(new Blob(audioPieces, { 'type': 'audio/webm' }));
-
-                    setRecordInfo({
-                        isRecordActive: false,
-                        isAvailable: true,
-                        audioUrl
-                    });
-
-                    var newMessages = [...msgList];
-                    var newId;
-                    var msgListInDb;
-                    // get last message - for audio
-                    chats.forEach(chatData => {
-                        chatData.participicants.forEach(participicant => {
-                            console.log("chosenChat.username: "+chosenChat.username);
-                            console.log("myUsername: "+myUsername);
-
-                            if (participicant == chosenChat.username && chatData.participicants.includes(myUsername)) {
-                                newId = Math.max.apply(Math, chatData.messages.map((msg => {
-                                    msgListInDb = chatData.messages;
-                                    return msg.id;
-                                })));
-                                return;
-                            }
-                        })
-                    });
-
-                    newId += 1;
-                    newMessages.push({
-                        id: newId,
-                        type: "audio",
-                        text: audioUrl,
-                        senderUsername: myUsername,
-                        writtenIn: new Date()
-                    })
-                    setMsgList(newMessages)
-                    console.log(newMessages);
-                }
+                audioRecorder.onstop = updateAudioInGuiMessages;
             });
         }
     }
@@ -162,10 +169,9 @@ const Conversation = (props) => {
                 </div>
                 <div className='message-container'>
                     {msgList?.map((msg, key) => (
-                        <MessageField text={msg.text} senderUsername={msg.senderUsername} key={key}>
+                        <MessageField type={msg.type} text={msg.text} senderUsername={msg.senderUsername} key={key}>
                         </MessageField>
                     ))}
-                    <audio controls src={recordInfo.audioUrl} />
                 </div>
             </div>
             <div className='chat-box'>
