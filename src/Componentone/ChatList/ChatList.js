@@ -23,7 +23,8 @@ const ChatList = (props) => {
             <div>
                 {
                     contanctsLst.map((user, key) => {
-                        return <Contact userInfo={user} setChosenChat={props.setChosenChat} key={key}/>
+                        if (user.username != localStorage.getItem('username'))
+                            return <Contact userInfo={user} setChosenChat={props.setChosenChat} key={key} />
                     })
                 }
             </div>

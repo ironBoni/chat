@@ -54,7 +54,7 @@ export const chats = [
                 type: "text",
                 text: "My name is Ron.",
                 senderUsername: "ron",
-                writtenIn: new Date(2022, 4, 6, 10, 05)
+                writtenIn: new Date(2022, 4, 6, 10, 5)
             }
             ]
     },
@@ -434,7 +434,7 @@ export const chats = [
                 type: "text",
                 text: "Fine Idan, nice idea",
                 senderUsername: "shlomo",
-                writtenIn: new Date(2022, 4, 8, 22, 00)
+                writtenIn: new Date(2022, 4, 8, 22, 0)
             }
             ]
     },
@@ -543,14 +543,18 @@ export const chats = [
 export const users = [
     {
         username: 'noam',
+        nickname: 'Noam Cohen',
         password: '123456'
     },
     {
         username: 'dvir',
+        nickname: 'Dvir Pollak',
         password: '123456'
     },
     {
         username: 'ron',
+        nickname: 'Dvir Pollak',
+
         password: '123456'
     },
     {

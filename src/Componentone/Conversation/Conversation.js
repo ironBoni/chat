@@ -2,14 +2,34 @@ import React, { useEffect, useState } from 'react'
 import MessageField from '../MessageField/MessageField';
 import UserImage from '../UserImage/UserImage';
 import './Conversation.css';
-import { messages } from '../../Data/data';
+import { chats } from '../../Data/data';
 
 const Conversation = (props) => {
     const [msg, setMsg] = useState("");
-    const [msgList, setMsgList] = useState(messages);
+    const [msgList, setMsgList] = useState([]);
     const { chosenChat } = props;
     const { userData } = props;
-    
+    var username = localStorage.getItem('username');
+
+
+    useEffect(() => {
+        var shouldBreak = false;
+        chats.forEach(chatData => {
+            chatData.participicants.forEach(participicant => {
+                if (participicant == username) {
+                    setMsgList(chatData.messages);
+                    shouldBreak = true;
+                    return;
+                }
+                if (shouldBreak) {
+                    return;
+                }
+            })
+        })
+    });
+
+
+
     const onEnter = (e) => {
         if (e.key === "Enter") {
             const newMessages = [...msgList];
@@ -17,7 +37,7 @@ const Conversation = (props) => {
                 id: 0,
                 type: "text",
                 text: msg,
-                senderId: 0,
+                senderUsername: 0,
                 writtenIn: "09:56"
             })
             setMsgList(newMessages);
@@ -31,8 +51,8 @@ const Conversation = (props) => {
                 {chosenChat.name}
             </div>
             <div className='message-container'>
-                {msgList?.map((msg) => (
-                    <MessageField text={msg.text} senderId={msg.senderId}>
+                {msgList?.map((msg, key) => (
+                    <MessageField text={msg.text} senderId={msg.senderId} key={key}>
                     </MessageField>
                 ))}
             </div>
