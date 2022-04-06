@@ -83,13 +83,27 @@ const Conversation = (props) => {
             </div>
             <div className='chat-box'>
                 <div className='search-container'>
-                    <button className='click-button'><img className='button-image' src="/images/record.png"></img></button>
+                    <button className='click-button' data-bs-toggle="modal" data-bs-target="#recordModal">
+                        <img className='button-image' src="/images/record.png"></img></button>
+
+                    {/*Record Modal*/}
+                    <div className="modal fade" id="recordModal">
+                        <div className="modal-dialog dialog">
+                            <div className="modal-content">
+                                <div className="modal-header"></div>
+                                <div className="modal-footer justify-content-center">
+                                    <button type="button" className="btn btn-primary">Record</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <input className='search-textbox' placeholder='Search in chats'
                         value={msg} onChange={(event) => setMsg(event.target.value)}
                         onKeyDown={onEnter}></input>
                 </div>
-                <button className='click-button' onClick={onSend}
-                ><img src='/images/send.png' className='button-image'></img></button>
+                <button className='click-button' onClick={onSend}><img src='/images/send.png' className='button-image'></img></button>
             </div>
         </div>
     )

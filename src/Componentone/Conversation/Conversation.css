@@ -23,7 +23,8 @@
     background: #ececeb;
     align-items: center;
 }
- .user-image {
+
+.user-image {
     width: 39px;
     height: 39px;
     border-radius: 50%;
@@ -34,7 +35,7 @@
     color: black;
 }
 
-.chat-box{
+.chat-box {
     display: flex;
     flex-direction: row;
     background: #f1f2f3;
@@ -63,7 +64,7 @@
     border-radius: 3px;
     max-width: 50%;
     color: #202020;
-    font-size:14.5px;
+    font-size: 14.5px;
 }
 
 .emoji {
@@ -74,10 +75,10 @@
     cursor: pointer;
 }
 
-.search-container{
+.search-container {
     background: white;
     border-radius: 17px;
-    width:100%;
+    width: 100%;
     padding: 4px 11px;
     display: flex;
     flex-direction: row;
@@ -85,8 +86,8 @@
 
 .search-textbox {
     width: 100%;
-    outline:none;
-    font-size:14px;
+    outline: none;
+    font-size: 14px;
     border: none;
     margin-left: 8px;
 }
@@ -99,4 +100,12 @@
 
 .click-button {
     border: none;
+}
+
+#recordModal {
+    padding-top: 15%
+}
+
+.dialog {
+    vertical-align: center;
 }
