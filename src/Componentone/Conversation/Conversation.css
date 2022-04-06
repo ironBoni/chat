@@ -90,3 +90,13 @@
     border: none;
     margin-left: 8px;
 }
+
+.send-button-image {
+    height: 37px;
+    height: 37px;
+    cursor: pointer;
+}
+
+.send-button {
+    border: none;
+}

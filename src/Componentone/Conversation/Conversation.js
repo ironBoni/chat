@@ -28,38 +28,45 @@ const Conversation = (props) => {
     });
 
 
+    const sendMessage = () => {
+        const newMessages = [...msgList];
+        var message;
+        var msgListInDb;
+
+        // calculates the id of the last msg
+        chats.forEach(chatData => {
+            chatData.participicants.forEach(participicant => {
+                if (participicant == chosenChat.username && chatData.participicants.includes(myUsername)) {
+                    message = Math.max.apply(Math, chatData.messages.map((msg => {
+                        msgListInDb = chatData.messages;
+                        return msg.id;
+                    })));
+                    return;
+                }
+            })
+        });
+
+        var newMsg = {
+            id: message.id + 1,
+            type: "text",
+            text: msg,
+            senderUsername: myUsername,
+            writtenIn: new Date()
+        };
+
+        newMessages.push(newMsg);
+        msgListInDb.push(newMsg)
+        setMsgList(newMessages);
+        setMsg("");
+    };
+
+    const onSend = (e) => {
+        sendMessage();
+    }
 
     const onEnter = (e) => {
         if (e.key === "Enter") {
-            const newMessages = [...msgList];
-            var message;
-            var msgListInDb;
-
-            // calculates the id of the last msg
-            chats.forEach(chatData => {
-                chatData.participicants.forEach(participicant => {
-                    if (participicant == chosenChat.username && chatData.participicants.includes(myUsername)) {
-                        message = Math.max.apply(Math, chatData.messages.map((msg => {
-                            msgListInDb = chatData.messages;
-                            return msg.id;
-                        })));
-                        return;
-                    }
-                })
-            });
-
-            var newMsg = {
-                id: message.id + 1,
-                type: "text",
-                text: msg,
-                senderUsername: myUsername,
-                writtenIn: new Date()
-            };
-
-            newMessages.push(newMsg);
-            msgListInDb.push(newMsg)
-            setMsgList(newMessages);
-            setMsg("");
+            sendMessage();
         }
     }
     return (
@@ -81,6 +88,8 @@ const Conversation = (props) => {
                         value={msg} onChange={(event) => setMsg(event.target.value)}
                         onKeyDown={onEnter}></input>
                 </div>
+                <button className='send-button' onClick={onSend}
+                ><img src='/images/send.png' className='send-button-image'></img></button>
             </div>
         </div>
     )
