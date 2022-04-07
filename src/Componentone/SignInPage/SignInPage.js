@@ -11,7 +11,7 @@ import { Navigate } from 'react-router-dom';
     document.getElementById("LogIn").style.left = "50px"
     document.getElementById("Register").style.left = "450px"
     document.getElementById("btn").style.left = "0"
-    document.getElementById("box").style.height = "480px"
+    document.getElementById("box").style.height = "380px"
   }
   function register() {
     document.getElementById("LogIn").style.left = "-400px"
