@@ -13,7 +13,6 @@ const ChatList = (props) => {
 
     useEffect(() => {
         console.log(localStorage.getItem('username'))
-
         contacts.forEach((contact => {
             if (contact.username === localStorage.getItem('username')) {
                 setUserImage(contact.profileImage);
@@ -27,7 +26,7 @@ const ChatList = (props) => {
     return (
 
 
-        <div className='col-md-4 border-right'>
+        <div className='col-3 border-right'>
             <div className='settings-tray'>
                     <img className='user-image' src={userImage}></img>
                     <span className='nickname'>{nickName}</span>
@@ -52,14 +51,16 @@ const ChatList = (props) => {
                     </div>
                 </div>
 
+                <div className='contact-list flex-grow-1' >
 
+                
                 {
                     contanctsLst.map((user, key) => {
                         if (user.username != localStorage.getItem('username'))
                             return <Contact userInfo={user} setChosenChat={props.setChosenChat} key={key} />
                     })
                 }
-
+                </div>
 
 
             

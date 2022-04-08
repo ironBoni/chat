@@ -5,6 +5,7 @@
     width: 100% !important;
     height: 100% !important;
     background: #f3f3f6;
+   
 }
 
 
@@ -48,8 +49,11 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    overflow-y: auto;
+    overflow-y:scroll;
     background: #e2dad6;
+    /* overflow: auto; */
+        /* overflow-y:initial; */
+    
 }
 
 .message-div {
