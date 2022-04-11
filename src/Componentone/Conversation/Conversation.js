@@ -12,29 +12,21 @@ const Conversation = (props) => {
     const [showAudioModal, setShowAudioModal] = useState(false);
     const [showFileModal, setShowFileModal] = useState(false);
     const messageBottom = useRef(null);
-    const [fileSrc, setFileSrc] = useState("");
+    var isRecordActive = false;
     const [sTop, setSTop] = useState(0)
-    const [stream, setStream] = useState({
-        canAccess: false,
-        recorder: null,
-        errors: ""
-    });
+    const [voiceRecorder, setVoiceRecorder] = useState(null); 
+    const [audioUrl, setAudioUrl] = useState('');
 
     const updateScroll = () => {
         var chat = document.getElementById('chat');
         chat.scrollTop = chat.scrollHeight;
         setSTop(2000);
     }
-    const [recordInfo, setRecordInfo] = useState({
-        isRecordActive: false,
-        isAvailable: false,
-        audioUrl: ""
-    });
 
     const { chosenChat } = props;
     var myUsername = localStorage.getItem('username');
     var canAddRecord = false;
-    var recorder;
+
     useEffect(() => {
         var shouldBreak = false;
         chats.forEach(chatData => {
@@ -96,11 +88,8 @@ const Conversation = (props) => {
     var updateAudioInGuiMessages = function () {
         const audioUrl = URL.createObjectURL(new Blob(audioPieces, { 'type': 'audio/webm' }));
 
-        setRecordInfo({
-            isRecordActive: false,
-            isAvailable: true,
-            audioUrl
-        });
+        isRecordActive = false;
+        setAudioUrl(audioUrl);
 
         var newMessages = [...msgList];
         var newId;
@@ -141,7 +130,7 @@ const Conversation = (props) => {
     }
 
     const startRecord = (e) => {
-        if (!recordInfo.isRecordActive) {
+        if (!isRecordActive) {
             audioPieces = [];
             setShowAudioModal(true);
             navigator.mediaDevices.getUserMedia({ audio: true }).then((m) => {
@@ -149,11 +138,7 @@ const Conversation = (props) => {
                     var audioRecorder = new MediaRecorder(m, {
                         mimeType: "audio/webm"
                     });
-                    setStream({
-                        ...stream,
-                        access: true,
-                        recorder: audioRecorder
-                    });
+                    setVoiceRecorder(audioRecorder);
                     audioRecorder.start();
                 } catch (error) {
                 }
@@ -172,7 +157,7 @@ const Conversation = (props) => {
 
     const stopRecord = (e) => {
         setShowAudioModal(false);
-        stream.recorder.stop();
+        voiceRecorder.stop();
     }
 
     var uploadClicked = (e) => {
