@@ -9,7 +9,7 @@ const Chat = () => {
     const [chosenChat, setChosenChat] = useState();
     return (
         <div className="container-fluid">
-        <div className='row no-gutters rounded-lg overflow-hidden shadow'>
+        <div className='row no-gutters rounded-lg shadow'>
             <ChatList setChosenChat={setChosenChat} />
             
             {chosenChat ?
