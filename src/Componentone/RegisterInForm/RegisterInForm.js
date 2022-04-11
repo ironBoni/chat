@@ -9,25 +9,19 @@ const RegisterInForm = ({ submitForm }) => {
 
  
   const handleImage = (event) => {
-
-   
-    
+    var input = document.getElementById('chooser')
     const fileReader = new FileReader();
-      console.log(fileReader.readyState )
-    fileReader.onload = () => {
-
-      if (fileReader.readyState === 2) {
-        console.log("Converted Base64 version is ")
-        
-      }
-
-      fileReader.readAsDataURL(event.target.file[0])
-      console.log(event.target.file[0]);
-
-  
-
+    console.log(fileReader.readyState )
+    var url = fileReader.readAsDataURL(input.files[0])
+    fileReader.onload = (event) => {
+      var fileSrc = event.target.result
+      // if (fileReader.readyState === 2) {
+      //   console.log("Converted Base64 version is ")
+      // }
+      values.profileImage = fileSrc
+      console.log("profile image: " + values.profileImage);
     }
-    console.log(values);
+    console.log("values: " + values);
   }
   return (
     <form id="Register" className="input-form" name="Register" onSubmit={handleSubmit}>
@@ -67,7 +61,7 @@ const RegisterInForm = ({ submitForm }) => {
       ></input>
       {<p className="error" >{errors.confPassword}</p>}
 
-      <input type="file"  name="image-upload"  onChange={handleImage}></input>
+      <input type="file" id="chooser" name="image-upload" onInput={handleImage}></input>
       
 
       {/* <button type="button" className="pic-btn">Uplod Picture</button> */}
