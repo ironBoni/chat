@@ -9,10 +9,9 @@ const Conversation = (props) => {
     const [msg, setMsg] = useState("");
     const [msgList, setMsgList] = useState([]);
     var audioPieces = [];
-    var videoPieces = [];
     const [showAudioModal, setShowAudioModal] = useState(false);
-    const [showVideoModal, setShowVideoModal] = useState(false);
-    const [videoSrc, setVideoSrc] = useState("");
+    const [showFileModal, setShowFileModal] = useState(false);
+    const [fileSrc, setFileSrc] = useState("");
 
     const [stream, setStream] = useState({
         canAccess: false,
@@ -25,8 +24,6 @@ const Conversation = (props) => {
         isAvailable: false,
         audioUrl: ""
     });
-
-    const [videoBlobs, setVideoBlobs] = useState([]);
 
     const { chosenChat } = props;
     var myUsername = localStorage.getItem('username');
@@ -132,64 +129,8 @@ const Conversation = (props) => {
         }
     }
 
-    const playVideo = (e) => {
-
-    }
-
-    var updateVideoInGuiMessages = (e) => {
-        var blob = new Blob(videoPieces, { type: 'video/webm', options: 'codecs=vp8,opus' });
-        var videoUrl = URL.createObjectURL(blob);
-        setVideoSrc(videoUrl);
-
-        var videoElement = document.getElementById('recorded-video');
-        videoElement.play();
-    };
-
-    var handleVideoAvailable = (e) => {
-        if (e.data && e.data.size > 0) {
-            videoPieces.push(e.data);
-            //updateVideoInGuiMessages();
-        }
-    };
-
-    var onCameraAccess = (stream) => {
-        window.stream = stream;
-        try {
-            window.videoRecorder = new MediaRecorder(stream);
-            window.videoRecorder.ondataavailable = handleVideoAvailable;
-            window.videoRecorder.start(1000);
-        }
-        catch (e) {
-            console.log(e)
-        }
-    }
-
-    var init = () => {
-        try {
-            navigator.mediaDevices.getUserMedia({ audio: false, video: true }).then((stream) => {
-                document.getElementById('recorded-video').srcObject = stream;
-                onCameraAccess(stream);
-            });
-        } catch (e) {
-            console.log(e);
-        }
-    }
-
-    const startVideoRecord = (e) => {
-        setShowVideoModal(true);
-        init();
-        updateVideoInGuiMessages();
-    }
-
-    const stopVideoRecord = (e) => {
-        setShowVideoModal(false);
-        try {
-        window.videoRecorder.stop();
-        }
-        catch (e) {
-            console.log(e)
-        }
-        updateVideoInGuiMessages();
+    const addFile = (e) => {
+        setShowFileModal(true);
     }
 
     const startRecord = (e) => {
@@ -246,9 +187,9 @@ const Conversation = (props) => {
                     <button className='click-button' data-bs-toggle="modal" data-bs-target="#recordModal"
                         onClick={startRecord}>
                         <img className='button-image' src="/images/record.png"></img></button>
-                    <button className='click-button' data-bs-toggle="modal" data-bs-target="#videoModal"
-                        onClick={startVideoRecord}>
-                        <img className='button-image' src="/images/video.jpg"></img></button>
+                    <button className='click-button' data-bs-toggle="modal" data-bs-target="#fileModal"
+                        onClick={addFile}>
+                        <img className='button-image' src="/images/attach.jpg"></img></button>
                     {/*Record Audio Modal*/}
                     <Modal show={showAudioModal} centered>
                         <Modal.Header closeButton>
@@ -258,20 +199,13 @@ const Conversation = (props) => {
                         </img></button></Modal.Body>
                     </Modal>
 
-                    {/*Record Video Modal*/}
-                    <Modal show={showVideoModal} centered dialogClassName="video-modal">
+                    {/*Upload File Modal*/}
+                    <Modal show={showFileModal} centered dialogClassName="file-modal">
                         <Modal.Header closeButton>
-                            <Modal.Title>Recording Video...</Modal.Title>
+                            <Modal.Title>Please choose a file</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            {/*Here the camera appears*/}
-                            <div id="camera-record">
-                                <video src={videoSrc} id="recorded-video" onClick={playVideo} playsInline loop autoPlay
-                                className='video-item' ></video>
-                                <button className='stop-button' onClick={stopVideoRecord}>
-                                    <img src='/images/stop-button.png' className='stop-button-image'>
-                                    </img></button>
-                            </div>
+                            {/*Here the file modal should appear*/}
                         </Modal.Body>
                     </Modal>
 
