@@ -55,8 +55,36 @@ export const chats = [
                 text: "My name is Ron.",
                 senderUsername: "ron",
                 writtenIn: new Date(2022, 4, 6, 10, 5)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 6, 10, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 6, 10, 25)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 6, 10, 30)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "I love it!",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 8, 10, 30)
             }
-            ]
+        ]
     },
     {
         chatId: 2,
@@ -75,6 +103,34 @@ export const chats = [
                 text: "I'm great. Thanks Ron!",
                 senderUsername: "dvir",
                 writtenIn: new Date(2022, 4, 6, 10, 11)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 6, 10, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "dvir",
+                writtenIn: new Date(2022, 4, 6, 10, 25)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 6, 10, 34)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "It's my favorite song :)",
+                senderUsername: "dvir",
+                writtenIn: new Date(2022, 4, 8, 12, 30)
             }
             ]
     },
@@ -95,6 +151,34 @@ export const chats = [
                 text: "Ok bro. Nice idea Ron",
                 senderUsername: "dan",
                 writtenIn: new Date(2022, 4, 6, 10, 20)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 6, 10, 23)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 6, 10, 25)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 6, 10, 35)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "Lovely song :)",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 8, 12, 30)
             }
             ]
     },
@@ -115,6 +199,34 @@ export const chats = [
                 text: "It was good. Thanks Ron",
                 senderUsername: "idan",
                 writtenIn: new Date(2022, 4, 5, 10, 22)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 6, 10, 29)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 6, 10, 39)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 6, 10, 49)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "Ron, It's a very nice song! :)",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 8, 12, 30)
             }
             ]
     },
@@ -135,6 +247,34 @@ export const chats = [
                 text: "Fine Ron, nice idea",
                 senderUsername: "shlomo",
                 writtenIn: new Date(2022, 4, 6, 10, 52)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 6, 10, 58)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 6, 10, 59)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 6, 11, 0)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "Ron, It's a very nice song! :)",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 8, 12, 30)
             }
             ]
     },
@@ -155,6 +295,34 @@ export const chats = [
                 text: "My name is Noam.",
                 senderUsername: "noam",
                 writtenIn: new Date(2022, 4, 4, 11, 5)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 4, 11, 15)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 4, 11, 20)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 4, 11, 29)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "Love it! It's a very nice song! :)",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 8, 12, 30)
             }
             ]
     },
@@ -175,6 +343,34 @@ export const chats = [
                 text: "I'm great. Thanks Noam!",
                 senderUsername: "dvir",
                 writtenIn: new Date(2022, 4, 6, 12, 7)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 6, 13, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "dvir",
+                writtenIn: new Date(2022, 4, 6, 13, 28)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 6, 13, 39)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "I Love it Noam! It's a very nice song! :)",
+                senderUsername: "dvir",
+                writtenIn: new Date(2022, 4, 8, 12, 30)
             }
             ]
     },
@@ -195,6 +391,34 @@ export const chats = [
                 text: "Ok bro. Nice idea Noam",
                 senderUsername: "dan",
                 writtenIn: new Date(2022, 4, 6, 11, 10)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 6, 12, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 6, 13, 20)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 6, 13, 29)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "I Love it Noam! It's a very nice song! :)",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 8, 12, 30)
             }
             ]
     },
@@ -215,6 +439,34 @@ export const chats = [
                 text: "It was good. Thanks Noam",
                 senderUsername: "idan",
                 writtenIn: new Date(2022, 4, 6, 11, 30)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 6, 13, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 6, 13, 25)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 6, 13, 43)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "I Love this song! :)",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 8, 12, 30)
             }
             ]
     },
@@ -235,6 +487,34 @@ export const chats = [
                 text: "Fine Noam, nice idea",
                 senderUsername: "shlomo",
                 writtenIn: new Date(2022, 4, 6, 11, 40)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 6, 12, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 6, 12, 30)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 6, 12, 48)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "Noam, It's a very nice song.",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 8, 12, 30)
             }
             ]
     },
@@ -255,6 +535,34 @@ export const chats = [
                 text: "My name is Dan.",
                 senderUsername: "dan",
                 writtenIn: new Date(2022, 4, 6, 11, 59)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 6, 12, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 6, 12, 28)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 6, 12, 29)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "Ron, It's a very nice song",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 8, 12, 30)
             }
             ]
     },
@@ -275,6 +583,34 @@ export const chats = [
                 text: "I'm great. Thanks Dan!",
                 senderUsername: "dvir",
                 writtenIn: new Date(2022, 4, 3, 11, 14)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 6, 10, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "dvir",
+                writtenIn: new Date(2022, 4, 6, 11, 25)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 6, 11, 29)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "Wonderful song",
+                senderUsername: "dvir",
+                writtenIn: new Date(2022, 4, 8, 12, 30)
             }
             ]
     },
@@ -295,6 +631,34 @@ export const chats = [
                 text: "Ok bro. Nice idea Dan",
                 senderUsername: "idan",
                 writtenIn: new Date(2022, 4, 6, 12, 20)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 6, 13, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 6, 13, 29)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 6, 13, 59)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "Dan, It's a very nice song",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 8, 12, 30)
             }
             ]
     },
@@ -315,6 +679,34 @@ export const chats = [
                 text: "It was good. Thanks Dan",
                 senderUsername: "noam",
                 writtenIn: new Date(2022, 4, 6, 12, 30)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 6, 13, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 6, 14, 20)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 6, 15, 39)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "Dan, It's a very nice song",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 8, 16, 30)
             }
             ]
     },
@@ -327,14 +719,42 @@ export const chats = [
                 type: "text",
                 text: "Shlomo, let's go to eat pizza",
                 senderUsername: "dan",
-                writtenIn: new Date(2022, 4, 6, 12, 35)
+                writtenIn: new Date(2022, 4, 6, 9, 35)
             },
             {
                 id: 2,
                 type: "text",
                 text: "Fine Dan, nice idea",
                 senderUsername: "shlomo",
-                writtenIn: new Date(2022, 4, 6, 12, 49)
+                writtenIn: new Date(2022, 4, 6, 9, 49)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 6, 10, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 6, 13, 20)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 6, 13, 22)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "awesome song!",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 8, 16, 30)
             }
             ]
     },
@@ -354,7 +774,35 @@ export const chats = [
                 type: "text",
                 text: "My name is Idan.",
                 senderUsername: "idan",
-                writtenIn: new Date(2022, 4, 6, 21, 5)
+                writtenIn: new Date(2022, 4, 6, 10, 5)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 6, 10, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 6, 10, 25)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 6, 12, 25)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "Ron, It's a very nice song",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 8, 16, 30)
             }
             ]
     },
@@ -367,14 +815,42 @@ export const chats = [
                 type: "text",
                 text: "Hey Dvir, how are you?",
                 senderUsername: "idan",
-                writtenIn: new Date(2022, 4, 8, 21, 5)
+                writtenIn: new Date(2022, 4, 5, 21, 5)
             },
             {
                 id: 2,
                 type: "text",
                 text: "I'm great. Thanks Idan!",
                 senderUsername: "dvir",
-                writtenIn: new Date(2022, 4, 8, 21, 10)
+                writtenIn: new Date(2022, 4, 5, 21, 10)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 6, 10, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "dvir",
+                writtenIn: new Date(2022, 4, 6, 10, 25)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 6, 13, 25)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "Idan, It's a very nice song",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 8, 16, 30)
             }
             ]
     },
@@ -395,6 +871,34 @@ export const chats = [
                 text: "Ok bro. Nice idea Idan",
                 senderUsername: "dan",
                 writtenIn: new Date(2022, 4, 8, 21, 30)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 8, 23, 30)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 8, 23, 43)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 8, 23, 59)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "Idan, It's a very nice song",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 9, 16, 30)
             }
             ]
     },
@@ -407,14 +911,42 @@ export const chats = [
                 type: "text",
                 text: "Noam, how was your semester?",
                 senderUsername: "idan",
-                writtenIn: new Date(2022, 4, 8, 21, 40)
+                writtenIn: new Date(2022, 4, 4, 21, 40)
             },
             {
                 id: 2,
                 type: "text",
                 text: "It was good. Thanks Idan",
                 senderUsername: "noam",
-                writtenIn: new Date(2022, 4, 8, 21, 50)
+                writtenIn: new Date(2022, 4, 4, 21, 50)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 6, 10, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 6, 13, 20)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 6, 15, 20)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "Idan, It's a very nice song",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 8, 16, 30)
             }
             ]
     },
@@ -427,14 +959,42 @@ export const chats = [
                 type: "text",
                 text: "Shlomo, let's go to eat pizza",
                 senderUsername: "idan",
-                writtenIn: new Date(2022, 4, 8, 21, 55)
+                writtenIn: new Date(2022, 4, 3, 21, 55)
             },
             {
                 id: 2,
                 type: "text",
                 text: "Fine Idan, nice idea",
                 senderUsername: "shlomo",
-                writtenIn: new Date(2022, 4, 8, 22, 0)
+                writtenIn: new Date(2022, 4, 5, 22, 0)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 6, 10, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 6, 14, 20)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 6, 15, 20)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "Idan, It's a very nice song",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 8, 16, 30)
             }
             ]
     },
@@ -447,14 +1007,42 @@ export const chats = [
                 type: "text",
                 text: "My name is Ron.",
                 senderUsername: "ron",
-                writtenIn: new Date(2022, 4, 9, 23, 20)
+                writtenIn: new Date(2022, 4, 4, 23, 20)
             },
             {
                 id: 2,
                 type: "text",
                 text: "My name is Shlomo.",
                 senderUsername: "shlomo",
-                writtenIn: new Date(2022, 4, 9, 23, 21)
+                writtenIn: new Date(2022, 4, 4, 23, 21)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 6, 10, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 6, 11, 39)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "ron",
+                writtenIn: new Date(2022, 4, 6, 12, 50)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "lovely song",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 8, 16, 30)
             }
             ]
     },
@@ -467,14 +1055,42 @@ export const chats = [
                 type: "text",
                 text: "Hey Dvir, how are you?",
                 senderUsername: "shlomo",
-                writtenIn: new Date(2022, 4, 9, 23, 25)
+                writtenIn: new Date(2022, 4, 4, 23, 25)
             },
             {
                 id: 2,
                 type: "text",
                 text: "I'm great. Thanks Shlomo!",
                 senderUsername: "dvir",
-                writtenIn: new Date(2022, 4, 9, 23, 26)
+                writtenIn: new Date(2022, 4, 4, 23, 26)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 6, 10, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "dvir",
+                writtenIn: new Date(2022, 4, 6, 11, 49)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 6, 11, 50)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "nice song",
+                senderUsername: "dvir",
+                writtenIn: new Date(2022, 4, 8, 16, 30)
             }
             ]
     },
@@ -495,6 +1111,34 @@ export const chats = [
                 text: "Ok bro. Nice idea Shlomo",
                 senderUsername: "idan",
                 writtenIn: new Date(2022, 4, 9, 23, 40)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 6, 10, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 6, 10, 25)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 6, 10, 39)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "lovely song",
+                senderUsername: "idan",
+                writtenIn: new Date(2022, 4, 8, 16, 30)
             }
             ]
     },
@@ -507,14 +1151,42 @@ export const chats = [
                 type: "text",
                 text: "Noam, how was your semester?",
                 senderUsername: "shlomo",
-                writtenIn: new Date(2022, 4, 9, 23, 45)
+                writtenIn: new Date(2022, 4, 4, 23, 45)
             },
             {
                 id: 2,
                 type: "text",
                 text: "It was good. Thanks Shlomo",
                 senderUsername: "noam",
-                writtenIn: new Date(2022, 4, 9, 23, 50)
+                writtenIn: new Date(2022, 4, 4, 23, 50)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 6, 10, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 6, 12, 25)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 6, 13, 25)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "nice song",
+                senderUsername: "noam",
+                writtenIn: new Date(2022, 4, 8, 16, 30)
             }
             ]
     },
@@ -527,14 +1199,42 @@ export const chats = [
                 type: "text",
                 text: "Dan, let's go to eat pizza",
                 senderUsername: "shlomo",
-                writtenIn: new Date(2022, 4, 9, 23, 55)
+                writtenIn: new Date(2022, 4, 3, 23, 55)
             },
             {
                 id: 2,
                 type: "text",
                 text: "Fine Shlomo, nice idea",
                 senderUsername: "dan",
-                writtenIn: new Date(2022, 4, 9, 23, 57)
+                writtenIn: new Date(2022, 4, 3, 23, 57)
+            },
+            {
+                id: 3,
+                type: "image",
+                text: "/logo512.png",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 6, 10, 20)
+            },
+            {
+                id: 4,
+                type: "audio",
+                text: "/audio/Hatikva.mp3",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 6, 13, 29)
+            },
+            {
+                id: 5,
+                type: "video",
+                text: "/video/Hatikva.mp4",
+                senderUsername: "shlomo",
+                writtenIn: new Date(2022, 4, 6, 14, 34)
+            },
+            {
+                id: 6,
+                type: "text",
+                text: "awesome song",
+                senderUsername: "dan",
+                writtenIn: new Date(2022, 4, 8, 16, 30)
             }
             ]
     }
@@ -553,19 +1253,22 @@ export const users = [
     },
     {
         username: 'ron',
-        nickname: 'Dvir Pollak',
+        nickname: 'Ron Segal',
         password: 'Np1234'
     },
     {
         username: 'dan',
+        nickname: 'Dan Cohen',
         password: 'Np1234'
     },
     {
         username: 'idan',
+        nickname: 'Idan Ben Ari',
         password: 'Np1234'
     },
     {
         username: 'shlomo',
+        nickname: 'Shlomo Levin',
         password: 'Np1234'
     }
 ]
@@ -588,7 +1291,7 @@ export const image_extensions = [
 
 export const audio_extensions = [
     "mp3", "wav", "wma", "aif", "mka",
-    "aifc","asf", "au", "m3u", "mid", "rmi",
+    "aifc", "asf", "au", "m3u", "mid", "rmi",
     "snd", "wax", "webp", "3gp", "aa", "aac",
     "aax", "act", "alac", "ogg",
     "m4a", "flac", "amr", "aac", "adts"
