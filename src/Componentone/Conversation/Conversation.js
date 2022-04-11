@@ -48,7 +48,7 @@ const Conversation = (props) => {
                 return;
             };
         })
-        updateScroll();
+        setTimeout(updateScroll, 500);
     });
 
     const sendMessage = () => {
