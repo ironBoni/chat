@@ -165,3 +165,12 @@
     height: 20vh;
     cursor: pointer;
 }
+
+
+.big-image {
+    width: 45vh;
+    height: 45vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

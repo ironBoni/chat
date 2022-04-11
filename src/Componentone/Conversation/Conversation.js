@@ -256,7 +256,7 @@ const Conversation = (props) => {
                         onClick={setModalFileToShow}>
                         <img className='button-image' src="/images/attach.jpg"></img></button>
                     {/*Record Audio Modal*/}
-                    <Modal show={showAudioModal} centered>
+                    <Modal show={showAudioModal} centered onHide={()=>setShowAudioModal(false)}>
                         <Modal.Header closeButton>
                             <Modal.Title>Recording...</Modal.Title>
                         </Modal.Header>
@@ -265,7 +265,7 @@ const Conversation = (props) => {
                     </Modal>
 
                     {/*Upload File Modal*/}
-                    <Modal show={showFileModal} centered dialogClassName="file-modal">
+                    <Modal show={showFileModal} centered dialogClassName="file-modal" onHide={() => setShowFileModal(false)}>
                         <Modal.Header closeButton>
                             <Modal.Title>Upload file</Modal.Title>
                         </Modal.Header>
