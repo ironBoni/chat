@@ -5,12 +5,32 @@ import validate from "./validateRegInfo";
 
 
 const RegisterInForm = ({ submitForm }) => {
-  const { handleChange, values, handleSubmit, errors } = useForm(submitForm, validate)
+  const { handleChange, values, handleSubmit, errors} = useForm(submitForm, validate)
 
+ 
+  const handleImage = (event) => {
 
+   
+    
+    const fileReader = new FileReader();
+      console.log(fileReader.readyState )
+    fileReader.onload = () => {
 
+      if (fileReader.readyState === 2) {
+        console.log("Converted Base64 version is ")
+        
+      }
+
+      fileReader.readAsDataURL(event.target.file[0])
+      console.log(event.target.file[0]);
+
+  
+
+    }
+    console.log(values);
+  }
   return (
-    <form id="Register" className="input-form" onSubmit={handleSubmit}>
+    <form id="Register" className="input-form" name="Register" onSubmit={handleSubmit}>
       <input type="text"
         className="input-field"
         placeholder="User Name"
@@ -47,7 +67,10 @@ const RegisterInForm = ({ submitForm }) => {
       ></input>
       {<p className="error" >{errors.confPassword}</p>}
 
-      <button type="button" className="pic-btn">Uplod Picture</button>
+      <input type="file"  name="image-upload"  onChange={handleImage}></input>
+      
+
+      {/* <button type="button" className="pic-btn">Uplod Picture</button> */}
 
       <button type="submit" className="submit-btn">Register</button>
     </form>
