@@ -44,7 +44,6 @@ const Conversation = (props) => {
         })
     });
 
-
     const sendMessage = () => {
         const newMessages = [...msgList];
         var message;
@@ -129,7 +128,7 @@ const Conversation = (props) => {
         }
     }
 
-    const addFile = (e) => {
+    const setModalFileToShow = (e) => {
         setShowFileModal(true);
     }
 
@@ -168,6 +167,10 @@ const Conversation = (props) => {
         stream.recorder.stop();
     }
 
+    var uploadFile = (e) => {
+        console.log(document.getElementById('chooser').files)
+    }
+
     return (
         <div className="col-md-8">
             <div className='conversation-container'>
@@ -184,11 +187,11 @@ const Conversation = (props) => {
             </div>
             <div className='chat-box'>
                 <div className='search-container'>
-                    <button className='click-button' data-bs-toggle="modal" data-bs-target="#recordModal"
+                    <button className='click-button'
                         onClick={startRecord}>
                         <img className='button-image' src="/images/record.png"></img></button>
-                    <button className='click-button' data-bs-toggle="modal" data-bs-target="#fileModal"
-                        onClick={addFile}>
+                    <button className='click-button'
+                        onClick={setModalFileToShow}>
                         <img className='button-image' src="/images/attach.jpg"></img></button>
                     {/*Record Audio Modal*/}
                     <Modal show={showAudioModal} centered>
@@ -202,10 +205,11 @@ const Conversation = (props) => {
                     {/*Upload File Modal*/}
                     <Modal show={showFileModal} centered dialogClassName="file-modal">
                         <Modal.Header closeButton>
-                            <Modal.Title>Please choose a file</Modal.Title>
+                            <Modal.Title>Upload file</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                             {/*Here the file modal should appear*/}
+                            <input type="file" id="chooser" onChange={uploadFile}></input>
                         </Modal.Body>
                     </Modal>
 

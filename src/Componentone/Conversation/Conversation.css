@@ -151,3 +151,11 @@
     max-width: 40vh;
     display: none;
 }
+
+#chooser {
+    border-radius: 0;
+}
+
+.hidden{
+    display: none;
+}
