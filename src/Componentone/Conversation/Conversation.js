@@ -167,8 +167,51 @@ const Conversation = (props) => {
         stream.recorder.stop();
     }
 
+    var uploadClicked = (e) => {
+        setShowFileModal(false);
+        uploadFile(e);
+    }
+
     var uploadFile = (e) => {
-        console.log(document.getElementById('chooser').files)
+        var input = document.getElementById('chooser')
+        var fileReader = new FileReader()
+        var url = fileReader.readAsDataURL(input.files[0])
+        fileReader.onload = (event) => {
+            var fileSrc = event.target.result
+            const newMessages = [...msgList];
+            var message;
+            var msgListInDb;
+            // get last message
+            chats.forEach(chatData => {
+                chatData.participicants.forEach(participicant => {
+                    if (participicant == chosenChat.username && chatData.participicants.includes(myUsername)) {
+                        message = Math.max.apply(Math, chatData.messages.map((msg => {
+                            msgListInDb = chatData.messages;
+                            return msg.id;
+                        })));
+                        return;
+                    }
+                })
+            });
+
+            var newMsg = {
+                id: message.id + 1,
+                type: "file",
+                text: fileSrc,
+                senderUsername: myUsername,
+                writtenIn: new Date(),
+                fileName: input.files[0].name
+            };
+
+            newMessages.push(newMsg);
+            msgListInDb.push(newMsg)
+            setMsgList(newMessages);
+
+        };
+
+        const onSend = (e) => {
+            sendMessage();
+        }
     }
 
     return (
@@ -180,7 +223,8 @@ const Conversation = (props) => {
                 </div>
                 <div className='message-container'>
                     {msgList?.map((msg, key) => (
-                        <MessageField type={msg.type} text={msg.text} senderUsername={msg.senderUsername} key={key}>
+                        <MessageField type={msg.type} text={msg.text} senderUsername={msg.senderUsername} key={key}
+                                        fileName={msg.fileName}>
                         </MessageField>
                     ))}
                 </div>
@@ -209,8 +253,11 @@ const Conversation = (props) => {
                         </Modal.Header>
                         <Modal.Body>
                             {/*Here the file modal should appear*/}
-                            <input type="file" id="chooser" onChange={uploadFile}></input>
+                            <input type="file" id="chooser"></input>
                         </Modal.Body>
+                        <Modal.Footer>
+                            <button className='btn btn-primary' onClick={uploadClicked}>Upload</button>
+                        </Modal.Footer>
                     </Modal>
 
                     <input className='search-textbox' placeholder='Search in chats'

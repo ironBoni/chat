@@ -569,3 +569,6 @@ export const users = [
         password: 'Np1234'
     }
 ]
+
+export const video_extensions = [
+]

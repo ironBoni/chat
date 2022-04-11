@@ -3,11 +3,21 @@ import './MessageField.css'
 
 export default function MessageField(props) {
     var myUsername = localStorage.getItem('username');
+    var content;
+    if (props.type === "text")
+        content = props.text
+
+    else if (props.type === "audio") {
+        content = (<audio controls src={props.text} />)
+    }
+    else {
+        content = ((<a href={props.text} download={props.fileName}>{props.fileName}</a>))
+    }
     return (
         <div className={props.senderUsername === myUsername ? 'message-div' : 'message-div-end'}>
-            { props.type === "text" ? (<div className={props.senderUsername === myUsername ? 'message' : 'message-not-mine'}>
-                {props.text}
-            </div>) : <audio controls src={props.text} /> }
+            <div className={props.senderUsername === myUsername ? 'message' : 'message-not-mine'}>
+                {content}
+            </div>
         </div>
     )
 }
