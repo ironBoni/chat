@@ -245,7 +245,7 @@ const Conversation = (props) => {
         <div className="col-9">
             <div className='conversation-container'>
                 <div className='user-title'>
-                    <UserImage src={chosenChat.profileImage} />
+                    <UserImage src={chosenChat.profileImage} headOf={chosenChat.nickname} />
                     {chosenChat.nickname}
                 </div>
                 <div className='message-container' id="chat" ref={messageBottom} scolltop={sTop}>
