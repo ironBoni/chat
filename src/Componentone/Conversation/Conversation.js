@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import MessageField from '../MessageField/MessageField';
 import UserImage from '../UserImage/UserImage';
 import './Conversation.css';
-import { chats } from '../../Data/data';
+import { chats, video_extensions, audio_extensions, image_extensions } from '../../Data/data';
 import { Modal } from 'react-bootstrap';
 
 const Conversation = (props) => {
@@ -10,11 +10,15 @@ const Conversation = (props) => {
     const [msgList, setMsgList] = useState([]);
     var audioPieces = [];
     const [showAudioModal, setShowAudioModal] = useState(false);
+    const [showFileModal, setShowFileModal] = useState(false);
+    const [fileSrc, setFileSrc] = useState("");
+
     const [stream, setStream] = useState({
         canAccess: false,
         recorder: null,
         errors: ""
     });
+
     const [recordInfo, setRecordInfo] = useState({
         isRecordActive: false,
         isAvailable: false,
@@ -23,7 +27,8 @@ const Conversation = (props) => {
 
     const { chosenChat } = props;
     var myUsername = localStorage.getItem('username');
-
+    var canAddRecord = false;
+    var recorder;
     useEffect(() => {
         var shouldBreak = false;
         chats.forEach(chatData => {
@@ -39,13 +44,11 @@ const Conversation = (props) => {
         })
     });
 
-
     const sendMessage = () => {
         const newMessages = [...msgList];
         var message;
         var msgListInDb;
-
-        // calculates the id of the last msg
+        // get last message
         chats.forEach(chatData => {
             chatData.participicants.forEach(participicant => {
                 if (participicant == chosenChat.username && chatData.participicants.includes(myUsername)) {
@@ -82,6 +85,53 @@ const Conversation = (props) => {
         }
     }
 
+    var updateAudioInGuiMessages = function () {
+        const audioUrl = URL.createObjectURL(new Blob(audioPieces, { 'type': 'audio/webm' }));
+
+        setRecordInfo({
+            isRecordActive: false,
+            isAvailable: true,
+            audioUrl
+        });
+
+        var newMessages = [...msgList];
+        var newId;
+        var msgListInDb;
+        // get last message - for audio
+        chats.forEach(chatData => {
+            chatData.participicants.forEach(participicant => {
+                if (participicant == chosenChat.username && chatData.participicants.includes(myUsername)) {
+                    newId = Math.max.apply(Math, chatData.messages.map((msg => {
+                        msgListInDb = chatData.messages;
+                        return msg.id;
+                    })));
+                    return;
+                }
+            })
+        });
+
+        newId += 1;
+        var newMsg = {
+            id: newId,
+            type: "audio",
+            text: audioUrl,
+            senderUsername: myUsername,
+            writtenIn: new Date()
+        };
+
+        if ((msgListInDb.filter(msg => msg.text === newMsg.text).length === 0)
+            && canAddRecord) {
+            newMessages.push(newMsg);
+            setMsgList(newMessages);
+            msgListInDb.push(newMsg);
+            canAddRecord = false;
+        }
+    }
+
+    const setModalFileToShow = (e) => {
+        setShowFileModal(true);
+    }
+
     const startRecord = (e) => {
         if (!recordInfo.isRecordActive) {
             audioPieces = [];
@@ -99,22 +149,15 @@ const Conversation = (props) => {
                     audioRecorder.start();
                 } catch (error) {
                 }
-
+                canAddRecord = true;
                 audioRecorder.ondataavailable = function (event) {
                     var newPieces = [...audioPieces];
                     newPieces.push(event.data);
                     audioPieces = newPieces;
+                    updateAudioInGuiMessages();
                 }
 
-                audioRecorder.onstop = function () {
-                    const audioUrl = URL.createObjectURL(new Blob(audioPieces, { 'type': 'audio/webm' }));
-
-                    setRecordInfo({
-                        isRecordActive: false,
-                        isAvailable: true,
-                        audioUrl
-                    });
-                }
+                audioRecorder.onstop = updateAudioInGuiMessages;
             });
         }
     }
@@ -122,6 +165,71 @@ const Conversation = (props) => {
     const stopRecord = (e) => {
         setShowAudioModal(false);
         stream.recorder.stop();
+    }
+
+    var uploadClicked = (e) => {
+        setShowFileModal(false);
+        uploadFile(e);
+    }
+
+    var getTypeByFileName = (fileName) => {
+        var suffix = fileName.split('.')[1];
+        if(audio_extensions.includes(suffix)) {
+            return "audio";
+        }
+
+        if(image_extensions.includes(suffix)) {
+            return "image";
+        }
+
+        if(video_extensions.includes(suffix)) {
+            return "video";
+        }
+        return "file";
+    }
+
+    var uploadFile = (e) => {
+        var input = document.getElementById('chooser')
+        var fileReader = new FileReader()
+        var url = fileReader.readAsDataURL(input.files[0])
+        fileReader.onload = (event) => {
+            var fileSrc = event.target.result
+            const newMessages = [...msgList];
+            var message;
+            var msgListInDb;
+            // get last message
+            chats.forEach(chatData => {
+                chatData.participicants.forEach(participicant => {
+                    if (participicant == chosenChat.username && chatData.participicants.includes(myUsername)) {
+                        message = Math.max.apply(Math, chatData.messages.map((msg => {
+                            msgListInDb = chatData.messages;
+                            return msg.id;
+                        })));
+                        return;
+                    }
+                })
+            });
+
+            var fileName = input.files[0].name
+            
+            var newMsg = {
+                id: message.id + 1,
+                type: getTypeByFileName(fileName),
+                text: fileSrc,
+                senderUsername: myUsername,
+                writtenIn: new Date(),
+                fileName: fileName
+            };
+
+            newMessages.push(newMsg);
+            msgListInDb.push(newMsg)
+            setMsgList(newMessages);
+
+        };
+
+        const onSend = (e) => {
+            sendMessage();
+        }
     }
 
     return (
@@ -133,11 +241,46 @@ const Conversation = (props) => {
                 </div>
                 <div className='message-container'>
                     {msgList?.map((msg, key) => (
-                        <MessageField text={msg.text} senderUsername={msg.senderUsername} key={key}>
+                        <MessageField type={msg.type} text={msg.text} senderUsername={msg.senderUsername} key={key}
+                                        fileName={msg.fileName}>
                         </MessageField>
                     ))}
-                    <audio controls src={recordInfo.audioUrl} />
                 </div>
+            </div>
+            <div className='chat-box'>
+                <div className='search-container'>
+                    <button className='click-button'
+                        onClick={startRecord}>
+                        <img className='button-image' src="/images/record.png"></img></button>
+                    <button className='click-button'
+                        onClick={setModalFileToShow}>
+                        <img className='button-image' src="/images/attach.jpg"></img></button>
+                    {/*Record Audio Modal*/}
+                    <Modal show={showAudioModal} centered onHide={()=>setShowAudioModal(false)}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Recording...</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body><button className='stop-button' onClick={stopRecord}><img src='/images/stop-button.png' className='stop-button-image'>
+                        </img></button></Modal.Body>
+                    </Modal>
+
+                    {/*Upload File Modal*/}
+                    <Modal show={showFileModal} centered dialogClassName="file-modal" onHide={() => setShowFileModal(false)}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Upload file</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            {/*Here the file modal should appear*/}
+                            <input type="file" id="chooser"></input>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <button className='btn btn-primary' onClick={uploadClicked}>Upload</button>
+                        </Modal.Footer>
+                    </Modal>
+
+                    <input className='search-textbox' placeholder='Search in chats'
+                        value={msg} onChange={(event) => setMsg(event.target.value)}
+                        onKeyDown={onEnter}></input>
                 <div className='chat-box'>
                     <div className='search-container'>
                         <button className='click-button' data-bs-toggle="modal" data-bs-target="#recordModal"
