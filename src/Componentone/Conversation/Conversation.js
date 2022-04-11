@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import MessageField from '../MessageField/MessageField';
 import UserImage from '../UserImage/UserImage';
 import './Conversation.css';
-import { chats } from '../../Data/data';
+import { chats, video_extensions, audio_extensions, image_extensions } from '../../Data/data';
 import { Modal } from 'react-bootstrap';
 
 const Conversation = (props) => {
@@ -172,6 +172,22 @@ const Conversation = (props) => {
         uploadFile(e);
     }
 
+    var getTypeByFileName = (fileName) => {
+        var suffix = fileName.split('.')[1];
+        if(audio_extensions.includes(suffix)) {
+            return "audio";
+        }
+
+        if(image_extensions.includes(suffix)) {
+            return "image";
+        }
+
+        if(video_extensions.includes(suffix)) {
+            return "video";
+        }
+        return "file";
+    }
+
     var uploadFile = (e) => {
         var input = document.getElementById('chooser')
         var fileReader = new FileReader()
@@ -194,13 +210,15 @@ const Conversation = (props) => {
                 })
             });
 
+            var fileName = input.files[0].name
+            
             var newMsg = {
                 id: message.id + 1,
-                type: "file",
+                type: getTypeByFileName(fileName),
                 text: fileSrc,
                 senderUsername: myUsername,
                 writtenIn: new Date(),
-                fileName: input.files[0].name
+                fileName: fileName
             };
 
             newMessages.push(newMsg);

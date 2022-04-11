@@ -10,6 +10,9 @@ export default function MessageField(props) {
     else if (props.type === "audio") {
         content = (<audio controls src={props.text} />)
     }
+    else if (props.type == "image") {
+        content = (<img src={props.text} className="photo"></img>)
+    }
     else {
         content = ((<a href={props.text} download={props.fileName}>{props.fileName}</a>))
     }
