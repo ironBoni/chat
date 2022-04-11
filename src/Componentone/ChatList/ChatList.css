@@ -105,3 +105,7 @@
 .contact-list{
   overflow-y:scroll;
 }
+
+.header {
+  font-weight: 19vh;
+}

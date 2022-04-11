@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './ChatList.css';
 import Contact from '../Contact/Contact'
 import { users, chats } from '../../Data/data'
+import { Modal } from 'react-bootstrap';
 
 const ChatList = (props) => {
     var username = localStorage.getItem('username');
@@ -18,6 +19,7 @@ const ChatList = (props) => {
     const [contanctsLst, setContactLst] = useState(newContacts);
     const [userImage, setUserImage] = useState('');
     const [nickName, setNickname] = useState('');
+    const [showImageModal, setShowImageModal] = useState(false);
 
     useEffect(() => {
         var username = localStorage.getItem('username');
@@ -29,8 +31,15 @@ const ChatList = (props) => {
     return (
         <div className='col-3 border-right'>
             <div className='settings-tray'>
-                <img className='user-image' src={userImage}></img>
+                <button className='click-button' onClick={() => setShowImageModal(true)}>
+                    <img className='user-image' src={userImage}></img></button>
                 <span className='nickname'>{nickName}</span>
+                <Modal show={showImageModal} centered onHide={() => setShowImageModal(false)}>
+                    <Modal.Header closeButton className='header'>
+                        {nickName}
+                    </Modal.Header>
+                    <Modal.Body><img src={userImage} className='big-image'></img></Modal.Body>
+                </Modal>
                 <span className="settings-tray--right float-right">
                     <i className="bi bi-person-plus">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-plus" viewBox="0 0 16 16">
