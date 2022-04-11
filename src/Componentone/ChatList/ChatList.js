@@ -1,44 +1,46 @@
 import React, { useState, useEffect } from 'react'
 import './ChatList.css';
 import Contact from '../Contact/Contact'
-import { contacts } from '../../Data/data'
-import $ from 'jquery'
+import { users, chats } from '../../Data/data'
 
 const ChatList = (props) => {
-    const [contanctsLst, setContactLst] = useState(contacts);
+    var username = localStorage.getItem('username');
+    var newContacts = [];
+    // goes over the chat and find the contacts he talked with.
+    chats.forEach(chat => {
+        if (chat.participicants.includes(username)) {
+            let contactUser = chat.participicants.filter(p => p !== username)[0];
+            let contactData = users.filter((user) => user.username === contactUser)[0];
+            newContacts.push(contactData)
+        }
+    })
+
+    const [contanctsLst, setContactLst] = useState(newContacts);
     const [userImage, setUserImage] = useState('');
     const [nickName, setNickname] = useState('');
 
-    var shouldBreak = false;
-
     useEffect(() => {
-        console.log(localStorage.getItem('username'))
-        contacts.forEach((contact => {
-            if (contact.username === localStorage.getItem('username')) {
-                setUserImage(contact.profileImage);
-                setNickname(contact.name);
-                shouldBreak = true;
-            }
-            if (shouldBreak)
-                return;
-        }))
+        var username = localStorage.getItem('username');
+        var userData = users.filter((user) => user.username === username)[0];
+
+        setUserImage(userData.profileImage);
+        setNickname(userData.nickname);
     })
     return (
-
-<div className='col-3 border-right'>
-        <div className='settings-tray'>
+        <div className='col-3 border-right'>
+            <div className='settings-tray'>
                 <img className='user-image' src={userImage}></img>
                 <span className='nickname'>{nickName}</span>
-            <span className="settings-tray--right float-right">
-                <i className="bi bi-person-plus">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-plus" viewBox="0 0 16 16">
-                        <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
-                        <path fillRule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"></path>
-                    </svg>
-                </i>
-            </span>
-        </div>
-        <div className="search-box">
+                <span className="settings-tray--right float-right">
+                    <i className="bi bi-person-plus">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-plus" viewBox="0 0 16 16">
+                            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
+                            <path fillRule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"></path>
+                        </svg>
+                    </i>
+                </span>
+            </div>
+            <div className="search-box">
                 <div className='search-container'>
                     <i>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
@@ -53,12 +55,12 @@ const ChatList = (props) => {
             <div className='contact-list flex-grow-1' >
 
 
-            {
-                contanctsLst.map((user, key) => {
-                    if (user.username != localStorage.getItem('username'))
-                        return <Contact userInfo={user} setChosenChat={props.setChosenChat} key={key} />
-                })
-            }
+                {
+                    contanctsLst.map((user, key) => {
+                        if (user.username != localStorage.getItem('username'))
+                            return <Contact userInfo={user} setChosenChat={props.setChosenChat} key={key} />
+                    })
+                }
             </div>
         </div>
 

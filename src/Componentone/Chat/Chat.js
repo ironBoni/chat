@@ -3,7 +3,7 @@ import './Chat.css';
 import ChatList from '../ChatList/ChatList'
 import Conversation from '../Conversation/Conversation'
 import Welcome from '../Welcome/Welcome';
-import { contacts } from '../../Data/data';
+import { users } from '../../Data/data';
 
 const Chat = () => {
     const [chosenChat, setChosenChat] = useState();
