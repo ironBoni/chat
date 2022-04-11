@@ -44,6 +44,10 @@
   }
   
 .video-message {
-    width: 40vh;
     width: 30vh;
+}
+
+.big-image {
+    width: 40vh;
+    height: 40vh;
 }
