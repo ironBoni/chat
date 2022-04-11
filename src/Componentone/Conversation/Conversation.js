@@ -237,7 +237,7 @@ const Conversation = (props) => {
             <div className='conversation-container'>
                 <div className='user-title'>
                     <UserImage src={chosenChat.profileImage} />
-                    {chosenChat.name}
+                    {chosenChat.nickname}
                 </div>
                 <div className='message-container'>
                     {msgList?.map((msg, key) => (

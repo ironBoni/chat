@@ -1,42 +1,3 @@
-export const contacts = [
-    {
-        username: "ron",
-        id: 1,
-        name: "Ron Segal",
-        profileImage: "/profile/ron.jpg"
-    },
-    {
-        username: "noam",
-        id: 2,
-        name: "Noam Cohen",
-        profileImage: "/profile/noam.jpg",
-    },
-    {
-        username: "dvir",
-        id: 3,
-        name: "Dvir Pollak",
-        profileImage: "/profile/dvir.jpg"
-    },
-    {
-        username: "dan",
-        id: 4,
-        name: "Dan Cohen",
-        profileImage: "/profile/dan.jpg"
-    },
-    {
-        id: 5,
-        username: "idan",
-        name: "Idan Ben Ari",
-        profileImage: "/profile/idan.jpg"
-    },
-    {
-        id: 6,
-        username: "shlomo",
-        name: "Shlomo Levin",
-        profileImage: "/profile/shlomo.png"
-    }
-]
-
 export const chats = [
     {
         chatId: 1,
@@ -764,32 +725,38 @@ export const users = [
     {
         username: 'noam',
         nickname: 'Noam Cohen',
-        password: 'Np1234'
+        password: 'Np1234',
+        profileImage: "/profile/noam.jpg"
     },
     {
         username: 'dvir',
         nickname: 'Dvir Pollak',
-        password: 'Np1234'
+        password: 'Np1234',
+        profileImage: "/profile/dvir.jpg"
     },
     {
         username: 'ron',
         nickname: 'Ron Segal',
-        password: 'Np1234'
+        password: 'Np1234',
+        profileImage: "/profile/ron.jpg"
     },
     {
         username: 'dan',
         nickname: 'Dan Cohen',
-        password: 'Np1234'
+        password: 'Np1234',
+        profileImage: "/profile/dan.jpg"
     },
     {
         username: 'idan',
         nickname: 'Idan Ben Ari',
-        password: 'Np1234'
+        password: 'Np1234',
+        profileImage: "/profile/idan.jpg"
     },
     {
         username: 'shlomo',
         nickname: 'Shlomo Levin',
-        password: 'Np1234'
+        password: 'Np1234',
+        profileImage: "/profile/shlomo.png"
     }
 ]
 

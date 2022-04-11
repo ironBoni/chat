@@ -38,7 +38,7 @@ const Contact = (props) => {
 
             <img className='profile-image' src={userInfo.profileImage}></img>
             <div className='text'>
-                <h6 className='contact-name'>{userInfo.name}</h6>
+                <h6 className='contact-name'>{userInfo.nickname}</h6>
                 <p className='contact-message'>{lastMsg}</p>
             </div>
             <span className='time small float-right'>{lastMsgTime}</span>
