@@ -16,6 +16,8 @@ export default function MessageField(props) {
     else if (props.type == "image") {
         content = (<button className='click-button' onClick={() => setShowImageModal(true)}>
         <img src={props.text} className="photo"></img></button>)
+    } else if(props.type == "video") {
+        content = (<video className="video-message" controls src={props.text}></video>)
     }
     else {
         content = ((<a href={props.text} download={props.fileName}>{props.fileName}</a>))
@@ -23,7 +25,7 @@ export default function MessageField(props) {
     return (
         <div>
             <div className={props.senderUsername === myUsername ? 'message-div' : 'message-div-end'}>
-                <div className={props.senderUsername === myUsername ? 'message' : 'message-not-mine'}>
+                <div id="main-div" className={props.senderUsername === myUsername ? 'message' : 'message-not-mine'}>
                     {content}
                 </div>
             </div>
