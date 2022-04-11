@@ -25,7 +25,7 @@ const useForm = (submitForm, validate) => {
     setErrors(validate(values));
     if(e.target.name=="Register"){
       
-       users.push({username: values.username, password: values.password})
+       users.push({username: values.username, nickname: values.nickname, password: values.password})
     }
     setIsSubmitting(true);
     console.log(users)
