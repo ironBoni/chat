@@ -15,5 +15,5 @@ code {
 body {
   color:black !important;
   font-weight: normal !important;
+  overflow: hidden;
 }
-

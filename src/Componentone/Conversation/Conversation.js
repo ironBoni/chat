@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import MessageField from '../MessageField/MessageField';
 import UserImage from '../UserImage/UserImage';
 import './Conversation.css';
@@ -11,14 +11,20 @@ const Conversation = (props) => {
     var audioPieces = [];
     const [showAudioModal, setShowAudioModal] = useState(false);
     const [showFileModal, setShowFileModal] = useState(false);
+    const messageBottom = useRef(null);
     const [fileSrc, setFileSrc] = useState("");
-
+    const [sTop, setSTop] = useState(0)
     const [stream, setStream] = useState({
         canAccess: false,
         recorder: null,
         errors: ""
     });
 
+    const updateScroll = () => {
+        var chat = document.getElementById('chat');
+        chat.scrollTop = chat.scrollHeight;
+        setSTop(2000);
+    }
     const [recordInfo, setRecordInfo] = useState({
         isRecordActive: false,
         isAvailable: false,
@@ -42,6 +48,7 @@ const Conversation = (props) => {
                 return;
             };
         })
+        updateScroll();
     });
 
     const sendMessage = () => {
@@ -73,6 +80,7 @@ const Conversation = (props) => {
         msgListInDb.push(newMsg)
         setMsgList(newMessages);
         setMsg("");
+        updateScroll();
     };
 
     const onSend = (e) => {
@@ -229,6 +237,7 @@ const Conversation = (props) => {
 
         const onSend = (e) => {
             sendMessage();
+            updateScroll();
         }
     }
 
@@ -239,7 +248,7 @@ const Conversation = (props) => {
                     <UserImage src={chosenChat.profileImage} />
                     {chosenChat.nickname}
                 </div>
-                <div className='message-container'>
+                <div className='message-container' id="chat" ref={messageBottom} scolltop={sTop}>
                     {msgList?.map((msg, key) => (
                         <MessageField type={msg.type} text={msg.text} senderUsername={msg.senderUsername} key={key}
                             fileName={msg.fileName}>
@@ -281,26 +290,7 @@ const Conversation = (props) => {
                     <input className='search-textbox' placeholder='Search in chats'
                         value={msg} onChange={(event) => setMsg(event.target.value)}
                         onKeyDown={onEnter}></input>
-                    <div className='chat-box'>
-                        <div className='search-container'>
-                            <button className='click-button' data-bs-toggle="modal" data-bs-target="#recordModal"
-                                onClick={startRecord}>
-                                <img className='button-image' src="/images/record.png"></img></button>
-                            {/*Record Modal*/}
-                            <Modal show={showAudioModal} centered>
-                                <Modal.Header closeButton>
-                                    <Modal.Title>Recording...</Modal.Title>
-                                </Modal.Header>
-                                <Modal.Body><button className='stop-button' onClick={stopRecord}><img src='/images/stop-button.png' className='stop-button-image'>
-                                </img></button></Modal.Body>
-                            </Modal>
-
-                            <input className='search-textbox' placeholder='Search in chats'
-                                value={msg} onChange={(event) => setMsg(event.target.value)}
-                                onKeyDown={onEnter}></input>
-                        </div>
-                        <button className='click-button' onClick={onSend}><img src='/images/send.png' className='button-image'></img></button>
-                    </div>
+                    <button className='click-button' onClick={onSend}><img src='/images/send.png' className='button-image'></img></button>
                 </div>
             </div>
         </div>
