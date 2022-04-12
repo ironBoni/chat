@@ -1,3 +1,5 @@
+out names and ID numbers are in "outNames.txt" in this directory.
+
 Packages in use:
   a. react-router-dom.
   b. react-bootstrap.
