@@ -49,14 +49,8 @@ const Conversation = (props) => {
         var message;
         var msgListInDb;
         // get last message
-        console.log(chats);
         chats.forEach(chatData => {
-            console.log(chatData);
             chatData.participicants.forEach(participicant => {
-                console.log(participicant);
-                console.log(participicant === chosenChat.username);
-                console.log(chatData.participicants.includes(myUsername));
-                console.log(chatData);
                 if (participicant === chosenChat.username && chatData.participicants.includes(myUsername)) {
                     msgListInDb = chatData.messages;
                     message = Math.max.apply(Math, chatData.messages.map((msg => {

@@ -20,7 +20,12 @@ export default function MessageField(props) {
         content = (<video className="video-message" controls src={props.text}></video>)
     }
     else {
-        content = ((<a href={props.text} download={props.fileName}>{props.fileName}</a>))
+        content = ((<a href={props.text} download={props.fileName} className='link'>
+            <div className='file-div'>
+                <img src='/images/file-icon.png' className='file-image'></img>
+                <div className='name-div'>{props.fileName}</div>
+                <div className='file-ext'>{props.fileName.split('.')[1].toUpperCase()}</div>
+            </div></a>))
     }
     return (
         <div>

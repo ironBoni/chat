@@ -3,7 +3,6 @@ import './ChatList.css';
 import Contact from '../Contact/Contact'
 import { users, chats } from '../../Data/data'
 import { Modal } from 'react-bootstrap';
-import LightContact from '../LightContact/LightContact'
 
 const ChatList = (props) => {
     var username = localStorage.getItem('username');
@@ -17,9 +16,8 @@ const ChatList = (props) => {
         }
     })
 
-
     const [usersList, setUsersList] = useState(users);
-    const [contanctsLst, setContactLst] = useState(newContacts);
+    const [contactsLst, setContactsLst] = useState(newContacts);
     const [userImage, setUserImage] = useState('');
     const [nickName, setNickname] = useState('');
     const [showImageModal, setShowImageModal] = useState(false);
@@ -32,6 +30,35 @@ const ChatList = (props) => {
         setUserImage(userData.profileImage);
         setNickname(userData.nickname);
     })
+
+    useEffect(() => {
+        var textBox = document.getElementById('contact-user');
+
+        if (textBox)
+            textBox.focus();
+    }, [showAddModal])
+
+
+    const getUserInfoByUsername = (otherUsername) =>
+        users.filter((user) => user.username === otherUsername)[0];
+
+
+    const addUserAsFriend = (e) => {
+        var textBox = document.getElementById('contact-user');
+        if (!textBox)
+            return;
+
+        var usernameToAdd = textBox.value;
+        chats.push({
+            chatId: Math.floor(1000 * Math.random() + 200),
+            participicants: [usernameToAdd, username],
+            messages: []
+        });
+        var newContacts = [...contactsLst];
+        newContacts.push(getUserInfoByUsername(usernameToAdd));
+        setContactsLst(newContacts);
+        setShowAddModal(false);
+    };
 
     return (
         <div className='col-3 border-right'>
@@ -58,24 +85,15 @@ const ChatList = (props) => {
                         </button>
                         <Modal show={showAddModal} centered onHide={() => setShowAddModal(false)}>
                             <Modal.Header closeButton className='header'>
-                                Please choose user to add:
+                                Please enter username to add:
                             </Modal.Header>
                             <Modal.Body>{
-                                usersList.map((user, key) => {
-                                    if (user.username != username) {
-                                        var isFriendOfHim = false;
-                                        for (const chatData of chats) {
-                                            if (chatData.participicants.includes(user.username) &&
-                                                chatData.participicants.includes(username))
-                                                isFriendOfHim = true;
-                                        }
-                                        if (!isFriendOfHim)
-                                            return <LightContact userInfo={user} setChosenChat={props.setChosenChat} key={key}
-                                                    setContactList = {setContactLst} contactsList = {contanctsLst}
-                                                    setShowModal = {setShowAddModal}/>
-                                    }
-                                })
+                                <input type="text" placeholder='Enter a username'
+                                    className="form-control" id="contact-user" />
                             }</Modal.Body>
+                            <Modal.Footer>
+                                <button className='btn btn-primary' onClick={addUserAsFriend}>Add Contact</button>
+                            </Modal.Footer>
                         </Modal>
                     </i>
                 </span>
@@ -95,7 +113,7 @@ const ChatList = (props) => {
 
             <div className='contact-list flex-grow-1'>
                 {
-                    contanctsLst.map((user, key) => {
+                    contactsLst.map((user, key) => {
                         if (user.username != localStorage.getItem('username'))
                             return <Contact userInfo={user} setChosenChat={props.setChosenChat} key={key} />
                     })
