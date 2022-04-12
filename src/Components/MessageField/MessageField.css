@@ -62,8 +62,8 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    width: 30vh;
-    max-width: 30vh;
+    width: 39vh;
+    max-width: 39vh;
 }
 
 .name-div {
@@ -71,9 +71,9 @@
     white-space: nowrap;
     overflow: hidden;
     padding-left: 2vh;
-    font-size: 2.5vh;
+    font-size: 2.1vh;
     word-wrap:break-word;
-    max-width: 25vh;
+    max-width: 34vh;
 }
 
 .file-ext {
