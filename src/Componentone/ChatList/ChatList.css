@@ -104,6 +104,7 @@
 
 .contact-list{
   overflow-y:scroll;
+  max-height: 80.9vh !important;
 }
 
 .header {

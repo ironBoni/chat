@@ -10,6 +10,10 @@ const Contact = (props) => {
     var myUsername = localStorage.getItem('username');
 
     useEffect(() => {
+        updateLastMessage();
+    });
+
+    var updateLastMessage = () => {
         chats.forEach(chatData => {
             chatData.participicants.forEach(participicant => {
                 if (participicant == userInfo.username && chatData.participicants.includes(myUsername)) {
@@ -32,7 +36,7 @@ const Contact = (props) => {
                 }
             })
         })
-    });
+    }
 
     return (
         <div className='contact' onClick={() => setChosenChat(userInfo)}>
