@@ -83,12 +83,6 @@ const ChatList = (props) => {
                 <button className='click-button' onClick={() => setShowImageModal(true)}>
                     <img className='user-image' src={userImage}></img></button>
                 <span className='nickname'>{nickName}</span>
-                <Modal show={showImageModal} centered onHide={() => setShowImageModal(false)}>
-                    <Modal.Header closeButton className='header'>
-                        {nickName}
-                    </Modal.Header>
-                    <Modal.Body><img src={userImage} className='big-image'></img></Modal.Body>
-                </Modal>
                 <span className="settings-tray--right float-right">
                     <i className="bi bi-person-plus">
                         <button className='click-button' onClick={() => setShowAddModal(true)}>
@@ -117,6 +111,12 @@ const ChatList = (props) => {
                         </Modal>
                     </i>
                 </span>
+                <Modal show={showImageModal} centered onHide={() => setShowImageModal(false)}>
+                    <Modal.Header closeButton className='header'>
+                        {nickName}
+                    </Modal.Header>
+                    <Modal.Body><img src={userImage} className='big-image'></img></Modal.Body>
+                </Modal>
             </div>
             <div className="search-box">
                 <div className='search-container'>
