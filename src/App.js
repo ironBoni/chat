@@ -1,8 +1,8 @@
 import './App.css';
-import Chat from './Componentone/Chat/Chat';
+import Chat from './Components/Chat/Chat';
 
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import SignInPage from './Componentone/SignInPage/SignInPage';
+import SignInPage from './Components/SignInPage/SignInPage';
 
 
 

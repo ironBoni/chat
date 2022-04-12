@@ -1,0 +1,15 @@
+.container-fluid {
+  margin: 10px;
+  background: #fff;
+  padding: 0;
+  border-radius: 7px;
+  width: auto;
+  height: 90vh;
+
+
+}
+
+.row {
+  --bs-gutter-x: 0;
+  height: 90vh;
+}
