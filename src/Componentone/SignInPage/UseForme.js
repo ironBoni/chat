@@ -29,7 +29,6 @@ const useForm = (submitForm, validate) => {
       profileImage: values.profileImage})
     }
     setIsSubmitting(true);
-    console.log(users)
   };
  
 

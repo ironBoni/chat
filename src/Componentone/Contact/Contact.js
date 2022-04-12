@@ -22,6 +22,9 @@ const Contact = (props) => {
                             maxDate = msg.writtenIn;
                         }
                     }));
+
+                    if (message == undefined)
+                        return;
                     setLastMsg(message.text);
                     setLastMsgTime(message.writtenIn.toLocaleDateString() + " " +
                         message.writtenIn.toLocaleTimeString().substring(0, 5));

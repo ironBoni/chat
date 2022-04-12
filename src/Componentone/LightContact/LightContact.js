@@ -31,8 +31,20 @@ const LightContact = (props) => {
         })
     });
 
+    const addUserAsFriend = (userInfo) => {
+        chats.push({
+            chatId: Math.floor(1000*Math.random() + 200),
+            participicants: [userInfo.username, myUsername],
+            messages: []    
+        });
+        var newContacts = [...props.contactsList];
+        newContacts.push(userInfo);
+        props.setContactList(newContacts);    
+        props.setShowModal(false);
+    };
+
     return (
-        <div className='contact' onClick={() => setChosenChat(userInfo)}>
+        <div className='contact' onClick={() => addUserAsFriend(userInfo)}>
 
             <img className='profile-image' src={userInfo.profileImage}></img>
             <div className='text'>
