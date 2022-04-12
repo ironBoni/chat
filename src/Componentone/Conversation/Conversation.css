@@ -112,7 +112,6 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    margin-left: 25vw;
 }
 
 #recordModal {
@@ -178,4 +177,16 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+#modalAudio {
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+#modalAudioBody {
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center !important;
 }

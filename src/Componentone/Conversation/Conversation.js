@@ -256,11 +256,11 @@ const Conversation = (props) => {
                         onClick={setModalFileToShow}>
                         <img className='button-image' src="/images/attach.jpg"></img></button>
                     {/*Record Audio Modal*/}
-                    <Modal show={showAudioModal} centered onHide={() => setShowAudioModal(false)}>
+                    <Modal show={showAudioModal} centered onHide={() => setShowAudioModal(false)} id="modalAudio">
                         <Modal.Header closeButton>
                             <Modal.Title>Recording...</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body><button className='stop-button' onClick={stopRecord}><img src='/images/stop-button.png' className='stop-button-image'>
+                        <Modal.Body id="modalAudioBody"><button className='stop-button' onClick={stopRecord}><img src='/images/stop-button.png' className='stop-button-image'>
                         </img></button></Modal.Body>
                     </Modal>
 
