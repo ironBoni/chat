@@ -34,10 +34,15 @@ export default function MessageField(props) {
                     {content}
                 </div>
             </div>
-            <Modal show={showImageModal} centered onHide={() => setShowImageModal(false)}>
+            <Modal show={showImageModal} centered onHide={() => setShowImageModal(false)}
+                contentClassName='picture-modal-class' dialogClassName='picture-modal-width'>
                 <Modal.Header closeButton>
                 </Modal.Header>
-                <Modal.Body><img src={props.text} className='big-image'></img></Modal.Body>
+                <Modal.Body>
+                    <div className='centered-div'>
+                        <img src={props.text} className='big-image-field'></img>
+                    </div>
+                </Modal.Body>
             </Modal>
         </div>
     )

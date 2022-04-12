@@ -11,12 +11,17 @@ const Conversation = (props) => {
     const [msgList, setMsgList] = useState([]);
     var audioPieces = [];
     var navigatePages = useNavigate();
+    var userStream;
     const [showAudioModal, setShowAudioModal] = useState(false);
     const [showFileModal, setShowFileModal] = useState(false);
     var isRecordActive = false;
     const [sTop, setSTop] = useState(0)
     const [voiceRecorder, setVoiceRecorder] = useState(null);
     const [audioUrl, setAudioUrl] = useState('');
+    const [videoSrcObject, setVideoSrcObject] = useState(false);
+    const [hasPermissionToCamera, setHasPermissionToCamera] = useState(false);
+
+    const [showPictureModal, setShowPictureModal] = useState(false);
 
     const updateScroll = () => {
         var chat = document.getElementById('chat');
@@ -161,6 +166,32 @@ const Conversation = (props) => {
         voiceRecorder.stop();
     }
 
+    var makeShowPictueModal = (e) => {
+        setShowPictureModal(true);
+        setHasPermissionToCamera(true);
+        try {
+            navigator.mediaDevices.getUserMedia(
+                { audio: false, video: true }).then(camStream => {
+                    userStream = camStream;
+                    var video = document.getElementById('userCameraVideo');
+                    video.srcObject = camStream;
+                });
+        } catch (e) {
+            console.log(e.toString());
+        }
+    }
+
+    var takeUserPicture = (e) => {
+        var canvas = document.getElementById('image-canvas');
+        var video = document.getElementById('userCameraVideo');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+        let imageTaken = canvas.toDataURL('image/png');
+        addImageToDB(imageTaken);
+        setShowPictureModal(false);
+    }
+
     var uploadClicked = (e) => {
         setShowFileModal(false);
         uploadFile(e);
@@ -227,6 +258,36 @@ const Conversation = (props) => {
         }
     }
 
+    const addImageToDB = (imageTaken) => {
+        const newMessages = [...msgList];
+        var message, msgListInDb;
+        // get last message
+        chats.forEach(chatData => {
+            chatData.participicants.forEach(participicant => {
+                if (participicant == chosenChat.username && chatData.participicants.includes(myUsername)) {
+                    message = Math.max.apply(Math, chatData.messages.map((msg => {
+                        msgListInDb = chatData.messages;
+                        return msg.id;
+                    })));
+                    return;
+                }
+            })
+        });
+
+        var newMsg = {
+            id: message.id + 1,
+            type: 'image',
+            text: imageTaken,
+            senderUsername: myUsername,
+            writtenIn: new Date(),
+        };
+
+        newMessages.push(newMsg);
+        msgListInDb.push(newMsg)
+        setMsgList(newMessages);
+        updateScroll();
+    };
+
     return (
         <div className="col-9">
             <div className='conversation-container'>
@@ -249,6 +310,31 @@ const Conversation = (props) => {
             </div>
             <div className='chat-box'>
                 <div className='search-container'>
+                    {/*Take a picture*/}
+                    <button className='click-button'
+                        onClick={makeShowPictueModal}>
+                        <img className='button-image' src="/images/take-photo.png"></img></button>
+                    {/*Take Picture Modal*/}
+                    <Modal show={showPictureModal} centered onHide={() => setShowPictureModal(false)} id="modalPicture"
+                        contentClassName='picture-modal-class' dialogClassName='picture-modal-width'>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Take a picture...</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body id="modalPictureBody">
+                            <div className='take-picture'>
+                                <div className='centered-div'>
+                                    <video id="userCameraVideo" className='user-camera-open centered-div' autoPlay></video>
+                                </div>
+                                <div className='bottom-div'>
+                                    <button className='picture-button' onClick={takeUserPicture}>
+                                        <img src='/images/take-photo.png'
+                                            className='picture-button-image centered-div'>
+                                        </img></button>
+                                </div>
+                            </div>
+                        </Modal.Body>
+                    </Modal>
+
                     <button className='click-button'
                         onClick={startRecord}>
                         <img className='button-image' src="/images/record.png"></img></button>
@@ -284,6 +370,7 @@ const Conversation = (props) => {
                     <button className='click-button' onClick={onSend}><img src='/images/send.png' className='button-image'></img></button>
                 </div>
             </div>
+            <canvas id="image-canvas"></canvas>
         </div>
     )
 }
