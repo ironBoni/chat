@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import './Contact.css';
+import './LightContact.css';
 import { chats } from "../../Data/data";
 
-const Contact = (props) => {
+const LightContact = (props) => {
     const { userInfo, setChosenChat } = props;
     const [lastMsg, setLastMsg] = useState('');
     const [lastMsgTime, setLastMsgTime] = useState('');
@@ -37,11 +37,10 @@ const Contact = (props) => {
             <img className='profile-image' src={userInfo.profileImage}></img>
             <div className='text'>
                 <h6 className='contact-name'>{userInfo.nickname}</h6>
-                <p className='contact-message'>{lastMsg}</p>
+                <p className='contact-message'>username: {userInfo.username}</p>
             </div>
-            <span className='time small float-right'>{lastMsgTime}</span>
         </div>
     )
 }
 
-export default Contact;
+export default LightContact;
