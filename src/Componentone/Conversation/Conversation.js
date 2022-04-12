@@ -40,7 +40,7 @@ const Conversation = (props) => {
                 return;
             };
         })
-        setTimeout(updateScroll, 500);
+        setTimeout(updateScroll, 250);
     });
 
     const sendMessage = () => {
@@ -65,7 +65,7 @@ const Conversation = (props) => {
                 }
             })
         });
-        
+
         var newMsg = {
             id: message.id + 1,
             type: "text",
