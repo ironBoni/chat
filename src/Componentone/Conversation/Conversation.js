@@ -14,7 +14,7 @@ const Conversation = (props) => {
     const messageBottom = useRef(null);
     var isRecordActive = false;
     const [sTop, setSTop] = useState(0)
-    const [voiceRecorder, setVoiceRecorder] = useState(null); 
+    const [voiceRecorder, setVoiceRecorder] = useState(null);
     const [audioUrl, setAudioUrl] = useState('');
 
     const updateScroll = () => {
@@ -48,18 +48,24 @@ const Conversation = (props) => {
         var message;
         var msgListInDb;
         // get last message
+        console.log(chats);
         chats.forEach(chatData => {
+            console.log(chatData);
             chatData.participicants.forEach(participicant => {
-                if (participicant == chosenChat.username && chatData.participicants.includes(myUsername)) {
+                console.log(participicant);
+                console.log(participicant === chosenChat.username);
+                console.log(chatData.participicants.includes(myUsername));
+                console.log(chatData);
+                if (participicant === chosenChat.username && chatData.participicants.includes(myUsername)) {
+                    msgListInDb = chatData.messages;
                     message = Math.max.apply(Math, chatData.messages.map((msg => {
-                        msgListInDb = chatData.messages;
                         return msg.id;
                     })));
                     return;
                 }
             })
         });
-
+        
         var newMsg = {
             id: message.id + 1,
             type: "text",

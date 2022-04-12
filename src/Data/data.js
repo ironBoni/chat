@@ -45,7 +45,7 @@ export const chats = [
                 senderUsername: "ron",
                 writtenIn: new Date(2022, 4, 8, 10, 30)
             }
-        ]
+            ]
     },
     {
         chatId: 2,
@@ -757,6 +757,30 @@ export const users = [
         nickname: 'Shlomo Levin',
         password: 'Np1234',
         profileImage: "/profile/shlomo.png"
+    },
+    {
+        username: 'yaniv',
+        nickname: 'Yaniv Hoffman',
+        password: 'Np1234',
+        profileImage: "/profile/yaniv.png"
+    },
+    {
+        username: 'oren',
+        nickname: 'Oren Orbach',
+        password: 'Np1234',
+        profileImage: "/profile/oren.webp"
+    },
+    {
+        username: 'yuval',
+        nickname: 'Yuval Baruchi',
+        password: 'Np1234',
+        profileImage: "/profile/yuval.png"
+    },
+    {
+        username: 'ran',
+        nickname: 'Ran Levi',
+        password: 'Np1234',
+        profileImage: "/profile/ran.webp"
     }
 ]
 

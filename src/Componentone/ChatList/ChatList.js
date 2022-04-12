@@ -3,7 +3,7 @@ import './ChatList.css';
 import Contact from '../Contact/Contact'
 import { users, chats } from '../../Data/data'
 import { Modal } from 'react-bootstrap';
-import LightContact from '../LightContact/LightContact' 
+import LightContact from '../LightContact/LightContact'
 const ChatList = (props) => {
     var username = localStorage.getItem('username');
     var newContacts = [];
@@ -16,6 +16,8 @@ const ChatList = (props) => {
         }
     })
 
+
+    const [usersList, setUsersList] = useState(users);
     const [contanctsLst, setContactLst] = useState(newContacts);
     const [userImage, setUserImage] = useState('');
     const [nickName, setNickname] = useState('');
@@ -29,6 +31,7 @@ const ChatList = (props) => {
         setUserImage(userData.profileImage);
         setNickname(userData.nickname);
     })
+
     return (
         <div className='col-3 border-right'>
             <div className='settings-tray'>
@@ -57,9 +60,19 @@ const ChatList = (props) => {
                                 Please choose user to add:
                             </Modal.Header>
                             <Modal.Body>{
-                                contanctsLst.map((user, key) => {
-                                    if (user.username != localStorage.getItem('username'))
-                                        return <LightContact userInfo={user} setChosenChat={props.setChosenChat} key={key} />
+                                usersList.map((user, key) => {
+                                    if (user.username != username) {
+                                        var isFriendOfHim = false;
+                                        for (const chatData of chats) {
+                                            if (chatData.participicants.includes(user.username) &&
+                                                chatData.participicants.includes(username))
+                                                isFriendOfHim = true;
+                                        }
+                                        if (!isFriendOfHim)
+                                            return <LightContact userInfo={user} setChosenChat={props.setChosenChat} key={key}
+                                                    setContactList = {setContactLst} contactsList = {contanctsLst}
+                                                    setShowModal = {setShowAddModal}/>
+                                    }
                                 })
                             }</Modal.Body>
                         </Modal>
