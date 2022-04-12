@@ -31,11 +31,6 @@
   cursor: pointer;
 }
 
-.search-box {
-  background: #fafafa;
-  padding: 10px 13px;
-}
-
 .search-container {
   background: #fff;
   border-radius: 40px;
@@ -73,6 +68,7 @@ input:focus {
 .search-box {
   background: #f2f2f2;
   padding: 8px;
+  display: none;
 }
 
 .search-container {

@@ -26,6 +26,11 @@ Login:
 8. To logout - click on the top-right button.
 
 10. To add a contact click on the icon - man-with-plus (left-top, under the profile image)
+    You can add one of the following usernames:
+    a. ran
+    b. yaniv
+    c. yuval
+    d. oren
 
 11. To register, logout (step 8), 
     Click on Register in the home page,

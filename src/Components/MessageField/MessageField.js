@@ -11,7 +11,7 @@ export default function MessageField(props) {
         content = props.text
 
     else if (props.type === "audio") {
-        content = (<audio controls src={props.text} />)
+        content = (<audio className='audio' controls src={props.text} />)
     }
     else if (props.type == "image") {
         content = (<button className='click-button' onClick={() => setShowImageModal(true)}>
