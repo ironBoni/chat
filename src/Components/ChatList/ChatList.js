@@ -6,21 +6,22 @@ import { Modal } from 'react-bootstrap';
 
 const ChatList = (props) => {
     var username = localStorage.getItem('username');
-    var newContacts = [];
+    var myContacts = [];
     // goes over the chat and find the contacts he talked with.
     chats.forEach(chat => {
         if (chat.participicants.includes(username)) {
             let contactUser = chat.participicants.filter(p => p !== username)[0];
             let contactData = users.filter((user) => user.username === contactUser)[0];
-            newContacts.push(contactData)
+            myContacts.push(contactData)
         }
     })
 
     const [usersList, setUsersList] = useState(users);
-    const [contactsLst, setContactsLst] = useState(newContacts);
+    const [contactsLst, setContactsLst] = useState(myContacts);
     const [userImage, setUserImage] = useState('');
     const [nickName, setNickname] = useState('');
     const [showImageModal, setShowImageModal] = useState(false);
+    const [errorAddUser, setErrorAddUser] = useState('')
     const [showAddModal, setShowAddModal] = useState(false);
 
     useEffect(() => {
@@ -47,8 +48,24 @@ const ChatList = (props) => {
         var textBox = document.getElementById('contact-user');
         if (!textBox)
             return;
-
         var usernameToAdd = textBox.value;
+
+        // then check if username is already in the contacts list
+        // setErrorAddUser('Username is already your contact.') and return.
+        for (const user of myContacts) {
+            if(user.username === usernameToAdd) {
+                setErrorAddUser('Username is already in your contacts list.')
+                return;
+            }
+        }
+
+        // first check if username exists, if not - update errorAddUser
+        // setErrorAddUser('Username doesn't exist.') and return.
+        if (users.filter(user => user.username === usernameToAdd).length === 0) {
+            setErrorAddUser('Username does not exist.')
+            return;
+        }
+
         chats.push({
             chatId: Math.floor(1000 * Math.random() + 200),
             participicants: [usernameToAdd, username],
@@ -88,8 +105,11 @@ const ChatList = (props) => {
                                 Please enter username to add:
                             </Modal.Header>
                             <Modal.Body>{
-                                <input type="text" placeholder='Enter a username'
-                                    className="form-control" id="contact-user" />
+                                <div>
+                                    <input type="text" placeholder='Enter a username'
+                                        className="form-control" id="contact-user" />
+                                    <div className='error-add-user' id='errorAddingUser'>{errorAddUser}</div>
+                                </div>
                             }</Modal.Body>
                             <Modal.Footer>
                                 <button className='btn btn-primary' onClick={addUserAsFriend}>Add Contact</button>

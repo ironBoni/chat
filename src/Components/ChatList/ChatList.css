@@ -108,3 +108,8 @@ input:focus {
 .header {
   font-weight: 19vh;
 }
+
+.error-add-user {
+  color: red;
+  font-weight: 19vh;  
+}
