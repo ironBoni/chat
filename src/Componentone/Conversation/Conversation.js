@@ -237,7 +237,7 @@ const Conversation = (props) => {
             <div className='conversation-container'>
                 <div className='user-title'>
                     <UserImage src={chosenChat.profileImage} headOf={chosenChat.nickname} />
-                    {chosenChat.nickname}
+                    <div className='user-nickname'>{chosenChat.nickname}</div>
                 </div>
                 <div className='message-container' id="chat" ref={messageBottom} scolltop={sTop}>
                     {msgList?.map((msg, key) => (
