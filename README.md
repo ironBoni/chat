@@ -1,3 +1,9 @@
+out names and ID numbers are in "outNames.txt" in this directory.
+
+Packages in use:
+  a. react-router-dom.
+  b. react-bootstrap.
+
 1. in CMD in path of the project,
   run : "npm install", and then: "npm start".
 
