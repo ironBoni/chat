@@ -169,13 +169,16 @@ const Conversation = (props) => {
     var makeShowPictueModal = (e) => {
         setShowPictureModal(true);
         setHasPermissionToCamera(true);
+        var s;
         try {
             navigator.mediaDevices.getUserMedia(
                 { audio: false, video: true }).then(camStream => {
-                    userStream = camStream;
+                    s = camStream;
+                    window.userStream = camStream;
                     var video = document.getElementById('userCameraVideo');
                     video.srcObject = camStream;
                 });
+
         } catch (e) {
             console.log(e.toString());
         }
@@ -190,6 +193,15 @@ const Conversation = (props) => {
         let imageTaken = canvas.toDataURL('image/png');
         addImageToDB(imageTaken);
         setShowPictureModal(false);
+        video.pause();
+        window.userStream.getVideoTracks().forEach(t => {
+            try {
+                t.stop()
+            }
+            catch {
+                t.enabled = false;
+            }
+        });
     }
 
     var uploadClicked = (e) => {
