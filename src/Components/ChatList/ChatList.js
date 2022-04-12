@@ -78,7 +78,7 @@ const ChatList = (props) => {
     };
 
     return (
-        <div className='col-3 border-right'>
+        <div className='col-3 border-right contact-list flex-grow-1' >
             <div className='settings-tray'>
                 <button className='click-button' onClick={() => setShowImageModal(true)}>
                     <img className='user-image' src={userImage}></img></button>
@@ -131,7 +131,7 @@ const ChatList = (props) => {
                 </div>
             </div>
 
-            <div className='contact-list flex-grow-1'>
+            <div>
                 {
                     contactsLst.map((user, key) => {
                         if (user.username != localStorage.getItem('username'))
