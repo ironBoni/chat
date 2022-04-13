@@ -795,7 +795,7 @@ export const video_extensions = [
 ]
 
 export const image_extensions = [
-    'emf', "wmf", "jpg", "jpeg", "jfif",
+    'emf', "wmf", "jpg", "jpeg", "jfif", "webp",
     "jpe", "png", "bmp", "dib", "rle", "gif",
     "emz", "wmz", "tif", "tiff", "svg", "ico"
 ]
