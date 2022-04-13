@@ -220,6 +220,7 @@
 
 .user-camera-open {
    max-height: 60vh; 
+   min-height: 60vh; 
 }
 
 #image-canvas {

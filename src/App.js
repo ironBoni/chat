@@ -9,8 +9,8 @@ import SignInPage from './Components/SignInPage/SignInPage';
 function App() {
   return (<BrowserRouter>
     <Routes>
-      <Route path="/signin" element={<SignInPage/>} />
-      <Route path="/" element={<Chat />} />
+      <Route path="/" element={<SignInPage/>} />
+      <Route path="/chat" element={<Chat />} />
     </Routes>
   </BrowserRouter>);
 }
