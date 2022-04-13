@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import './MessageField.css'
 import { Modal } from 'react-bootstrap';
 
 export default function MessageField(props) {
     var myUsername = localStorage.getItem('username');
     const [showImageModal, setShowImageModal] = useState(false);
-
+    const audioRef = useRef()
     var content;
     if (props.type === "text")
         content = props.text
@@ -30,9 +30,15 @@ export default function MessageField(props) {
     return (
         <div>
             <div className={props.senderUsername === myUsername ? 'message-div' : 'message-div-end'}>
-                <div id="main-div" className={props.senderUsername === myUsername ? 'message' : 'message-not-mine'}>
-                    {content}
-                </div>
+                {props.type != 'audio' ?
+                    <div id="main-div" className={props.senderUsername === myUsername ? 'message' : 'message-not-mine'}>
+                        {content}
+                    </div>
+                    : (
+                        <div id="main-div" className={props.senderUsername === myUsername ? 'message-audio' : 'message-not-mine-audio'}>
+                            <audio ref={audioRef} className='audio' controls src={props.text} />
+                        </div>
+                    )}
             </div>
             <Modal show={showImageModal} centered onHide={() => setShowImageModal(false)}
                 contentClassName='picture-modal-class' dialogClassName='picture-modal-width'>

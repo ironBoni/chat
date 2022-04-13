@@ -300,7 +300,7 @@ const Conversation = (props) => {
     };
 
     return (
-        <div className="col-9">
+        <div className="col-9 conversation">
             <div className='conversation-container'>
                 <div className='user-title'>
                     <UserImage src={chosenChat.profileImage} headOf={chosenChat.nickname} />
