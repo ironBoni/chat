@@ -12,6 +12,10 @@ const Contact = (props) => {
         updateLastMessage();
     });
 
+    useEffect(() => {
+        updateLastMessage();
+    }, [props.notifyMessageSent]);
+
     var updateLastMessage = () => {
         chats.forEach(chatData => {
             chatData.participicants.forEach(participicant => {
@@ -28,6 +32,7 @@ const Contact = (props) => {
 
                     if (message == undefined)
                         return;
+
                     setLastMsg(message.text);
                     setLastMsgTime(message.writtenIn.toLocaleDateString() + " " +
                         message.writtenIn.toLocaleTimeString().substring(0, 5));
