@@ -96,9 +96,17 @@ input:focus {
   border: none;
 }
 
+.left-bar {
+  overflow-y: scroll;
+  max-height: 90vh !important;
+  min-height: 90vh;
+  min-width: 15vh;
+}
+
 .contact-list {
   overflow-y: scroll;
-  max-height: 80.9vh !important;
+  max-height: 85vh !important;
+  min-height: 85vh;
 }
 
 .header {

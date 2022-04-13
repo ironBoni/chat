@@ -80,7 +80,7 @@ const ChatList = (props) => {
     };
 
     return (
-        <div className='col-3 border-right'>
+        <div className='col-3 border-right left-bar'>
             <div className='settings-tray'>
                 <button className='click-button' onClick={() => setShowImageModal(true)}>
                     <img className='user-image' src={userImage}></img></button>

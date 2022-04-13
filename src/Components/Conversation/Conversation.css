@@ -241,6 +241,10 @@
     float: right;
 }
 
+.conversation {
+    max-width: 75.2vw;
+}
+
 .image-logout {
     width: 6vh;
     height: 6vh;

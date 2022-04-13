@@ -110,3 +110,19 @@
     font-weight: bold;
     font-size:1.6vh;
 }
+
+.message-audio {
+    background: #cbe7bc;
+    padding: 7px 9px;
+    border-radius: 3px;
+    color: #202020;
+    font-size:14.5px;
+}
+
+.message-not-mine-audio {
+    background: #ffffff;
+    padding: 7px 9px;
+    border-radius: 3px;
+    color: #202020;
+    font-size:14.5px;
+}

@@ -10,7 +10,7 @@ const Chat = () => {
     const [chosenChat, setChosenChat] = useState();
     return (
         <div className="container-fluid">
-            <div className='row no-gutters rounded-lg shadow'>
+            <div className='row no-gutters rounded-lg shadow main'>
                 <ChatList setChosenChat={setChosenChat} notifyMessageSent={notifyMessageSent}
                     setNotifyMessageSent={setNotifyMessageSent} />
                 {chosenChat ?
