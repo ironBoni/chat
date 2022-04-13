@@ -14,11 +14,29 @@ const useForm = (submitForm, validate) => {
 
   const handleChange = e => {
     const { name, value } = e.target;
-    setValues({
-      ...values,
-      [name]: value
-    });
+    if(name=="image-upload"){
+      upImge(e)
+    }else{
+      setValues({
+        ...values,
+        [name]: value
+      });
+    }
+    
   };
+  const upImge =(e)=>{
+    let file = e.target.files[0];
+   
+    var fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+
+    fileReader.onload =() => {
+      var profileBase64 = fileReader.result;
+
+      values.profileImage=profileBase64
+
+    };
+  }
 
   const handleSubmit = e => {
     e.preventDefault();

@@ -8,15 +8,7 @@ const RegisterInForm = ({ submitForm }) => {
   const { handleChange, values, handleSubmit, errors } = useForm(submitForm, validate)
 
 
-  const handleImage = (event) => {
-    var input = document.getElementById('chooser')
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(input.files[0])
-    fileReader.onload = (event) => {
-      var fileSrc = event.target.result;
-      values.profileImage = fileSrc
-    }
-  }
+  
   return (
     <form id="Register" className="input-form" name="Register" onSubmit={handleSubmit}>
       <input type="text"
@@ -54,7 +46,7 @@ const RegisterInForm = ({ submitForm }) => {
       ></input>
       {<p className="error" >{errors.confPassword}</p>}
 
-      <input type="file" id="chooser" name="image-upload" onInput={handleImage}></input>
+      <input type="file" id="chooser" name="image-upload" onInput={handleChange}></input>
 
       <button type="submit" className="submit-btn">Register</button>
     </form>
