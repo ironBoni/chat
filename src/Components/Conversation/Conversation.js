@@ -58,16 +58,14 @@ const Conversation = (props) => {
             chatData.participicants.forEach(participicant => {
                 if (participicant === chosenChat.username && chatData.participicants.includes(myUsername)) {
                     msgListInDb = chatData.messages;
-                    message = Math.max.apply(Math, chatData.messages.map((msg => {
-                        return msg.id;
-                    })));
                     return;
                 }
             })
         });
 
+    
         var newMsg = {
-            id: message.id + 1,
+            id: Math.floor(1000 * Math.random() + 200),
             type: "text",
             text: msg,
             senderUsername: myUsername,
@@ -79,6 +77,7 @@ const Conversation = (props) => {
         setMsgList(newMessages);
         setMsg("");
         updateScroll();
+        props.setNotifyMessageSent(props.notifyMessageSent + 1);
     };
 
     const onSend = (e) => {

@@ -26,8 +26,10 @@ const ChatList = (props) => {
 
     useEffect(() => {
         var username = localStorage.getItem('username');
+        if(!username) 
+            username = 'noam';
         var userData = users.filter((user) => user.username === username)[0];
-
+        
         setUserImage(userData.profileImage);
         setNickname(userData.nickname);
     })
@@ -135,7 +137,9 @@ const ChatList = (props) => {
                 {
                     contactsLst.map((user, key) => {
                         if (user.username != localStorage.getItem('username'))
-                            return <Contact userInfo={user} setChosenChat={props.setChosenChat} key={key} />
+                            return <Contact userInfo={user} setChosenChat={props.setChosenChat} key={key} 
+                            notifyMessageSent={props.notifyMessageSent}
+                            setNotifyMessageSent={props.setNotifyMessageSent}/>
                     })
                 }
             </div>
