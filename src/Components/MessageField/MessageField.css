@@ -47,10 +47,13 @@
 
 
 .big-image-field {
+    display: flex;
+    justify-content: center;
+    text-align: center;
     width: auto;
     height: auto;
     max-width: 90vw;
-    max-height: 90vh;
+    max-height: 75vh;
 }
 
 .message-not-mine {

@@ -77,7 +77,7 @@ const Conversation = (props) => {
         setMsgList(newMessages);
         setMsg("");
         updateScroll();
-        props.setNotifyMessageSent(props.notifyMessageSent + 1);
+        //props.setNotifyMessageSent(props.notifyMessageSent + 1);
     };
 
     const onSend = (e) => {
@@ -209,7 +209,7 @@ const Conversation = (props) => {
     }
 
     var getTypeByFileName = (fileName) => {
-        var suffix = fileName.split('.')[1];
+        var suffix = fileName.split('.')[1].toLowerCase();
         if (audio_extensions.includes(suffix)) {
             return "audio";
         }
