@@ -50,34 +50,37 @@ const Conversation = (props) => {
     });
 
     const sendMessage = () => {
-        const newMessages = [...msgList];
-        var message;
-        var msgListInDb;
-        // get last message
-        chats.forEach(chatData => {
-            chatData.participicants.forEach(participicant => {
-                if (participicant === chosenChat.username && chatData.participicants.includes(myUsername)) {
-                    msgListInDb = chatData.messages;
-                    return;
-                }
-            })
-        });
-
+        if(msg){
+            const newMessages = [...msgList];
+            var message;
+            var msgListInDb;
+            // get last message
+            chats.forEach(chatData => {
+                chatData.participicants.forEach(participicant => {
+                    if (participicant === chosenChat.username && chatData.participicants.includes(myUsername)) {
+                        msgListInDb = chatData.messages;
+                        return;
+                    }
+                })
+            });
     
-        var newMsg = {
-            id: Math.floor(1000 * Math.random() + 200),
-            type: "text",
-            text: msg,
-            senderUsername: myUsername,
-            writtenIn: new Date()
-        };
-
-        newMessages.push(newMsg);
-        msgListInDb.push(newMsg)
-        setMsgList(newMessages);
-        setMsg("");
-        updateScroll();
-        //props.setNotifyMessageSent(props.notifyMessageSent + 1);
+        
+            var newMsg = {
+                id: Math.floor(1000 * Math.random() + 200),
+                type: "text",
+                text: msg,
+                senderUsername: myUsername,
+                writtenIn: new Date()
+            };
+            
+            newMessages.push(newMsg);
+            msgListInDb.push(newMsg)
+            setMsgList(newMessages);
+            setMsg("");
+            updateScroll();
+            //props.setNotifyMessageSent(props.notifyMessageSent + 1);
+        }
+        
     };
 
     const onSend = (e) => {
