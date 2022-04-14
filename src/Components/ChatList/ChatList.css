@@ -3,7 +3,17 @@
   height: 50px;
   border-radius: 40px;
 }
+.chatList-container {
+  flex: 3 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: inherit !important;
+  background: #f3f3f6;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
 
+}
 .settings-tray {
   background: #eee;
   padding: 10px 15px;
@@ -98,6 +108,8 @@ input:focus {
 
 .left-bar {
   overflow-y: scroll;
+  /* overflow-x: hidden; */
+  
   max-height: 90vh !important;
   /* min-height: 90vh; */
   min-width: 15vh;
@@ -115,4 +127,20 @@ input:focus {
 }
 .col-3{
   height: inherit;
+}
+::-webkit-scrollbar {
+  width: 2vh;
+}
+
+::-webkit-scrollbar-track {
+  width: 2vh;
+  background: #979595;
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 5em;
+  background-color: rgb(63, 100, 170);
+  outline: 2px solid rgb(17, 10, 85);
+  border-radius: 1rem;
 }
