@@ -318,8 +318,7 @@ const Conversation = (props) => {
                         </MessageField>
                     ))}
                 </div>
-            </div>
-            <div className='chat-box'>
+                <div className='chat-box'>
                 <div className='search-container'>
                     {/*Take a picture*/}
                     <button className='click-button'
@@ -382,6 +381,8 @@ const Conversation = (props) => {
                 </div>
             </div>
             <canvas id="image-canvas"></canvas>
+            </div>
+        
         </div>
     )
 }
