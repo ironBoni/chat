@@ -14,7 +14,7 @@ const useForm = (submitForm, validate) => {
 
   const handleChange = e => {
     const { name, value } = e.target;
-    if (name == "image-upload") {
+    if (name === "image-upload") {
       upImge(e)
     } else {
       setValues({
