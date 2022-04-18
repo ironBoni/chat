@@ -149,7 +149,6 @@ const Conversation = (props) => {
                     var newPieces = [...audioPieces];
                     newPieces.push(event.data);
                     audioPieces = newPieces;
-                    updateAudioInGuiMessages();
                 }
 
                 audioRecorder.onstop = updateAudioInGuiMessages;
