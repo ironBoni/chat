@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import MessageField from '../MessageField/MessageField';
 import UserImage from '../UserImage/UserImage';
 import './Conversation.css';
-import { chats, video_extensions, audio_extensions, image_extensions } from '../../Data/data';
-import { Modal } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import {chats, video_extensions, audio_extensions, image_extensions} from '../../Data/data';
+import {Modal} from 'react-bootstrap';
+import {useNavigate} from 'react-router-dom';
 
 const Conversation = (props) => {
     const [msg, setMsg] = useState("");
@@ -13,9 +13,15 @@ const Conversation = (props) => {
     var navigatePages = useNavigate();
     const [showAudioModal, setShowAudioModal] = useState(false);
     const [showFileModal, setShowFileModal] = useState(false);
-    var isRecordActive = false;
     const [sTop, setSTop] = useState(0)
-    const [voiceRecorder, setVoiceRecorder] = useState(null);
+    const [stream, setStream] = useState({
+        hasAccessToMic: false, voiceRecorder: null
+    });
+
+    const [recordInfo, setRecordInfo] = useState({
+        isRecording: false,  canRecord: false, url: ""
+    });
+    var recorder;
 
     const [showPictureModal, setShowPictureModal] = useState(false);
 
@@ -25,7 +31,7 @@ const Conversation = (props) => {
         setSTop(2000);
     }
 
-    const { chosenChat } = props;
+    const {chosenChat} = props;
     var myUsername = localStorage.getItem('username');
     var canAddRecord = false;
 
@@ -40,7 +46,8 @@ const Conversation = (props) => {
             }
             if (shouldBreak) {
                 return;
-            };
+            }
+            ;
         })
         setTimeout(updateScroll, 250);
     });
@@ -89,7 +96,12 @@ const Conversation = (props) => {
     }
 
     var updateAudioInGuiMessages = function () {
-        const audioUrl = URL.createObjectURL(new Blob(audioPieces, { 'type': 'audio/webm' }));
+        const audioUrl = URL.createObjectURL(new Blob(audioPieces, {'type': 'audio/webm'}));
+        setRecordInfo({
+            isRecording: false,
+            canRecord: true,
+            url: audioUrl
+        });
 
         isRecordActive = false;
 
@@ -118,7 +130,6 @@ const Conversation = (props) => {
             writtenIn: new Date()
         };
 
-
         if ((msgListInDb.filter(msg => msg.text === newMsg.text).length === 0)
             && canAddRecord) {
             newMessages.push(newMsg);
@@ -133,23 +144,29 @@ const Conversation = (props) => {
     }
 
     const startRecord = (e) => {
-        if (!isRecordActive) {
+        if (!recordInfo.isRecording) {
             audioPieces = [];
             setShowAudioModal(true);
-            navigator.mediaDevices.getUserMedia({ audio: true }).then((m) => {
+            navigator.mediaDevices.getUserMedia({audio: true}).then((m) => {
+                window.mStream = m;
                 try {
                     var audioRecorder = new MediaRecorder(m, {
                         mimeType: "audio/webm"
                     });
-                    setVoiceRecorder(audioRecorder);
+                    setStream({
+                        ...stream,
+                        hasAccessToMic: true,
+                        voiceRecorder: audioRecorder
+                    });
                     audioRecorder.start();
-                } catch (e) {
+                } catch (error) {
                 }
                 canAddRecord = true;
                 audioRecorder.ondataavailable = function (event) {
                     var newPieces = [...audioPieces];
                     newPieces.push(event.data);
                     audioPieces = newPieces;
+                    updateAudioInGuiMessages();
                 }
 
                 audioRecorder.onstop = updateAudioInGuiMessages;
@@ -159,18 +176,21 @@ const Conversation = (props) => {
 
     const stopRecord = (e) => {
         setShowAudioModal(false);
-        voiceRecorder.stop();
+        stream.voiceRecorder.stop();
+        window.mStream.getTracks().forEach(t => {
+            t.stop();
+        });
     }
 
     var makeShowPictueModal = (e) => {
         setShowPictureModal(true);
         try {
             navigator.mediaDevices.getUserMedia(
-                { audio: false, video: true }).then(camStream => {
-                    window.userStream = camStream;
-                    var video = document.getElementById('userCameraVideo');
-                    video.srcObject = camStream;
-                });
+                {audio: false, video: true}).then(camStream => {
+                window.userStream = camStream;
+                var video = document.getElementById('userCameraVideo');
+                video.srcObject = camStream;
+            });
 
         } catch (e) {
             console.log(e.toString());
@@ -190,8 +210,7 @@ const Conversation = (props) => {
         window.userStream.getVideoTracks().forEach(t => {
             try {
                 t.stop()
-            }
-            catch {
+            } catch {
                 t.enabled = false;
             }
         });
@@ -289,13 +308,13 @@ const Conversation = (props) => {
     };
 
     return (
-        <div className="col-8 conversation">
+        <div className="col-9 conversation">
             <div className='conversation-container'>
                 <div className='user-title'>
-                    <UserImage src={chosenChat.profileImage} headOf={chosenChat.nickname} />
+                    <UserImage src={chosenChat.profileImage} headOf={chosenChat.nickname}/>
                     <div className='user-nickname'>{chosenChat.nickname}</div>
                     <div className='logout'>
-                        <button className="image-logout-button" onClick={() => navigatePages("/", { replace: true })}>
+                        <button className="image-logout-button" onClick={() => navigatePages("/", {replace: true})}>
                             <img src="/images/logout.png" className="image-logout" alt='logout'></img>
                         </button>
                     </div>
@@ -303,7 +322,7 @@ const Conversation = (props) => {
                 <div className='message-container' id="chat" scolltop={sTop}>
                     {msgList?.map((msg, key) => (
                         <MessageField type={msg.type} text={msg.text} senderUsername={msg.senderUsername} key={key}
-                            fileName={msg.fileName}>
+                                      fileName={msg.fileName}>
                         </MessageField>
                     ))}
                 </div>
@@ -311,23 +330,25 @@ const Conversation = (props) => {
                     <div className='search-container'>
                         {/*Take a picture*/}
                         <button className='click-button'
-                            onClick={makeShowPictueModal}>
+                                onClick={makeShowPictueModal}>
                             <img className='button-image' src="/images/take-photo.png" alt='button'></img></button>
                         {/*Take Picture Modal*/}
-                        <Modal show={showPictureModal} centered onHide={() => setShowPictureModal(false)} id="modalPicture"
-                            contentClassName='picture-modal-class' dialogClassName='picture-modal-width'>
+                        <Modal show={showPictureModal} centered onHide={() => setShowPictureModal(false)}
+                               id="modalPicture"
+                               contentClassName='picture-modal-class' dialogClassName='picture-modal-width'>
                             <Modal.Header closeButton>
                                 <Modal.Title>Take a picture...</Modal.Title>
                             </Modal.Header>
                             <Modal.Body id="modalPictureBody">
                                 <div className='take-picture'>
                                     <div className='centered-div'>
-                                        <video id="userCameraVideo" className='user-camera-open centered-div' autoPlay></video>
+                                        <video id="userCameraVideo" className='user-camera-open centered-div'
+                                               autoPlay></video>
                                     </div>
                                     <div className='bottom-div'>
                                         <button className='picture-button' onClick={takeUserPicture}>
                                             <img src='/images/take-photo.png' alt='take'
-                                                className='picture-button-image centered-div'>
+                                                 className='picture-button-image centered-div'>
                                             </img></button>
                                     </div>
                                 </div>
@@ -335,23 +356,26 @@ const Conversation = (props) => {
                         </Modal>
 
                         <button className='click-button'
-                            onClick={startRecord}>
+                                onClick={startRecord}>
                             <img className='button-image' src="/images/record.png" alt='button'></img></button>
                         <button className='click-button'
-                            onClick={setModalFileToShow}>
+                                onClick={setModalFileToShow}>
                             <img className='button-image' src="/images/attach.jpg" alt='button'></img></button>
                         {/*Record Audio Modal*/}
                         <Modal show={showAudioModal} centered onHide={() => setShowAudioModal(false)} id="modalAudio">
                             <Modal.Header closeButton>
                                 <Modal.Title>Recording...</Modal.Title>
                             </Modal.Header>
-                            <Modal.Body id="modalAudioBody"><button className='stop-button' onClick={stopRecord}>
-                                <img src='/images/stop-button.png' className='stop-button-image' alt='stop-button'>
-                                </img></button></Modal.Body>
+                            <Modal.Body id="modalAudioBody">
+                                <button className='stop-button' onClick={stopRecord}>
+                                    <img src='/images/stop-button.png' className='stop-button-image' alt='stop-button'>
+                                    </img></button>
+                            </Modal.Body>
                         </Modal>
 
                         {/*Upload File Modal*/}
-                        <Modal show={showFileModal} centered dialogClassName="file-modal" onHide={() => setShowFileModal(false)}>
+                        <Modal show={showFileModal} centered dialogClassName="file-modal"
+                               onHide={() => setShowFileModal(false)}>
                             <Modal.Header closeButton>
                                 <Modal.Title>Upload file</Modal.Title>
                             </Modal.Header>
@@ -365,9 +389,11 @@ const Conversation = (props) => {
                         </Modal>
 
                         <input className='search-textbox' placeholder='Search in chats'
-                            value={msg} onChange={(event) => setMsg(event.target.value)}
-                            onKeyDown={onEnter}></input>
-                        <button className='click-button' onClick={onSend}><img src='/images/send.jpg' className='button-image' alt='button'></img></button>
+                               value={msg} onChange={(event) => setMsg(event.target.value)}
+                               onKeyDown={onEnter}></input>
+                        <button className='click-button' onClick={onSend}><img src='/images/send.jpg'
+                                                                               className='button-image'
+                                                                               alt='button'></img></button>
                     </div>
                 </div>
                 <canvas id="image-canvas"></canvas>
