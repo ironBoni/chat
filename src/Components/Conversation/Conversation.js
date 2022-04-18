@@ -83,8 +83,11 @@ const Conversation = (props) => {
             setMsgList(newMessages);
             setMsg("");
             updateScroll();
-            //props.setNotifyMessageSent(props.notifyMessageSent + 1);
-            
+            props.updateLastProp.current.forEach(userNotifier => {
+                if(userNotifier)
+                    userNotifier();
+            });
+
         }
 
     };
