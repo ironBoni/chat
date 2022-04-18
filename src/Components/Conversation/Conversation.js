@@ -46,7 +46,7 @@ const Conversation = (props) => {
     });
 
     const sendMessage = () => {
-        if(msg){
+        if (msg) {
             const newMessages = [...msgList];
             var msgListInDb;
             // get last message
@@ -58,8 +58,8 @@ const Conversation = (props) => {
                     }
                 })
             });
-    
-        
+
+
             var newMsg = {
                 id: Math.floor(1000 * Math.random() + 200),
                 type: "text",
@@ -67,7 +67,7 @@ const Conversation = (props) => {
                 senderUsername: myUsername,
                 writtenIn: new Date()
             };
-            
+
             newMessages.push(newMsg);
             msgListInDb.push(newMsg)
             setMsgList(newMessages);
@@ -75,7 +75,7 @@ const Conversation = (props) => {
             updateScroll();
             //props.setNotifyMessageSent(props.notifyMessageSent + 1);
         }
-        
+
     };
 
     const onSend = (e) => {
@@ -117,6 +117,7 @@ const Conversation = (props) => {
             senderUsername: myUsername,
             writtenIn: new Date()
         };
+
 
         if ((msgListInDb.filter(msg => msg.text === newMsg.text).length === 0)
             && canAddRecord) {
@@ -307,71 +308,71 @@ const Conversation = (props) => {
                     ))}
                 </div>
                 <div className='chat-box'>
-                <div className='search-container'>
-                    {/*Take a picture*/}
-                    <button className='click-button'
-                        onClick={makeShowPictueModal}>
-                        <img className='button-image' src="/images/take-photo.png" alt='button'></img></button>
-                    {/*Take Picture Modal*/}
-                    <Modal show={showPictureModal} centered onHide={() => setShowPictureModal(false)} id="modalPicture"
-                        contentClassName='picture-modal-class' dialogClassName='picture-modal-width'>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Take a picture...</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body id="modalPictureBody">
-                            <div className='take-picture'>
-                                <div className='centered-div'>
-                                    <video id="userCameraVideo" className='user-camera-open centered-div' autoPlay></video>
+                    <div className='search-container'>
+                        {/*Take a picture*/}
+                        <button className='click-button'
+                            onClick={makeShowPictueModal}>
+                            <img className='button-image' src="/images/take-photo.png" alt='button'></img></button>
+                        {/*Take Picture Modal*/}
+                        <Modal show={showPictureModal} centered onHide={() => setShowPictureModal(false)} id="modalPicture"
+                            contentClassName='picture-modal-class' dialogClassName='picture-modal-width'>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Take a picture...</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body id="modalPictureBody">
+                                <div className='take-picture'>
+                                    <div className='centered-div'>
+                                        <video id="userCameraVideo" className='user-camera-open centered-div' autoPlay></video>
+                                    </div>
+                                    <div className='bottom-div'>
+                                        <button className='picture-button' onClick={takeUserPicture}>
+                                            <img src='/images/take-photo.png' alt='take'
+                                                className='picture-button-image centered-div'>
+                                            </img></button>
+                                    </div>
                                 </div>
-                                <div className='bottom-div'>
-                                    <button className='picture-button' onClick={takeUserPicture}>
-                                        <img src='/images/take-photo.png' alt='take'
-                                            className='picture-button-image centered-div'>
-                                        </img></button>
-                                </div>
-                            </div>
-                        </Modal.Body>
-                    </Modal>
+                            </Modal.Body>
+                        </Modal>
 
-                    <button className='click-button'
-                        onClick={startRecord}>
-                        <img className='button-image' src="/images/record.png"  alt='button'></img></button>
-                    <button className='click-button'
-                        onClick={setModalFileToShow}>
-                        <img className='button-image' src="/images/attach.jpg" alt='button'></img></button>
-                    {/*Record Audio Modal*/}
-                    <Modal show={showAudioModal} centered onHide={() => setShowAudioModal(false)} id="modalAudio">
-                        <Modal.Header closeButton>
-                            <Modal.Title>Recording...</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body id="modalAudioBody"><button className='stop-button' onClick={stopRecord}>
-                        <img src='/images/stop-button.png' className='stop-button-image' alt='stop-button'>
-                        </img></button></Modal.Body>
-                    </Modal>
+                        <button className='click-button'
+                            onClick={startRecord}>
+                            <img className='button-image' src="/images/record.png" alt='button'></img></button>
+                        <button className='click-button'
+                            onClick={setModalFileToShow}>
+                            <img className='button-image' src="/images/attach.jpg" alt='button'></img></button>
+                        {/*Record Audio Modal*/}
+                        <Modal show={showAudioModal} centered onHide={() => setShowAudioModal(false)} id="modalAudio">
+                            <Modal.Header closeButton>
+                                <Modal.Title>Recording...</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body id="modalAudioBody"><button className='stop-button' onClick={stopRecord}>
+                                <img src='/images/stop-button.png' className='stop-button-image' alt='stop-button'>
+                                </img></button></Modal.Body>
+                        </Modal>
 
-                    {/*Upload File Modal*/}
-                    <Modal show={showFileModal} centered dialogClassName="file-modal" onHide={() => setShowFileModal(false)}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Upload file</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            {/*Here the file modal should appear*/}
-                            <input type="file" id="chooser"></input>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <button className='btn btn-primary' onClick={uploadClicked}>Upload</button>
-                        </Modal.Footer>
-                    </Modal>
+                        {/*Upload File Modal*/}
+                        <Modal show={showFileModal} centered dialogClassName="file-modal" onHide={() => setShowFileModal(false)}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Upload file</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                {/*Here the file modal should appear*/}
+                                <input type="file" id="chooser"></input>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <button className='btn btn-primary' onClick={uploadClicked}>Upload</button>
+                            </Modal.Footer>
+                        </Modal>
 
-                    <input className='search-textbox' placeholder='Search in chats'
-                        value={msg} onChange={(event) => setMsg(event.target.value)}
-                        onKeyDown={onEnter}></input>
-                    <button className='click-button' onClick={onSend}><img src='/images/send.png' className='button-image' alt='button'></img></button>
+                        <input className='search-textbox' placeholder='Search in chats'
+                            value={msg} onChange={(event) => setMsg(event.target.value)}
+                            onKeyDown={onEnter}></input>
+                        <button className='click-button' onClick={onSend}><img src='/images/send.jpg' className='button-image' alt='button'></img></button>
+                    </div>
                 </div>
+                <canvas id="image-canvas"></canvas>
             </div>
-            <canvas id="image-canvas"></canvas>
-            </div>
-        
+
         </div>
     )
 }
