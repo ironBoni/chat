@@ -43,7 +43,7 @@ span {
 }
 
 .error {
-	color: crimson;
-	font-size: small;
+	color: rgb(255, 0, 0);
+	/* font-size: small; */
 	margin: 0;
 }
