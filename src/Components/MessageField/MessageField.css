@@ -56,6 +56,9 @@
     max-height: 75vh;
 }
 
+#main-div {
+}
+
 .message-not-mine {
     background: #ffffff;
     padding: 7px 9px;
