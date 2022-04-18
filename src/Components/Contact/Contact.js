@@ -10,10 +10,6 @@ const Contact = (props) => {
 
     useEffect(() => {
         updateLastMessage();
-    });
-
-    useEffect(() => {
-        updateLastMessage();
     }, [props.notifyMessageSent]);
 
     var updateLastMessage = () => {
