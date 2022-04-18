@@ -1,21 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import './Chat.css';
+import { users } from '../../Data/data';
 import ChatList from '../ChatList/ChatList'
 import Conversation from '../Conversation/Conversation'
 import Welcome from '../Welcome/Welcome';
 
 const Chat = () => {
-    const [notifyMessageSent, setNotifyMessageSent] = useState(0);
+    const updateLastArray = useRef(Array(users.length).fill(null));
 
     const [chosenChat, setChosenChat] = useState();
     return (
         <div className="container-fluid">
             <div className='row no-gutters rounded-lg shadow main'>
-                <ChatList setChosenChat={setChosenChat} notifyMessageSent={notifyMessageSent}
-                    setNotifyMessageSent={setNotifyMessageSent} />
+                <ChatList setChosenChat={setChosenChat} updateLastProp = {updateLastArray} />
                 {chosenChat ?
-                    <Conversation chosenChat={chosenChat} notifyMessageSent={notifyMessageSent}
-                        setNotifyMessageSent={setNotifyMessageSent} />
+                    <Conversation chosenChat={chosenChat} updateLastProp = {updateLastArray}/>
                     : <Welcome />}
             </div>
         </div>

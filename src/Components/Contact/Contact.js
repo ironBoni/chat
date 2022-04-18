@@ -3,17 +3,21 @@ import './Contact.css';
 import { chats } from "../../Data/data";
 
 const Contact = (props) => {
-    const { userInfo, setChosenChat } = props;
+    var { userInfo, setChosenChat, updateLastM } = props;
     const [lastMsg, setLastMsg] = useState('');
     const [lastMsgTime, setLastMsgTime] = useState('');
+    const [lastMsgType, setLastMsgType] = useState('text');
+    const [fileName, setFileName] = useState('');
     var myUsername = localStorage.getItem('username');
 
     useEffect(() => {
         updateLastMessage();
-    }, [props.notifyMessageSent]);
-    
+        if (updateLastM && updateLastM.current)
+            updateLastM.current.push(updateLastMessage);
+    });
 
-    function updateLastMessage(){
+
+    function updateLastMessage() {
         chats.forEach(chatData => {
             chatData.participicants.forEach(participicant => {
                 if (participicant === userInfo.username && chatData.participicants.includes(myUsername)) {
@@ -29,24 +33,29 @@ const Contact = (props) => {
 
                     if (message == undefined)
                         return;
-                    console.log(message)
 
                     setLastMsg(message.text);
+                    setLastMsgType(message.type);
+                    setFileName(message.fileName);
                     setLastMsgTime(message.writtenIn.toLocaleDateString() + " " +
                         message.writtenIn.toLocaleTimeString().substring(0, 5));
                     return;
                 }
             })
         })
-    
-}
+
+    }
 
     return (
         <div className='contact' onClick={() => setChosenChat(userInfo)}>
             <img className='profile-image' alt='profile' src={userInfo.profileImage}></img>
             <div className='text'>
                 <h6 className='contact-name'>{userInfo.nickname}</h6>
-                <p className='contact-message'>{lastMsg}</p>
+                <p className='contact-message'>
+                    {lastMsgType === 'text' ? (lastMsg) :
+                        (lastMsgType === 'audio' ? 'record.mp3' :
+                            (lastMsgType === 'video') ? 'video.mp4' :
+                                fileName)}</p>
             </div>
             <span className='time small float-right'>{lastMsgTime}</span>
         </div>
