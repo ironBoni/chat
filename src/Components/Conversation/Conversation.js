@@ -13,7 +13,9 @@ const Conversation = (props) => {
     var navigatePages = useNavigate();
     const [showAudioModal, setShowAudioModal] = useState(false);
     const [showFileModal, setShowFileModal] = useState(false);
+    var isRecordActive = false;
     const [sTop, setSTop] = useState(0)
+    const [voiceRecorder, setVoiceRecorder] = useState(null);
     const [stream, setStream] = useState({
         hasAccessToMic: false, voiceRecorder: null
     });
