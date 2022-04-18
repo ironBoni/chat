@@ -289,7 +289,7 @@ const Conversation = (props) => {
     };
 
     return (
-        <div className="col-9 conversation">
+        <div className="col-8 conversation">
             <div className='conversation-container'>
                 <div className='user-title'>
                     <UserImage src={chosenChat.profileImage} headOf={chosenChat.nickname} />

@@ -97,7 +97,7 @@ input:focus {
 }
 
 .left-bar {
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 90vh !important;
   /* min-height: 90vh; */
   min-width: 15vh;
