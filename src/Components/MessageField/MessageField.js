@@ -13,10 +13,10 @@ export default function MessageField(props) {
     else if (props.type === "audio") {
         content = (<audio className='audio' controls src={props.text} />)
     }
-    else if (props.type == "image") {
+    else if (props.type === "image") {
         content = (<button className='click-button' onClick={() => setShowImageModal(true)}>
             <img src={props.text} className="photo" alt='button'></img></button>)
-    } else if (props.type == "video") {
+    } else if (props.type === "video") {
         content = (<video className="video-message" controls src={props.text}></video>)
     }
     else {

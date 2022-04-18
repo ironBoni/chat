@@ -19,7 +19,7 @@ const Contact = (props) => {
     var updateLastMessage = () => {
         chats.forEach(chatData => {
             chatData.participicants.forEach(participicant => {
-                if (participicant == userInfo.username && chatData.participicants.includes(myUsername)) {
+                if (participicant === userInfo.username && chatData.participicants.includes(myUsername)) {
                     var maxDate = new Date(1970, 1, 1);
                     var message;
 
