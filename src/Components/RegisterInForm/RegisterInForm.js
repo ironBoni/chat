@@ -39,7 +39,7 @@ const RegisterInForm = ({ submitForm }) => {
 
       <input type="password"
         className="input-field"
-        placeholder="Confurm Password"
+        placeholder="Confirm Password"
         name="confPassword"
         value={values.confPassword}
         onChange={handleChange}

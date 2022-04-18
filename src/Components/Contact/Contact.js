@@ -44,7 +44,7 @@ const Contact = (props) => {
 
     return (
         <div className='contact' onClick={() => setChosenChat(userInfo)}>
-            <img className='profile-image' src={userInfo.profileImage}></img>
+            <img className='profile-image' alt='profile' src={userInfo.profileImage}></img>
             <div className='text'>
                 <h6 className='contact-name'>{userInfo.nickname}</h6>
                 <p className='contact-message'>{lastMsg}</p>

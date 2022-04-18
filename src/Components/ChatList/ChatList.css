@@ -7,7 +7,7 @@
 .settings-tray {
   background: #eee;
   padding: 10px 15px;
-  border-radius: 7px;
+  border-top-left-radius: 7px;
 }
 
 .no-gutters {
@@ -97,17 +97,13 @@ input:focus {
 }
 
 .left-bar {
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 90vh !important;
-  min-height: 90vh;
+  /* min-height: 90vh; */
   min-width: 15vh;
+  height: 95vh;
 }
 
-.contact-list {
-  overflow-y: scroll;
-  max-height: 85vh !important;
-  min-height: 85vh;
-}
 
 .header {
   font-weight: 19vh;
@@ -116,4 +112,7 @@ input:focus {
 .error-add-user {
   color: red;
   font-weight: 19vh;  
+}
+.col-3{
+  height: inherit;
 }
