@@ -13,16 +13,16 @@ export default function MessageField(props) {
     else if (props.type === "audio") {
         content = (<audio className='audio' controls src={props.text} />)
     }
-    else if (props.type == "image") {
+    else if (props.type === "image") {
         content = (<button className='click-button' onClick={() => setShowImageModal(true)}>
-            <img src={props.text} className="photo"></img></button>)
-    } else if (props.type == "video") {
+            <img src={props.text} className="photo" alt='button'></img></button>)
+    } else if (props.type === "video") {
         content = (<video className="video-message" controls src={props.text}></video>)
     }
     else {
         content = ((<a href={props.text} download={props.fileName} className='link'>
             <div className='file-div'>
-                <img src='/images/file-icon.png' className='file-image'></img>
+                <img src='/images/file-icon.png' className='file-image' alt='file'></img>
                 <div className='name-div'>{props.fileName}</div>
                 <div className='file-ext'>{props.fileName.split('.')[1].toUpperCase()}</div>
             </div></a>))
@@ -46,7 +46,7 @@ export default function MessageField(props) {
                 </Modal.Header>
                 <Modal.Body>
                     <div className='centered-div'>
-                        <img src={props.text} className='big-image-field'></img>
+                        <img src={props.text} className='big-image-field' alt='big'></img>
                     </div>
                 </Modal.Body>
             </Modal>

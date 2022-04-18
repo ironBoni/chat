@@ -13,7 +13,7 @@ export default function UserImage(props) {
         <Modal.Header closeButton className='header'>
           {props.headOf}
         </Modal.Header>
-        <Modal.Body><img src={props.src} className='big-image'></img></Modal.Body>
+        <Modal.Body><img src={props.src} alt='bit' className='big-image'></img></Modal.Body>
       </Modal>
     </div>
   )

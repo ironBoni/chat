@@ -14,26 +14,26 @@ const useForm = (submitForm, validate) => {
 
   const handleChange = e => {
     const { name, value } = e.target;
-    if(name=="image-upload"){
+    if (name === "image-upload") {
       upImge(e)
-    }else{
+    } else {
       setValues({
         ...values,
         [name]: value
       });
     }
-    
+
   };
-  const upImge =(e)=>{
+  const upImge = (e) => {
     let file = e.target.files[0];
-   
+
     var fileReader = new FileReader();
     fileReader.readAsDataURL(file);
 
-    fileReader.onload =() => {
+    fileReader.onload = () => {
       var profileBase64 = fileReader.result;
 
-      values.profileImage=profileBase64
+      values.profileImage = profileBase64
 
     };
   }
@@ -41,14 +41,16 @@ const useForm = (submitForm, validate) => {
   const handleSubmit = e => {
     e.preventDefault();
     setErrors(validate(values));
-    if(e.target.name=="Register"){
-      
-       users.push({username: values.username, nickname: values.nickname, password: values.password, 
-      profileImage: values.profileImage})
+    if (e.target.name === "Register") {
+
+      users.push({
+        username: values.username, nickname: values.nickname, password: values.password,
+        profileImage: values.profileImage
+      })
     }
     setIsSubmitting(true);
   };
- 
+
 
   useEffect(
     () => {
