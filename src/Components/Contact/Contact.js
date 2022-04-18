@@ -11,8 +11,9 @@ const Contact = (props) => {
     useEffect(() => {
         updateLastMessage();
     }, [props.notifyMessageSent]);
+    
 
-    var updateLastMessage = () => {
+    function updateLastMessage(){
         chats.forEach(chatData => {
             chatData.participicants.forEach(participicant => {
                 if (participicant === userInfo.username && chatData.participicants.includes(myUsername)) {
@@ -28,6 +29,7 @@ const Contact = (props) => {
 
                     if (message == undefined)
                         return;
+                    console.log(message)
 
                     setLastMsg(message.text);
                     setLastMsgTime(message.writtenIn.toLocaleDateString() + " " +
@@ -36,7 +38,8 @@ const Contact = (props) => {
                 }
             })
         })
-    }
+    
+}
 
     return (
         <div className='contact' onClick={() => setChosenChat(userInfo)}>

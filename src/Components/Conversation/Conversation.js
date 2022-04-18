@@ -5,6 +5,7 @@ import './Conversation.css';
 import { chats, video_extensions, audio_extensions, image_extensions } from '../../Data/data';
 import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import Contact from '../Contact/Contact';
 
 const Conversation = (props) => {
     const [msg, setMsg] = useState("");
@@ -83,6 +84,7 @@ const Conversation = (props) => {
             setMsg("");
             updateScroll();
             //props.setNotifyMessageSent(props.notifyMessageSent + 1);
+            
         }
 
     };
