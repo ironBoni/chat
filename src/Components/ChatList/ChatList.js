@@ -83,7 +83,7 @@ const ChatList = (props) => {
         <div className='col-3 border-right '>
             <div className='settings-tray'>
                 <button className='click-button' onClick={() => setShowImageModal(true)}>
-                    <img className='user-image' src={userImage}></img></button>
+                    <img className='user-image' alt='user' src={userImage}></img></button>
                 <span className='nickname'>{nickName}</span>
                 <span className="settings-tray--right float-right">
                     <i className="bi bi-person-plus">
