@@ -69,14 +69,6 @@
     margin: 4px 13px;
 }
 
-.message {
-    background: #cbe7bc;
-    padding: 7px 9px;
-    border-radius: 3px;
-    max-width: 50%;
-    color: #202020;
-    font-size: 14.5px;
-}
 
 .search-container {
     background: white;
