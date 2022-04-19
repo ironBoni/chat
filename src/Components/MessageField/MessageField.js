@@ -28,7 +28,7 @@ export default function MessageField(props) {
             </div></a>))
     }
     return (
-        <div>
+        <div className={props.senderUsername === myUsername ? 'empty' : 'right-message'}>
             <div className={props.senderUsername === myUsername ? 'message-div' : 'message-div-end'}>
                 {props.type != 'audio' ?
                     <div id="main-div" className={props.senderUsername === myUsername ? 'message' : 'message-not-mine'}>
