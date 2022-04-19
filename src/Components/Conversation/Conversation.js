@@ -405,7 +405,7 @@ const Conversation = (props) => {
                             </Modal.Footer>
                         </Modal>
 
-                        <input className='search-textbox' id='textbox' placeholder='Search in chats' autoFocus
+                        <input className='search-textbox' id='textbox' placeholder='Enter a message' autoFocus
                             value={msg} onChange={(event) => setMsg(event.target.value)}
                             onKeyDown={onEnter}></input>
                         <button className='click-button' onClick={onSend}><img src='/images/send.jpg'
