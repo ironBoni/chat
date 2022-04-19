@@ -91,8 +91,6 @@ const ChatList = (props) => {
     return (
         <div className='col-3 border-right '>
             <div className='chatList-container'>
-
-
                 <div className='settings-tray'>
                     <button className='click-button' onClick={() => setShowImageModal(true)}>
                         <img className='user-image' alt='user' src={userImage}></img></button>

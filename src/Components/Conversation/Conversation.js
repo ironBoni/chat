@@ -59,6 +59,10 @@ const Conversation = (props) => {
             ;
         })
         setTimeout(updateScroll, 250);
+
+        var textbox = document.getElementById('textbox');
+        if(textbox)
+            textbox.focus();
     });
 
     const sendMessage = () => {
@@ -401,7 +405,7 @@ const Conversation = (props) => {
                             </Modal.Footer>
                         </Modal>
 
-                        <input className='search-textbox' placeholder='Search in chats' autoFocus
+                        <input className='search-textbox' id='textbox' placeholder='Search in chats' autoFocus
                             value={msg} onChange={(event) => setMsg(event.target.value)}
                             onKeyDown={onEnter}></input>
                         <button className='click-button' onClick={onSend}><img src='/images/send.jpg'

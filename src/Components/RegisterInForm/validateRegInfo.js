@@ -9,7 +9,7 @@ export default function validateInfo(values) {
   
   var pattern = /^.*(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[1-9]).*$/;
   if (!pattern.test(values.password)) {
-    errors.password = 'Enter a valid password';
+    errors.password = 'Password must contain both digits and letters';
   }
 
   if (!values.nickname.trim()) {
