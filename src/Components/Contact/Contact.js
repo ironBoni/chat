@@ -37,8 +37,13 @@ const Contact = (props) => {
                     setLastMsg(message.text);
                     setLastMsgType(message.type);
                     setFileName(message.fileName);
+                    var time =message.writtenIn.toLocaleTimeString().substring(0, 5)
+                    if(time[time.length -1 ] ===":" ){
+                        time=time.substring(0,time.length-1)
+                    }
                     setLastMsgTime(message.writtenIn.toLocaleDateString() + " " +
-                        message.writtenIn.toLocaleTimeString().substring(0, 5));
+                       time);
+                    console.log(message.writtenIn.toLocaleTimeString())
                     return;
                 }
             })
