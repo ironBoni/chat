@@ -129,18 +129,19 @@ input:focus {
   height: inherit;
 }
 ::-webkit-scrollbar {
-  width: 2vh;
+  width: 9px;
+  height: 11px;
 }
 
 ::-webkit-scrollbar-track {
-  width: 2vh;
-  background: #979595;
+  width: 12px;
+  background: transparent;
   border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb {
   width: 5em;
-  background-color: rgb(63, 100, 170);
-  outline: 2px solid rgb(17, 10, 85);
+  background-color: #9D9A91;
+  outline: 2px solid transparent;
   border-radius: 1rem;
 }
