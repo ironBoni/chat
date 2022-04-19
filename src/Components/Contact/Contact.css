@@ -8,7 +8,7 @@
 
 .text {
   margin-left: 12px;
-  width: 70%;
+  min-width: 69%;
 }
 
 .text>h6 {
@@ -25,7 +25,10 @@
 }
 
 .time {
+  display: flex;
+  float: right;
   color: grey;
+  text-align: right;
 }
 
 .contact:hover {
