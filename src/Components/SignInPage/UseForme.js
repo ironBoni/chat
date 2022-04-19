@@ -40,21 +40,35 @@ const useForm = (submitForm, validate) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    setErrors(validate(values));
-    if (e.target.name === "Register") {
+    var result  = validate(values)
+    setErrors(result.errors);
+
+    console.log( result.flag)
+    
+    if (e.target.name === "Register" && result.flag ) {
 
       users.push({
         username: values.username, nickname: values.nickname, password: values.password,
         profileImage: values.profileImage
       })
+      setValues({
+        username: '',
+        nickname: '',
+        profileImage: '/images/default.jpg',
+        password: '',
+        confPassword: '',
+
+      })
     }
+
     setIsSubmitting(true);
   };
 
 
   useEffect(
-    () => {
+    (e) => {
       if (Object.keys(errors).length === 0 && isSubmitting) {
+
         submitForm();
         localStorage.setItem("username", values.username);
       }
