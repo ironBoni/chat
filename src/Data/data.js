@@ -22,21 +22,24 @@ export const chats = [
                 type: "image",
                 text: "/logo512.png",
                 senderUsername: "noam",
-                writtenIn: new Date(2021, 4, 6, 10, 20)
+                writtenIn: new Date(2021, 4, 6, 10, 20),
+                fileName: "logo512.png"
             },
             {
                 id: 4,
                 type: "audio",
                 text: "/audio/Hatikva.mp3",
                 senderUsername: "ron",
-                writtenIn: new Date(2021, 4, 6, 10, 25)
+                writtenIn: new Date(2021, 4, 6, 10, 25),
+                fileName: "Hatikva.mp3"
             },
             {
                 id: 5,
                 type: "video",
                 text: "/video/Hatikva.mp4",
                 senderUsername: "noam",
-                writtenIn: new Date(2021, 4, 6, 10, 30)
+                writtenIn: new Date(2021, 4, 6, 10, 30),
+                fileName: "Hatikva.mp4"
             },
             {
                 id: 6,
@@ -70,21 +73,24 @@ export const chats = [
                 type: "image",
                 text: "/logo512.png",
                 senderUsername: "ron",
-                writtenIn: new Date(2021, 4, 6, 10, 20)
+                writtenIn: new Date(2021, 4, 6, 10, 20),
+                fileName: "logo512.png"
             },
             {
                 id: 4,
                 type: "audio",
                 text: "/audio/Hatikva.mp3",
                 senderUsername: "dvir",
-                writtenIn: new Date(2021, 4, 6, 10, 25)
+                writtenIn: new Date(2021, 4, 6, 10, 25),
+                fileName: "Hatikva.mp3"
             },
             {
                 id: 5,
                 type: "video",
                 text: "/video/Hatikva.mp4",
                 senderUsername: "ron",
-                writtenIn: new Date(2021, 4, 6, 10, 34)
+                writtenIn: new Date(2021, 4, 6, 10, 34),
+                fileName: "Hatikva.mp4"
             },
             {
                 id: 6,
@@ -118,21 +124,24 @@ export const chats = [
                 type: "image",
                 text: "/logo512.png",
                 senderUsername: "ron",
-                writtenIn: new Date(2021, 4, 6, 10, 23)
+                writtenIn: new Date(2021, 4, 6, 10, 23),
+                fileName: "logo512.png"
             },
             {
                 id: 4,
                 type: "audio",
                 text: "/audio/Hatikva.mp3",
                 senderUsername: "dan",
-                writtenIn: new Date(2021, 4, 6, 10, 25)
+                writtenIn: new Date(2021, 4, 6, 10, 25),
+                fileName: "Hatikva.mp3"
             },
             {
                 id: 5,
                 type: "video",
                 text: "/video/Hatikva.mp4",
                 senderUsername: "ron",
-                writtenIn: new Date(2021, 4, 6, 10, 35)
+                writtenIn: new Date(2021, 4, 6, 10, 35),
+                fileName: "Hatikva.mp4"
             },
             {
                 id: 6,
@@ -166,21 +175,24 @@ export const chats = [
                 type: "image",
                 text: "/logo512.png",
                 senderUsername: "ron",
-                writtenIn: new Date(2021, 4, 6, 10, 29)
+                writtenIn: new Date(2021, 4, 6, 10, 29),
+                fileName: "logo512.png"
             },
             {
                 id: 4,
                 type: "audio",
                 text: "/audio/Hatikva.mp3",
                 senderUsername: "idan",
-                writtenIn: new Date(2021, 4, 6, 10, 39)
+                writtenIn: new Date(2021, 4, 6, 10, 39),
+                fileName: "Hatikva.mp3"
             },
             {
                 id: 5,
                 type: "video",
                 text: "/video/Hatikva.mp4",
                 senderUsername: "ron",
-                writtenIn: new Date(2021, 4, 6, 10, 49)
+                writtenIn: new Date(2021, 4, 6, 10, 49),
+                fileName: "Hatikva.mp4"
             },
             {
                 id: 6,
@@ -214,21 +226,24 @@ export const chats = [
                 type: "image",
                 text: "/logo512.png",
                 senderUsername: "ron",
-                writtenIn: new Date(2021, 4, 6, 10, 58)
+                writtenIn: new Date(2021, 4, 6, 10, 58),
+                fileName: "logo512.png"
             },
             {
                 id: 4,
                 type: "audio",
                 text: "/audio/Hatikva.mp3",
                 senderUsername: "shlomo",
-                writtenIn: new Date(2021, 4, 6, 10, 59)
+                writtenIn: new Date(2021, 4, 6, 10, 59),
+                fileName: "Hatikva.mp3"
             },
             {
                 id: 5,
                 type: "video",
                 text: "/video/Hatikva.mp4",
                 senderUsername: "ron",
-                writtenIn: new Date(2021, 4, 6, 11, 0)
+                writtenIn: new Date(2021, 4, 6, 11, 0),
+                fileName: "Hatikva.mp4"
             },
             {
                 id: 6,
@@ -262,21 +277,24 @@ export const chats = [
                 type: "image",
                 text: "/logo512.png",
                 senderUsername: "noam",
-                writtenIn: new Date(2021, 4, 6, 13, 20)
+                writtenIn: new Date(2021, 4, 6, 13, 20),
+                fileName: "logo512.png"
             },
             {
                 id: 4,
                 type: "audio",
                 text: "/audio/Hatikva.mp3",
                 senderUsername: "dvir",
-                writtenIn: new Date(2021, 4, 6, 13, 28)
+                writtenIn: new Date(2021, 4, 6, 13, 28),
+                fileName: "Hatikva.mp3"
             },
             {
                 id: 5,
                 type: "video",
                 text: "/video/Hatikva.mp4",
                 senderUsername: "noam",
-                writtenIn: new Date(2021, 4, 6, 13, 39)
+                writtenIn: new Date(2021, 4, 6, 13, 39),
+                fileName: "Hatikva.mp4"
             },
             {
                 id: 6,
@@ -310,21 +328,24 @@ export const chats = [
                 type: "image",
                 text: "/logo512.png",
                 senderUsername: "noam",
-                writtenIn: new Date(2021, 4, 6, 12, 20)
+                writtenIn: new Date(2021, 4, 6, 12, 20),
+                fileName: "logo512.png"
             },
             {
                 id: 4,
                 type: "audio",
                 text: "/audio/Hatikva.mp3",
                 senderUsername: "dan",
-                writtenIn: new Date(2021, 4, 6, 13, 20)
+                writtenIn: new Date(2021, 4, 6, 13, 20),
+                fileName: "Hatikva.mp3"
             },
             {
                 id: 5,
                 type: "video",
                 text: "/video/Hatikva.mp4",
                 senderUsername: "noam",
-                writtenIn: new Date(2021, 4, 6, 13, 29)
+                writtenIn: new Date(2021, 4, 6, 13, 29),
+                fileName: "Hatikva.mp4"
             },
             {
                 id: 6,
@@ -358,21 +379,24 @@ export const chats = [
                 type: "image",
                 text: "/logo512.png",
                 senderUsername: "noam",
-                writtenIn: new Date(2021, 4, 6, 13, 20)
+                writtenIn: new Date(2021, 4, 6, 13, 20),
+                fileName: "logo512.png"
             },
             {
                 id: 4,
                 type: "audio",
                 text: "/audio/Hatikva.mp3",
                 senderUsername: "idan",
-                writtenIn: new Date(2021, 4, 6, 13, 25)
+                writtenIn: new Date(2021, 4, 6, 13, 25),
+                fileName: "Hatikva.mp3"
             },
             {
                 id: 5,
                 type: "video",
                 text: "/video/Hatikva.mp4",
                 senderUsername: "noam",
-                writtenIn: new Date(2021, 4, 6, 13, 43)
+                writtenIn: new Date(2021, 4, 6, 13, 43),
+                fileName: "Hatikva.mp4"
             },
             {
                 id: 6,
@@ -413,14 +437,16 @@ export const chats = [
                 type: "audio",
                 text: "/audio/Hatikva.mp3",
                 senderUsername: "shlomo",
-                writtenIn: new Date(2021, 4, 6, 12, 30)
+                writtenIn: new Date(2021, 4, 6, 12, 30),
+                fileName: "Hatikva.mp3"
             },
             {
                 id: 5,
                 type: "video",
                 text: "/video/Hatikva.mp4",
                 senderUsername: "noam",
-                writtenIn: new Date(2021, 4, 6, 12, 48)
+                writtenIn: new Date(2021, 4, 6, 12, 48),
+                fileName: "Hatikva.mp4"
             },
             {
                 id: 6,
@@ -454,21 +480,24 @@ export const chats = [
                 type: "image",
                 text: "/logo512.png",
                 senderUsername: "dan",
-                writtenIn: new Date(2021, 4, 6, 10, 20)
+                writtenIn: new Date(2021, 4, 6, 10, 20),
+                fileName: "logo512.png"
             },
             {
                 id: 4,
                 type: "audio",
                 text: "/audio/Hatikva.mp3",
                 senderUsername: "dvir",
-                writtenIn: new Date(2021, 4, 6, 11, 25)
+                writtenIn: new Date(2021, 4, 6, 11, 25),
+                fileName: "Hatikva.mp3"
             },
             {
                 id: 5,
                 type: "video",
                 text: "/video/Hatikva.mp4",
                 senderUsername: "dan",
-                writtenIn: new Date(2021, 4, 6, 11, 29)
+                writtenIn: new Date(2021, 4, 6, 11, 29),
+                fileName: "Hatikva.mp4"
             },
             {
                 id: 6,
@@ -502,21 +531,24 @@ export const chats = [
                 type: "image",
                 text: "/logo512.png",
                 senderUsername: "dan",
-                writtenIn: new Date(2021, 4, 6, 13, 20)
+                writtenIn: new Date(2021, 4, 6, 13, 20),
+                fileName: "logo512.png"
             },
             {
                 id: 4,
                 type: "audio",
                 text: "/audio/Hatikva.mp3",
                 senderUsername: "idan",
-                writtenIn: new Date(2021, 4, 6, 13, 29)
+                writtenIn: new Date(2021, 4, 6, 13, 29),
+                fileName: "Hatikva.mp3"
             },
             {
                 id: 5,
                 type: "video",
                 text: "/video/Hatikva.mp4",
                 senderUsername: "dan",
-                writtenIn: new Date(2021, 4, 6, 13, 59)
+                writtenIn: new Date(2021, 4, 6, 13, 59),
+                fileName: "Hatikva.mp4"
             },
             {
                 id: 6,
@@ -550,21 +582,24 @@ export const chats = [
                 type: "image",
                 text: "/logo512.png",
                 senderUsername: "dan",
-                writtenIn: new Date(2021, 4, 6, 10, 20)
+                writtenIn: new Date(2021, 4, 6, 10, 20),
+                fileName: "logo512.png"
             },
             {
                 id: 4,
                 type: "audio",
                 text: "/audio/Hatikva.mp3",
                 senderUsername: "shlomo",
-                writtenIn: new Date(2021, 4, 6, 13, 20)
+                writtenIn: new Date(2021, 4, 6, 13, 20),
+                fileName: "Hatikva.mp3"
             },
             {
                 id: 5,
                 type: "video",
                 text: "/video/Hatikva.mp4",
                 senderUsername: "dan",
-                writtenIn: new Date(2021, 4, 6, 13, 22)
+                writtenIn: new Date(2021, 4, 6, 13, 22),
+                fileName: "Hatikva.mp4"
             },
             {
                 id: 6,
@@ -598,21 +633,24 @@ export const chats = [
                 type: "image",
                 text: "/logo512.png",
                 senderUsername: "idan",
-                writtenIn: new Date(2021, 4, 6, 10, 20)
+                writtenIn: new Date(2021, 4, 6, 10, 20),
+                fileName: "logo512.png"
             },
             {
                 id: 4,
                 type: "audio",
                 text: "/audio/Hatikva.mp3",
                 senderUsername: "shlomo",
-                writtenIn: new Date(2021, 4, 6, 14, 20)
+                writtenIn: new Date(2021, 4, 6, 14, 20),
+                fileName: "Hatikva.mp3"
             },
             {
                 id: 5,
                 type: "video",
                 text: "/video/Hatikva.mp4",
                 senderUsername: "idan",
-                writtenIn: new Date(2021, 4, 6, 15, 20)
+                writtenIn: new Date(2021, 4, 6, 15, 20),
+                fileName: "Hatikva.mp4"
             },
             {
                 id: 6,
@@ -646,21 +684,24 @@ export const chats = [
                 type: "image",
                 text: "/logo512.png",
                 senderUsername: "shlomo",
-                writtenIn: new Date(2021, 4, 6, 10, 20)
+                writtenIn: new Date(2021, 4, 6, 10, 20),
+                fileName: "logo512.png"
             },
             {
                 id: 4,
                 type: "audio",
                 text: "/audio/Hatikva.mp3",
                 senderUsername: "dvir",
-                writtenIn: new Date(2021, 4, 6, 11, 49)
+                writtenIn: new Date(2021, 4, 6, 11, 49),
+                fileName: "Hatikva.mp3"
             },
             {
                 id: 5,
                 type: "video",
                 text: "/video/Hatikva.mp4",
                 senderUsername: "shlomo",
-                writtenIn: new Date(2021, 4, 6, 11, 50)
+                writtenIn: new Date(2021, 4, 6, 11, 50),
+                fileName: "Hatikva.mp4"
             },
             {
                 id: 6,
@@ -694,21 +735,24 @@ export const chats = [
                 type: "image",
                 text: "/logo512.png",
                 senderUsername: "dvir",
-                writtenIn: new Date(2021, 4, 6, 10, 20)
+                writtenIn: new Date(2021, 4, 6, 10, 20),
+                fileName: "logo512.png"
             },
             {
                 id: 4,
                 type: "audio",
                 text: "/audio/Hatikva.mp3",
                 senderUsername: "idan",
-                writtenIn: new Date(2021, 4, 6, 11, 49)
+                writtenIn: new Date(2021, 4, 6, 11, 49),
+                fileName: "Hatikva.mp3"
             },
             {
                 id: 5,
                 type: "video",
                 text: "/video/Hatikva.mp4",
                 senderUsername: "dvir",
-                writtenIn: new Date(2021, 4, 6, 11, 50)
+                writtenIn: new Date(2021, 4, 6, 11, 50),
+                fileName: "Hatikva.mp4"
             },
             {
                 id: 6,

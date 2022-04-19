@@ -21,6 +21,12 @@ const Conversation = (props) => {
         hasAccessToMic: false, voiceRecorder: null
     });
 
+    var updateLastMsgInGui = () => {
+        props.updateLastProp.current.forEach(userNotifier => {
+            if(userNotifier)
+                userNotifier();
+        });
+    }
     const [recordInfo, setRecordInfo] = useState({
         isRecording: false, canRecord: false, url: ""
     });
@@ -83,13 +89,8 @@ const Conversation = (props) => {
             setMsgList(newMessages);
             setMsg("");
             updateScroll();
-            props.updateLastProp.current.forEach(userNotifier => {
-                if(userNotifier)
-                    userNotifier();
-            });
-
+            updateLastMsgInGui();
         }
-
     };
 
     const onSend = (e) => {
@@ -134,7 +135,8 @@ const Conversation = (props) => {
             type: "audio",
             text: audioUrl,
             senderUsername: myUsername,
-            writtenIn: new Date()
+            writtenIn: new Date(),
+            fileName: "record"+newId+".mp3"
         };
 
         if ((msgListInDb.filter(msg => msg.text === newMsg.text).length === 0)
@@ -143,6 +145,7 @@ const Conversation = (props) => {
             setMsgList(newMessages);
             msgListInDb.push(newMsg);
             canAddRecord = false;
+            updateLastMsgInGui();
         }
     }
 
@@ -251,13 +254,13 @@ const Conversation = (props) => {
         fileReader.onload = (event) => {
             var fileSrc = event.target.result
             const newMessages = [...msgList];
-            var message;
+            var lastMsgId;
             var msgListInDb;
             // get last message
             chats.forEach(chatData => {
                 chatData.participicants.forEach(participicant => {
                     if (participicant === chosenChat.username && chatData.participicants.includes(myUsername)) {
-                        message = Math.max.apply(Math, chatData.messages.map((msg => {
+                        lastMsgId = Math.max.apply(Math, chatData.messages.map((msg => {
                             msgListInDb = chatData.messages;
                             return msg.id;
                         })));
@@ -267,9 +270,8 @@ const Conversation = (props) => {
             });
 
             var fileName = input.files[0].name
-
             var newMsg = {
-                id: message.id + 1,
+                id:  lastMsgId + 1,
                 type: getTypeByFileName(fileName),
                 text: fileSrc,
                 senderUsername: myUsername,
@@ -280,18 +282,18 @@ const Conversation = (props) => {
             newMessages.push(newMsg);
             msgListInDb.push(newMsg)
             setMsgList(newMessages);
-
+            updateLastMsgInGui();
         };
     }
 
     const addImageToDB = (imageTaken) => {
         const newMessages = [...msgList];
-        var message, msgListInDb;
+        var lastMessageId, msgListInDb;
         // get last message
         chats.forEach(chatData => {
             chatData.participicants.forEach(participicant => {
                 if (participicant === chosenChat.username && chatData.participicants.includes(myUsername)) {
-                    message = Math.max.apply(Math, chatData.messages.map((msg => {
+                    lastMessageId = Math.max.apply(Math, chatData.messages.map((msg => {
                         msgListInDb = chatData.messages;
                         return msg.id;
                     })));
@@ -300,18 +302,22 @@ const Conversation = (props) => {
             })
         });
 
+        console.log(lastMessageId);
+        var newId = lastMessageId + 1;
         var newMsg = {
-            id: message.id + 1,
+            id: newId,
             type: 'image',
             text: imageTaken,
             senderUsername: myUsername,
             writtenIn: new Date(),
+            fileName: "image"+newId+".png"
         };
 
         newMessages.push(newMsg);
         msgListInDb.push(newMsg)
         setMsgList(newMessages);
         updateScroll();
+        updateLastMsgInGui();
     };
 
     return (
