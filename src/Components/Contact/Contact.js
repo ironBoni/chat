@@ -52,10 +52,8 @@ const Contact = (props) => {
             <div className='text'>
                 <h6 className='contact-name'>{userInfo.nickname}</h6>
                 <p className='contact-message'>
-                    {lastMsgType === 'text' ? (lastMsg) :
-                        (lastMsgType === 'audio' ? 'record.mp3' :
-                            (lastMsgType === 'video') ? 'video.mp4' :
-                                fileName)}</p>
+                    {lastMsgType === 'text' ? (lastMsg) : (fileName)}
+                </p>
             </div>
             <span className='time small float-right'>{lastMsgTime}</span>
         </div>
