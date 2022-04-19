@@ -306,7 +306,6 @@ const Conversation = (props) => {
             })
         });
 
-        console.log(lastMessageId);
         var newId = lastMessageId + 1;
         var newMsg = {
             id: newId,

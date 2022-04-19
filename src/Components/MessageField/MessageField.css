@@ -136,6 +136,10 @@
     font-size: 14.5px;
 }
 
+.audio {
+    max-width: 33vw;
+}
+
 .photo {
     width: auto !important;
     height: auto !important;
