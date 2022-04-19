@@ -43,7 +43,7 @@ const Contact = (props) => {
                     }
                     setLastMsgTime(message.writtenIn.toLocaleDateString() + " " +
                        time);
-                    console.log(message.writtenIn.toLocaleTimeString())
+                    
                     return;
                 }
             })
