@@ -27,8 +27,6 @@ export default function validateInfo(values) {
     }
   });
 
-
-
   if (!values.password) {
     errors.password = 'Password is required';
     flag=false;

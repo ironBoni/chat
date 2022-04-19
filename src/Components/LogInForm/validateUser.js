@@ -1,12 +1,14 @@
 import { users } from "../../Data/data";
 
 export default function validateInfo(values) {
+  var isValidateOk = true;
   let errors = {};
 
   //user field is empty
   if (!values.username.trim()) {
     errors.username = 'Username is required';
-    return errors;
+    isValidateOk = false;
+    return { errors, isValidateOk };
   }
 
   //get user info
@@ -15,11 +17,12 @@ export default function validateInfo(values) {
     //user passwords don't match
     if (userData.password !== values.password) {
       errors.password = 'Username or Password does not match';
+      isValidateOk = false;
     }
     //user was not found
   } else {
     errors.username = 'Username or Password does not match';
+    isValidateOk = false;
   }
-  return errors;
-
+  return { errors, isValidateOk };
 }

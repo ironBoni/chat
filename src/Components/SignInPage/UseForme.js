@@ -42,8 +42,6 @@ const useForm = (submitForm, validate) => {
     e.preventDefault();
     var result  = validate(values)
     setErrors(result.errors);
-
-    console.log( result.flag)
     
     if (e.target.name === "Register" && result.flag ) {
 
