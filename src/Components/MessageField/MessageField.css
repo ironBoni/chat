@@ -65,9 +65,9 @@
     content: '';
     position: absolute;
     top: 0.0vh;
-    left: -1.93vw;
-    width: 2.5vw;
-    height: 2vh;
+    left: -8px;
+    width: 17px;
+    height: 20px;
     /*background: linear-gradient(136deg, #71a257, 0%, #bce5a6 50%, transparent 50%, transparent);*/
     background: linear-gradient(225deg, #bce5a6 0%, #bce5a6 50%, transparent 50%, transparent);
 }
@@ -86,10 +86,10 @@
 .message-audio div::before {
     content: '';
     position: absolute;
-    top: 0.1vh;
-    left: 0vw;
-    width: 1.9vw;
-    height: 2vh;
+    top: 0;
+    left: -5px;
+    width: 20px;
+    height: 20px;
     /*background: linear-gradient(136deg, #71a257, 0%, #bce5a6 50%, transparent 50%, transparent);*/
     background: linear-gradient(225deg, #bce5a6 0%, #bce5a6 50%, transparent 50%, transparent);
 }
@@ -117,9 +117,9 @@
     content: '';
     position: absolute;
     top: 0vh;
-    right: -1.93vw;
-    width: 2.5vw;
-    height: 3vh;
+    right: -6.5px;
+    width: 12px;
+    height: 12px;
     background: linear-gradient(136deg, #ffffff 0%, #ffffff 50%, transparent 50%, transparent);
 }
 
@@ -169,7 +169,7 @@
 
 .file-ext {
     position: absolute;
-    left: 0.3vh;
+    left: -5px;
     top: 0.4vh;
     color: white;
     font-weight: bold;
@@ -177,9 +177,9 @@
 }
 
 .empty {
-    padding-left: 0.8vw;
+    padding-left: 2px;
 }
 
 .right-message {
-    padding-right: 0.8vw;
+    padding-right: 2px;
 }
