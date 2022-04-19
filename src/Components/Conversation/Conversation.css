@@ -60,7 +60,7 @@
     overflow-y: scroll;
     min-height: inherit;
     background: #e2dad6;
-    /* height: inherit; */
+    height: inherit;
 }
 
 .message-div {
