@@ -43,7 +43,9 @@ span {
 }
 
 .error {
-	color: rgb(255, 0, 0);
+	color: rgb(253, 0, 0);
 	/* font-size: small; */
 	margin: 0;
+	/* font-weight: bold; */
+
 }
