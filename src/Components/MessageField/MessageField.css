@@ -274,9 +274,11 @@ a {
 }
 
 .empty-file {
+    margin-top: 7px;
 }
 
 .right-message-file {
     display: flex;
     justify-content: end;
+    margin-top: 7px;
 }
