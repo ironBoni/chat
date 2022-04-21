@@ -129,8 +129,8 @@ input:focus {
   height: inherit;
 }
 ::-webkit-scrollbar {
-  width: 9px;
-  height: 11px;
+  width: 14px;
+  height: 14px;
 }
 
 ::-webkit-scrollbar-track {
