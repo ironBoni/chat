@@ -19,11 +19,16 @@ export default function validateInfo(values) {
     errors.nickname = 'nick name required';
     flag=false;
   }
+
+  if(values.username.indexOf(' ') >= 0) {
+    errors.username = 'Username cannot have spaces';
+    flag = false;
+  }
+
   users.forEach(element => {
     if (element.username === values.username){
       errors.username = 'Username already exsist';
       flag=false;
-
     }
   });
 

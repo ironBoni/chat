@@ -59,10 +59,15 @@ const ChatList = (props) => {
         var textBox = document.getElementById('contact-user');
         if (!textBox)
             return;
-        var usernameToAdd = textBox.value;
-
+        var usernameToAdd = textBox.value.trimEnd();
+        var myUsername = localStorage.getItem('username');
         // then check if username is already in the contacts list
         // setErrorAddUser('Username is already your contact.') and return.
+        if(usernameToAdd === myUsername) {
+            setErrorAddUser('You cannot add yourself to the chat list.');
+            return;
+        }
+
         for (const user of myContacts) {
             if (user.username === usernameToAdd) {
                 setErrorAddUser('Username is already in your contacts list.')
@@ -85,8 +90,15 @@ const ChatList = (props) => {
         var newContacts = [...contactsLst];
         newContacts.push(getUserInfoByUsername(usernameToAdd));
         setContactsLst(newContacts);
+        setErrorAddUser('');
         setShowAddModal(false);
     };
+
+    const addUserPressedEnter = (e) => {
+        if (e.key === "Enter") {
+            addUserAsFriend(e);
+        }
+    }
 
     return (
         <div className='col-3 border-right '>
@@ -106,14 +118,17 @@ const ChatList = (props) => {
                                         d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"></path>
                                 </svg>
                             </button>
-                            <Modal show={showAddModal} centered onHide={() => setShowAddModal(false)}>
+                            <Modal show={showAddModal} centered onHide={() => {
+                                setShowAddModal(false);
+                                setErrorAddUser('');
+                            }}>
                                 <Modal.Header closeButton className='header'>
                                     Please enter username to add:
                                 </Modal.Header>
                                 <Modal.Body>{
                                     <div>
                                         <input type="text" placeholder='Enter a username'
-                                            className="form-control" id="contact-user" />
+                                            className="form-control" id="contact-user" onKeyDown={addUserPressedEnter} />
                                         <div className='error-add-user' id='errorAddingUser'>{errorAddUser}</div>
                                     </div>
                                 }</Modal.Body>
@@ -144,7 +159,7 @@ const ChatList = (props) => {
                 </div>
 
                 <div className='left-bar'>
-                    { createContacts() }
+                    {createContacts()}
                 </div>
             </div>
         </div>
