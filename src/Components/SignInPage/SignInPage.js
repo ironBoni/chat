@@ -17,7 +17,7 @@ const SignInPage = () => {
     document.getElementById("LogIn").style.left = "-400px"
     document.getElementById("Register").style.left = "50px"
     document.getElementById("btn").style.left = "110px"
-    document.getElementById("box").style.height = "580px"
+    document.getElementById("box").style.height = "605px"
   }
 
   const [isSubmittedReg, setIsSubmittedReg] = useState(false);
