@@ -656,7 +656,7 @@ export const chats = [
                 id: 6,
                 type: "text",
                 text: "Idan, It's a very nice song",
-                senderUsername: "idan",
+                senderUsername: "shlomo",
                 writtenIn: new Date(2021, 4, 8, 16, 30)
             }
             ]
@@ -720,13 +720,13 @@ export const chats = [
                 id: 1,
                 type: "text",
                 text: "Hey Dvir, how are you?",
-                senderUsername: "dvir",
+                senderUsername: "idan",
                 writtenIn: new Date(2021, 4, 4, 23, 25)
             },
             {
                 id: 2,
                 type: "text",
-                text: "I'm great. Thanks Shlomo!",
+                text: "I'm great. Thanks Dvir!",
                 senderUsername: "idan",
                 writtenIn: new Date(2021, 4, 4, 23, 26)
             },
