@@ -59,7 +59,6 @@ const Conversation = (props) => {
             }
             ;
         })
-        setTimeout(updateScroll, 250);
 
         var textbox = document.getElementById('textbox');
         if (textbox)
@@ -95,6 +94,7 @@ const Conversation = (props) => {
             setMsg("");
             updateScroll();
             updateLastMsgInGui();
+            setTimeout(updateScroll, 125);
         }
     };
 
@@ -151,6 +151,7 @@ const Conversation = (props) => {
             msgListInDb.push(newMsg);
             canAddRecord = false;
             updateLastMsgInGui();
+            setTimeout(updateScroll, 125);
         }
     }
 
@@ -288,6 +289,7 @@ const Conversation = (props) => {
 
             newMessages.push(newMsg);
             msgListInDb.push(newMsg)
+            setTimeout(updateScroll, 125);
             setMsgList(newMessages);
             updateLastMsgInGui();
         };
@@ -322,7 +324,7 @@ const Conversation = (props) => {
         newMessages.push(newMsg);
         msgListInDb.push(newMsg)
         setMsgList(newMessages);
-        updateScroll();
+        setTimeout(updateScroll, 125);
         updateLastMsgInGui();
     };
 

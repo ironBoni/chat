@@ -1,27 +1,23 @@
-our names and ID numbers are in "ourNames.txt" in this directory.
-
-Packages in use:
-  a. react-router-dom.
-  b. react-bootstrap.
+**Packages in use:** react-router-dom, react-bootstrap.  
 
 1. in CMD in path of the project,
   run : "npm install", and then: "npm start".
 
-Login:
-2. enter username: "noam", and password: "Np1234".
-3. To chat with Ron, click on his name in the left menu.
-4. Enter a message and click Enter or on the send-button.
-5. a. To Add audio message, click on the **voice icon**.
-   b. a modal will open, then speak, and click on the stop when
-      you've finished.
+Login: <br/>
+2. enter username: "noam", and password: "Np1234". <br/>
+3. To chat with Ron, click on his name in the left menu. <br/>
+4. Enter a message and click Enter or on the send-button. <br/>
+5. a. To Add audio message, click on the **voice icon**. <br/>
+&nbsp; b. a modal will open, then speak, and click on the stop when  
+ &nbsp; &nbsp;  you've finished.  
 
-6.  to add file click on the **attachment-icon** and choose:
-    a. Image from computer.
-    b. Video.
-    c. Voice.
-    d. Other file (PDF for instance).
+6.  to add file click on the **attachment-icon** and choose: <br/>
+    a) Image from computer. <br/>
+    b) Video.  
+    c) Voice.  
+    d) Other file (PDF for instance).   
 
-    [**camera-icon** = take picture from computer's 
+    [**camera-icon** = take picture from computer's, 
     **attachment-icon** - choose picture/video/voice from pc]
 
 7. To make image bigger - click on it.
@@ -29,11 +25,11 @@ Login:
 8. To logout - click on the top-right button.
 
 10. To add a contact click on the icon - **man-with-plus** (left-top, next to profile image)
-    You can add one of the following usernames:
-    a. ran
-    b. yaniv
-    c. yuval
-    d. oren
+    You can add one of the following usernames: <br/>
+    a) ran <br/> 
+    b) yaniv <br/>
+    c) yuval <br/>
+    d) oren <br/>
 
 11. To register, logout (step 8) (or go to http://localhost:3000/),  
     Click on Register in the sign in page,

@@ -14,6 +14,7 @@ const RegisterInForm = ({ submitForm }) => {
       <input type="text"
         className="input-field"
         placeholder="User Name"
+        autoComplete="off"
         name="username"
         value={values.username}
         onChange={handleChange}></input>
@@ -23,6 +24,7 @@ const RegisterInForm = ({ submitForm }) => {
         className="input-field"
         placeholder="nick name"
         name="nickname"
+        autoComplete="off"
         value={values.nickname}
         onChange={handleChange}
       ></input>
@@ -33,11 +35,12 @@ const RegisterInForm = ({ submitForm }) => {
         placeholder="Enter Password"
         name="password"
         value={values.password}
+        autoComplete="off"
         onChange={handleChange}
       ></input>
       {<p className="error" >{errors.password}</p>}
 
-      <input type="password"
+      <input type="password" autoComplete="off"
         className="input-field"
         placeholder="Confirm Password"
         name="confPassword"
