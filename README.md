@@ -9,7 +9,7 @@ Login: <br/>
 4. Enter a message and click Enter or on the send-button. <br/>
 5. a. To Add audio message, click on the **voice icon**. <br/>
 &nbsp; b. a modal will open, then speak, and click on the stop when  
- &nbsp;  you've finished.  
+ &nbsp; &nbsp;  you've finished.  
 
 6.  to add file click on the **attachment-icon** and choose: <br/>
     a) Image from computer. <br/>
