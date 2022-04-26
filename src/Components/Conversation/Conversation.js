@@ -14,6 +14,7 @@ const Conversation = (props) => {
     var navigatePages = useNavigate();
     const [showAudioModal, setShowAudioModal] = useState(false);
     const [showFileModal, setShowFileModal] = useState(false);
+    const [showVideoModal, setShowVideoModal] = useState(false);
     var isRecordActive = false;
     const [sTop, setSTop] = useState(0)
     const [voiceRecorder, setVoiceRecorder] = useState(null);
@@ -23,7 +24,7 @@ const Conversation = (props) => {
 
     var updateLastMsgInGui = () => {
         props.updateLastProp.current.forEach(userNotifier => {
-            if(userNotifier)
+            if (userNotifier)
                 userNotifier();
         });
     }
@@ -61,7 +62,7 @@ const Conversation = (props) => {
         setTimeout(updateScroll, 250);
 
         var textbox = document.getElementById('textbox');
-        if(textbox)
+        if (textbox)
             textbox.focus();
     });
 
@@ -140,7 +141,7 @@ const Conversation = (props) => {
             text: audioUrl,
             senderUsername: myUsername,
             writtenIn: new Date(),
-            fileName: "record"+newId+".mp3"
+            fileName: "record" + newId + ".mp3"
         };
 
         if ((msgListInDb.filter(msg => msg.text === newMsg.text).length === 0)
@@ -196,21 +197,6 @@ const Conversation = (props) => {
         });
     }
 
-    var makeShowPictueModal = (e) => {
-        setShowPictureModal(true);
-        try {
-            navigator.mediaDevices.getUserMedia(
-                { audio: false, video: true }).then(camStream => {
-                    window.userStream = camStream;
-                    var video = document.getElementById('userCameraVideo');
-                    video.srcObject = camStream;
-                });
-
-        } catch (e) {
-            console.log(e.toString());
-        }
-    }
-
     var takeUserPicture = (e) => {
         var canvas = document.getElementById('image-canvas');
         var video = document.getElementById('userCameraVideo');
@@ -235,6 +221,16 @@ const Conversation = (props) => {
         uploadFile(e);
     }
 
+    var uploadVideoClicked = (e) => {
+        setShowVideoModal(false);
+        uploadFile('chooserVideo');
+    }
+
+    var uploadImageClicked = (e) => {
+        setShowPictureModal(false);
+        uploadFile('chooserImage');
+    }
+
     var getTypeByFileName = (fileName) => {
         var suffix = fileName.split('.')[1].toLowerCase();
         if (audio_extensions.includes(suffix)) {
@@ -251,8 +247,15 @@ const Conversation = (props) => {
         return "file";
     }
 
-    var uploadFile = (e) => {
-        var input = document.getElementById('chooser')
+    var uploadFile = (chooser) => {
+        var chooseId = 'chooser';
+        if (chooser) {
+            if (chooser === 'chooserVideo')
+                chooseId = 'chooserVideo';
+            else if (chooser === 'chooserImage')
+                chooseId = 'chooserImage';
+        }
+        var input = document.getElementById(chooseId)
         var fileReader = new FileReader()
         fileReader.readAsDataURL(input.files[0])
         fileReader.onload = (event) => {
@@ -275,7 +278,7 @@ const Conversation = (props) => {
 
             var fileName = input.files[0].name
             var newMsg = {
-                id:  lastMsgId + 1,
+                id: lastMsgId + 1,
                 type: getTypeByFileName(fileName),
                 text: fileSrc,
                 senderUsername: myUsername,
@@ -293,7 +296,7 @@ const Conversation = (props) => {
     const addImageToDB = (imageTaken) => {
         const newMessages = [...msgList];
         var lastMessageId, msgListInDb;
-        // get last message
+        // get last message     
         chats.forEach(chatData => {
             chatData.participicants.forEach(participicant => {
                 if (participicant === chosenChat.username && chatData.participicants.includes(myUsername)) {
@@ -313,7 +316,7 @@ const Conversation = (props) => {
             text: imageTaken,
             senderUsername: myUsername,
             writtenIn: new Date(),
-            fileName: "image"+newId+".png"
+            fileName: "image" + newId + ".png"
         };
 
         newMessages.push(newMsg);
@@ -346,36 +349,45 @@ const Conversation = (props) => {
                     <div className='search-container'>
                         {/*Take a picture*/}
                         <button className='click-button'
-                            onClick={makeShowPictueModal}>
+                            onClick={() => { setShowPictureModal(true); }}>
                             <img className='button-image' src="/images/take-photo.png" alt='button'></img></button>
-                        {/*Take Picture Modal*/}
-                        <Modal show={showPictureModal} centered onHide={() => setShowPictureModal(false)}
-                            id="modalPicture"
-                            contentClassName='picture-modal-class' dialogClassName='picture-modal-width'>
+                        {/*Upload Image Modal*/}
+                        <Modal show={showPictureModal} centered dialogClassName="file-modal"
+                            onHide={() => setShowPictureModal(false)}>
                             <Modal.Header closeButton>
-                                <Modal.Title>Take a picture...</Modal.Title>
+                                <Modal.Title>Upload image</Modal.Title>
                             </Modal.Header>
-                            <Modal.Body id="modalPictureBody">
-                                <div className='take-picture'>
-                                    <div className='centered-div'>
-                                        <video id="userCameraVideo" className='user-camera-open centered-div'
-                                            autoPlay></video>
-                                    </div>
-                                    <div className='bottom-div'>
-                                        <button className='picture-button' onClick={takeUserPicture}>
-                                            <img src='/images/take-photo.png' alt='take'
-                                                className='picture-button-image centered-div'>
-                                            </img></button>
-                                    </div>
-                                </div>
+                            <Modal.Body>
+                                {/*Here the file modal should appear*/}
+                                <input type="file" id="chooserImage" accept="image/*"></input>
                             </Modal.Body>
+                            <Modal.Footer>
+                                <button className='btn btn-primary' onClick={uploadImageClicked}>Upload</button>
+                            </Modal.Footer>
                         </Modal>
+
 
                         <button className='click-button'
                             onClick={startRecord}>
-                            <img className='button-image' src="/images/record.png" alt='button'></img></button>
-                        <button className='click-button'
-                            onClick={setModalFileToShow}>
+                            <img className='button-image' src="/images/record-audio.jpg" alt='button'></img></button>
+                        <button className='click-button' onClick={() => { setShowVideoModal(true); }}>
+                            <img className='button-image' src="/images/video-icon.png" alt='button'></img></button>
+                        {/*Upload Video Modal*/}
+                        <Modal show={showVideoModal} centered dialogClassName="file-modal"
+                            onHide={() => setShowVideoModal(false)}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Upload video</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                {/*Here the file modal should appear*/}
+                                <input type="file" id="chooserVideo" accept="video/mp4,video/x-m4v,video/*"></input>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <button className='btn btn-primary' onClick={uploadVideoClicked}>Upload</button>
+                            </Modal.Footer>
+                        </Modal>
+
+                        <button className='click-button' onClick={setModalFileToShow}>
                             <img className='button-image' src="/images/attach.jpg" alt='button'></img></button>
                         {/*Record Audio Modal*/}
                         <Modal show={showAudioModal} centered onHide={() => setShowAudioModal(false)} id="modalAudio">
@@ -407,7 +419,7 @@ const Conversation = (props) => {
                         <input className='search-textbox' id='textbox' placeholder='Enter a message' autoFocus
                             value={msg} onChange={(event) => setMsg(event.target.value)}
                             onKeyDown={onEnter}></input>
-                        <button className='click-button' onClick={onSend}><img src='/images/send.jpg'
+                        <button className='click-button' onClick={onSend}><img src='/images/send-button-it.jpg'
                             className='button-image'
                             alt='button'></img></button>
                     </div>

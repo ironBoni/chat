@@ -164,6 +164,15 @@
     border-radius: 0;
 }
 
+#chooserVideo {
+    border-radius: 0;
+}
+
+#chooserImage {
+    border-radius: 0;
+}
+
+
 .hidden {
     display: none;
 }
