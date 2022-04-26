@@ -3,7 +3,7 @@
 1. in CMD in path of the project,
   run : "npm install", and then: "npm start".
 
-Login: <br/>
+**Login**: <br/>
 2. enter username: "noam", and password: "Np1234". <br/>
 3. To chat with Ron, click on his name in the left menu. <br/>
 4. Enter a message and click Enter or on the send-button. <br/>
@@ -11,27 +11,28 @@ Login: <br/>
 &nbsp; b. a modal will open, then speak, and click on the stop when  
  &nbsp; &nbsp;  you've finished.  
 
+[**camera-icon** = upload image from computer, 
+**video-icon** = upload video from computer,
+**attachment-icon** - choose picture/video/voice from pc]
+
 6.  to add file click on the **attachment-icon** and choose: <br/>
     a) Image from computer. <br/>
     b) Video.  
     c) Voice.  
     d) Other file (PDF for instance).   
 
-    [**camera-icon** = take picture from computer's, 
-    **attachment-icon** - choose picture/video/voice from pc]
-
 7. To make image bigger - click on it.
    (the profile image will become bigger if you click on it).
 8. To logout - click on the top-right button.
 
-10. To add a contact click on the icon - **man-with-plus** (left-top, next to profile image)
+10. To **add a contact** click on the icon - **man-with-plus** (left-top, next to profile image)
     You can add one of the following usernames: <br/>
     a) ran <br/> 
     b) yaniv <br/>
     c) yuval <br/>
     d) oren <br/>
 
-11. To register, logout (step 8) (or go to http://localhost:3000/),  
+11. To **register**, logout (step 8) (or go to http://localhost:3000/),  
     Click on Register in the sign in page,
 
     fill all the fields:
