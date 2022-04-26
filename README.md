@@ -9,13 +9,13 @@ Packages in use:
 
 Login:
 2. enter username: "noam", and password: "Np1234".
-3. To chat with Ron, click on his name in the left menu.  \
-4. Enter a message and click Enter or on the send-button.  \
-5. a. To Add audio message, click on the **voice icon**.  \
-   b. a modal will open, then speak, and click on the stop when  \
-      you've finished.  \
+3. To chat with Ron, click on his name in the left menu. 
+4. Enter a message and click Enter or on the send-button. 
+5. a. To Add audio message, click on the **voice icon**. 
+   b. a modal will open, then speak, and click on the stop when  
+      you've finished.  
 
-6.  to add file click on the **attachment-icon** and choose:  \
+6.  to add file click on the **attachment-icon** and choose: 
     a) Image from computer.  
     b) Video.  
     c) Voice.  
@@ -29,7 +29,7 @@ Login:
 8. To logout - click on the top-right button.
 
 10. To add a contact click on the icon - **man-with-plus** (left-top, next to profile image)
-    You can add one of the following usernames:  \
+    You can add one of the following usernames: 
     a) ran 
     b) yaniv
     c) yuval
