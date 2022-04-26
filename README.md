@@ -30,10 +30,10 @@ Login:
 
 10. To add a contact click on the icon - **man-with-plus** (left-top, next to profile image)
     You can add one of the following usernames:
-    a. ran    __
-    b. yaniv  __
-    c. yuval  __
-    d. oren   __
+    a. ran   \
+    b. yaniv  \
+    c. yuval   \
+    d. oren     \
 
 11. To register, logout (step 8) (or go to http://localhost:3000/),  
     Click on Register in the sign in page,
