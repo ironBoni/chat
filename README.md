@@ -1,6 +1,4 @@
-Packages in use:
-  a. react-router-dom.  
-  b. react-bootstrap.  
+Packages in use: react-router-dom, react-bootstrap.  
 
 1. in CMD in path of the project,
   run : "npm install", and then: "npm start".
