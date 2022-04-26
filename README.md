@@ -1,5 +1,3 @@
-our names and ID numbers are in "ourNames.txt" in this directory.
-
 Packages in use:
   a. react-router-dom.  
   b. react-bootstrap.  
