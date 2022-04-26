@@ -15,7 +15,7 @@ Login:
    b. a modal will open, then speak, and click on the stop when  
       you've finished.  
 
-6.  to add file click on the **attachment-icon** and choose: 
+6.  to add file click on the **attachment-icon** and choose:       .
     a) Image from computer.  
     b) Video.  
     c) Voice.  
