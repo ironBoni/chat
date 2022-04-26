@@ -58,7 +58,6 @@ const Conversation = (props) => {
             }
             ;
         })
-        setTimeout(updateScroll, 250);
 
         var textbox = document.getElementById('textbox');
         if(textbox)
@@ -94,6 +93,7 @@ const Conversation = (props) => {
             setMsg("");
             updateScroll();
             updateLastMsgInGui();
+            setTimeout(updateScroll, 250);
         }
     };
 
