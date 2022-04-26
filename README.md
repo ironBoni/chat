@@ -15,7 +15,7 @@ Login:
    b. a modal will open, then speak, and click on the stop when
       you've finished.
 
-6.  to add file click on the **attachment-icon** and choose:
+6.  to add file click on the **attachment-icon** and choose:  \
     a) Image from computer.  
     b) Video.  
     c) Voice.  
@@ -29,7 +29,7 @@ Login:
 8. To logout - click on the top-right button.
 
 10. To add a contact click on the icon - **man-with-plus** (left-top, next to profile image)
-    You can add one of the following usernames:
+    You can add one of the following usernames:  \
     a) ran 
     b) yaniv
     c) yuval
