@@ -9,7 +9,7 @@ export default function validateInfo(values) {
     flag=false;
   }
   
-  var pattern = /^.*(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[1-9]).*$/;
+  var pattern = /^.*(?=.*\d)(?=.*[A-Z])(?=.*[1-9]).*$/;
   if (!pattern.test(values.password)) {
     errors.password = 'Password must contain digits and at least one capital letter';
     flag=false;

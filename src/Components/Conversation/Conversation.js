@@ -58,7 +58,6 @@ const Conversation = (props) => {
             }
             ;
         })
-        setTimeout(updateScroll, 250);
 
         var textbox = document.getElementById('textbox');
         if(textbox)
@@ -94,6 +93,7 @@ const Conversation = (props) => {
             setMsg("");
             updateScroll();
             updateLastMsgInGui();
+            setTimeout(updateScroll, 250);
         }
     };
 
@@ -406,7 +406,7 @@ const Conversation = (props) => {
 
                         <input className='search-textbox' id='textbox' placeholder='Enter a message' autoFocus
                             value={msg} onChange={(event) => setMsg(event.target.value)}
-                            onKeyDown={onEnter}></input>
+                            onKeyDown={onEnter} autoComplete="off"></input>
                         <button className='click-button' onClick={onSend}><img src='/images/send.jpg'
                             className='button-image'
                             alt='button'></img></button>
