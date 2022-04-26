@@ -7,16 +7,16 @@ Packages in use:
 1. in CMD in path of the project,
   run : "npm install", and then: "npm start".
 
-Login:
-2. enter username: "noam", and password: "Np1234".
-3. To chat with Ron, click on his name in the left menu. 
-4. Enter a message and click Enter or on the send-button. 
-5. a. To Add audio message, click on the **voice icon**. 
+Login: <br/>
+2. enter username: "noam", and password: "Np1234". <br/>
+3. To chat with Ron, click on his name in the left menu. <br/>
+4. Enter a message and click Enter or on the send-button. <br/>
+5. a. To Add audio message, click on the **voice icon**. <br/>
    b. a modal will open, then speak, and click on the stop when  
       you've finished.  
 
 6.  to add file click on the **attachment-icon** and choose: <br/>
-    a) Image from computer.
+    a) Image from computer. <br/>
     b) Video.  
     c) Voice.  
     d) Other file (PDF for instance).   
