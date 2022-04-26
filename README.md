@@ -17,7 +17,7 @@ Login: <br/>
     c) Voice.  
     d) Other file (PDF for instance).   
 
-    [**camera-icon** = take picture from computer's 
+    [**camera-icon** = take picture from computer's, 
     **attachment-icon** - choose picture/video/voice from pc]
 
 7. To make image bigger - click on it.
