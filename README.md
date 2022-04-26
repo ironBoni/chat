@@ -16,10 +16,10 @@ Login:
       you've finished.
 
 6.  to add file click on the **attachment-icon** and choose:
-    a. Image from computer.
-    b. Video.
-    c. Voice.
-    d. Other file (PDF for instance).
+    a. Image from computer.   \
+    b. Video.   \
+    c. Voice.   \
+    d. Other file (PDF for instance).   \
 
     [**camera-icon** = take picture from computer's 
     **attachment-icon** - choose picture/video/voice from pc]
@@ -30,10 +30,10 @@ Login:
 
 10. To add a contact click on the icon - **man-with-plus** (left-top, next to profile image)
     You can add one of the following usernames:
-    a. ran   \
+    a. ran  \
     b. yaniv  \
     c. yuval   \
-    d. oren     \
+    d. oren  \
 
 11. To register, logout (step 8) (or go to http://localhost:3000/),  
     Click on Register in the sign in page,
