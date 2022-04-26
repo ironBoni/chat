@@ -1,19 +1,19 @@
 our names and ID numbers are in "ourNames.txt" in this directory.
 
 Packages in use:
-  a. react-router-dom.
-  b. react-bootstrap.
+  a. react-router-dom.  \
+  b. react-bootstrap.  \
 
 1. in CMD in path of the project,
   run : "npm install", and then: "npm start".
 
 Login:
 2. enter username: "noam", and password: "Np1234".
-3. To chat with Ron, click on his name in the left menu.
-4. Enter a message and click Enter or on the send-button.
-5. a. To Add audio message, click on the **voice icon**.
-   b. a modal will open, then speak, and click on the stop when
-      you've finished.
+3. To chat with Ron, click on his name in the left menu.  \
+4. Enter a message and click Enter or on the send-button.  \
+5. a. To Add audio message, click on the **voice icon**.  \
+   b. a modal will open, then speak, and click on the stop when  \
+      you've finished.  \
 
 6.  to add file click on the **attachment-icon** and choose:  \
     a) Image from computer.  
