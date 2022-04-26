@@ -10,7 +10,7 @@ Login: <br/>
 3. To chat with Ron, click on his name in the left menu. <br/>
 4. Enter a message and click Enter or on the send-button. <br/>
 5. a. To Add audio message, click on the **voice icon**. <br/>
-   b. a modal will open, then speak, and click on the stop when  
+       b. a modal will open, then speak, and click on the stop when  
       you've finished.  
 
 6.  to add file click on the **attachment-icon** and choose: <br/>
